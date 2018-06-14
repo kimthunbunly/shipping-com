@@ -35,14 +35,15 @@ body {
   height: auto;
   background-color: #fff;
   text-align: center;
+  margin: 5vh auto 5vh auto;
 }
 .content-left h2{
-  font-size: 30px;
-  color: #05C92C;
+  font-size: 24px;
+  color: #7C827A;
   font-weight: bold;
 }
 #package{
-  margin: 5vh auto 5vh auto;
+  margin: 2vh auto 2vh auto;
   width: 25vh;
 }
 #btnLogin{
@@ -60,9 +61,30 @@ body {
   height: auto;
   background-color: #D4D4D4;
   border-radius: 3px;
+  padding: 5vh;
+}
+.container-right{
+  width: 80%;
+}
+#title-bar h1{
+  font-size: 28px;
+  color: #34AC44;
+  margin: 0px;
+}
+#parcel-input{
+  width: 10vh;
+  height: 3vh;
+}
+#radio-input{
+  width: 1vh;
 }
 
+
 @media only screen and (max-width: 1540px) {
+  #parcel-input{
+    width: 15vh;
+    height: 5vh;
+  }
   .nav-title h1{
     font-size: 20px;
   }
