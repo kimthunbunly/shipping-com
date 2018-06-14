@@ -1,98 +1,69 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+.change-color {
+    background-color: #48BE58!important;
 }
-.header{
-  width: 100%;
-  height: auto;
-  background-color: #48BE58;
+nav li a{
+  color: white !important
 }
-.header-logo {
-  margin: 2vh auto 2vh 0vh;
-}
-.header-logo img{
-  width: 20vh;
-}
-.nav-title{
-  margin: 4vh auto 4vh auto;
-}
-.nav-title h1{
-  font-size: 26px;
-  text-align: right;
-  float: right;
-  color: #FFF;
-}
-#icon-profile{
-  width: 30px;
-  float: right;
-}
-.content{
-  margin: 5vh auto 5vh auto;
+.nav-link{
+  font-size: 22px;
 }
 .content-left{
-  width: 100%;
-  height: auto;
-  background-color: #fff;
+  margin: 10vh auto 5vh auto;
   text-align: center;
-  margin: 5vh auto 5vh auto;
 }
 .content-left h2{
   font-size: 24px;
   color: #7C827A;
   font-weight: bold;
 }
-#package{
-  margin: 2vh auto 2vh auto;
-  width: 25vh;
-}
 #btnLogin{
-  width: 12vh;
+  width: 13vh;
   height: 4vh;
   border-radius: 30px;
-  border-style: none;
-  background-color: #05C92C;
-  color: #FFF;
-  font-weight: bold;
-  font-size: 18px;
+}
+#package{
+  margin: 2vh auto 2vh auto;
 }
 .content-right{
-  width: 100%;
-  height: auto;
   background-color: #D4D4D4;
-  border-radius: 3px;
-  padding: 5vh;
-}
-.container-right{
-  width: 80%;
+  margin: 5vh auto 5vh auto;
+  padding: 20px;
+  border-radius: 5px;
 }
 #title-bar h1{
-  font-size: 28px;
+  font-size: 26px;
   color: #34AC44;
-  margin: 0px;
+  margin-bottom: 3vh;
 }
-#parcel-input{
-  width: 10vh;
-  height: 3vh;
+#label-style{
+  font-size: 16px;
+  text-indent: 50px;
 }
-#radio-input{
-  width: 1vh;
+.input-radio span{
+  margin: auto 3vh auto 0vh;
 }
-
-
+.input-radio input{
+  border: 2px solid #26a69a;
+}
+#date, #times{
+  text-indent: 10px;
+  border-style: none;
+  border-radius: 3px;
+  width: auto;
+  height: 4vh;
+}
+#parcel{
+  width: 50px;
+}
 @media only screen and (max-width: 1540px) {
-  #parcel-input{
-    width: 15vh;
+  #date, #times{
     height: 5vh;
   }
-  .nav-title h1{
-    font-size: 20px;
-  }
-  #icon-profile{
-    width: 25px;
+  .content-left{
+    margin: 15vh auto 5vh auto;
   }
   #btnLogin{
-    width: 18vh;
-    height: 5vh;
+    width: 20vh;
+    height: 6vh;
   }
-}
+  }

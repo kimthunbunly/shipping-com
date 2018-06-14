@@ -7,41 +7,30 @@ import profile from '../Assets/img/profile.png';
 export default class Header extends React.Component{
   render(){
     return(
-        <div className="header">
+        <nav className="navbar navbar-expand-lg navbar-dark change-color">
           <div className="container">
-            <div className="row justify-content-md-center" >
-              <div className="col-8">
-                <div className="header-logo">
-                  <img src={logo} alt="logo"/>
-                </div>
-              </div>
-              <div className="col-4">
-                <div className="row jsutify-content-md-center">
-                  <div className="col-3">
-                    <div className="nav-title">
-                      <h1>Home</h1>
-                    </div>
-                  </div>
-                  <div className="col-4">
-                    <div className="nav-title">
-                      <h1>Service</h1>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="nav-title">
-                      <h1>Profile</h1>
-                    </div>
-                  </div>
-                  <div className="col-2">
-                    <div className="nav-title">
-                      <img src={profile} alt="icon-profile" id="icon-profile"/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <img src={logo} width="130" height="auto" className="d-inline-block align-top" alt="logo"/>
+
+              <div className="mr-auto"/>
+              <ul className="nav ">
+                <li className="nav-item ">
+                  <a className="nav-link" href="">Home</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="">Service</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="">Profile</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="">
+                    <img src={profile} width="30" alt="profile"/>
+                  </a>
+                </li>
+
+              </ul>
           </div>
-        </div>
+        </nav>
     );
   }
 }

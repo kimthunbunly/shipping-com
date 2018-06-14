@@ -2,108 +2,74 @@ import React from 'react';
 import '../Assets/css/index.css';
 
 import Package from '../Assets/img/package.png';
+import Province from './Input-Province';
+import PickUp from './PickUp';
+import PPackage from './Package';
+import Envelop from './Envelop';
 
 export default class Contents extends React.Component{
   render(){
     return(
-      <div className="content">
-        <div className="container">
-          <div className="row justify-content-md-center">
-            <div className="col-4">
-              <div className="content-left">
-                <h2>All Package Is Very Take Care <br/>  Form My Company</h2>
-                <img src={Package} alt="Package" id="package"/>
-                <p>Please log in with your member account.</p>
-                <button type="submit" id="btnLogin">LOG IN</button>
-              </div>
-              <hr/>
-              <p>Do not a member, create account now !</p>
-            </div>
-            <div className="col-8">
-              <div className="content-right">
+      <div className="container">
+        <div className="row">
+          <div className="col-4 content-left">
+            <h2>All Package Is Very Take Care <br/>  Form My Company</h2>
+            <img src={Package} width="150" alt="Package" id="package"/>
+            <p>Please log in with your member account.</p>
+            <button type="submit" id="btnLogin">LOG IN</button>
+            <hr/>
+            <p>Do not a member, create account now !</p>
+          </div>
+          <div className="col-8">
+            <div className="content-right">
+              <div className="container">
                 <div id="title-bar"><h1> PARCEL INFORMATION </h1></div>
-                <div className="container-right">
-                    <div className="row">
-                      <div className="col-4">
-                       <label>Shipping Form</label>
-                      </div>
-                      <div className="col-8">
-                        <input/>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-4">
-                       <label>Shipping To</label>
-                      </div>
-                      <div className="col-8">
-                        <input/>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-4">
-                       <label>Shipping By</label>
-                      </div>
-                      <div className="col-8">
-                        <input name="radiobtn" type="radio"/>Drop Off
-                        <input name="radiobtn" type="radio"/>Pick Up
-                      </div>
-                    </div>
-                    <hr/>
-                      <label>Parcel Detail:</label>
-                    <div className="row">
-                      <div className="col-1">
-                        <label>No</label>
-                        <p>A</p>
-                      </div>
-                      <div className="col-2">
-                        <label>Type</label>
-                        <select id="parcel-input">
-                          <option>Package</option>
-                          <option>Envelop</option>
-                        </select>
-                      </div>
-                      <div className="col-2">
-                        <label>Qty</label>
-                        <input type="number" id="parcel-input"/>
-                      </div>
-                      <div className="col-2">
-                        <label>Weight</label>
-                        <input type="number" id="parcel-input"/>
-                      </div>
-                      <div className="col-2">
-                        <label>Height</label>
-                        <input type="number" id="parcel-input"/>
-                      </div>
-                      <div className="col-2">
-                        <label>Width</label>
-                        <input type="number" id="parcel-input"/>
-                      </div>
-                      <div className="col-1">
-                        <label><br/></label>
-                        <p>remove</p>
-                      </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-1">
-                        <p>B</p>
-                      </div>
-                      <div className="col-2">
-                        <select id="parcel-input">
-                          <option>Package</option>
-                          <option>Envelop</option>
-                        </select>
-                      </div>
-                      <div className="col-8">
-                        <input type="radio" id="radio-input" name="size"/>A1
-                        <input type="radio" id="radio-input" name="size"/>A2
-                        <input type="radio" id="radio-input" name="size"/>A3
-                        <input type="radio" id="radio-input" name="size"/>A4
-                        <input type="radio" id="radio-input" name="size"/>A5
-                      </div>
-                    </div>
-                    <p>add more package</p>
-                    <button type="submit">START</button>
+
+                <div className="form-group row">
+                  <label className="col-sm-4" id="label-style">Shipping From</label>
+                  <div className="col-sm-8">
+                    <Province/>
                   </div>
+                </div>
+                <div className="form-group row">
+                  <label className="col-sm-4" id="label-style">Shipping To</label>
+                  <div className="col-sm-8">
+                    <Province/>
+                  </div>
+                </div>
+                <div className="form-group row">
+                  <label className="col-sm-4" id="label-style">Shipping By</label>
+                  <div className="col-sm-8 input-radio">
+                    <input type="radio" name="shipping" checked={true} /> <span>Drop Off</span>
+                    <input type="radio" name="shipping"/> <span>Pick Up</span>
+                  </div>
+                </div>
+                <PickUp/>
+                <hr/>
+
+                <div className=" row">
+                  <label className="col-sm-12">Parcel Detail</label>
+                    <div className="col-4">
+                      <label className="col-5">No-A</label>
+                      <select className="col-7">
+                        <option>Package</option>
+                        <option>Envelop</option>
+                      </select>
+                    </div>
+                    <div className="col-8">
+                      <PPackage/>
+                      <br/>
+                      <Envelop/>
+                    </div>
+                </div>
+                <div className="row">
+                  <div className="col-12">
+                    <a>+ add more package</a>
+                  </div>
+                  <div className="col-12">
+                    <button typ="button">START</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
