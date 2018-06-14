@@ -16,10 +16,15 @@ nav li a{
   color: #7C827A;
   font-weight: bold;
 }
-#btnLogin{
+#btnLogin,#btnStart{
   width: 13vh;
   height: 4vh;
   border-radius: 30px;
+  color: #FFF;
+  font-weight: bold;
+  background-color: #05C92C;
+  border-style: none;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.2);
 }
 #package{
   margin: 2vh auto 2vh auto;
@@ -45,6 +50,18 @@ nav li a{
 .input-radio input{
   border: 2px solid #26a69a;
 }
+.combobox-style{
+  width: 100%;
+  height: 5vh;
+  border-radius:5px;
+  border-style: none;
+}
+.input-style input{
+  width: 0vh;
+  height: 5vh;
+  border-radius:5px;
+  border-style: none;
+}
 #date, #times{
   text-indent: 10px;
   border-style: none;
@@ -62,8 +79,8 @@ nav li a{
   .content-left{
     margin: 15vh auto 5vh auto;
   }
-  #btnLogin{
-    width: 20vh;
+  #btnLogin,#btnStart{
+    width: 18vh;
     height: 6vh;
   }
   }

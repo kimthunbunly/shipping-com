@@ -51,7 +51,7 @@ export default class Contents extends React.Component{
                   <label className="col-sm-12">Parcel Detail</label>
                     <div className="col-4">
                       <label className="col-5">No-A</label>
-                      <select className="col-7">
+                      <select className="col-7 combobox-style">
                         <option>Package</option>
                         <option>Envelop</option>
                       </select>
@@ -67,7 +67,7 @@ export default class Contents extends React.Component{
                     <a>+ add more package</a>
                   </div>
                   <div className="col-12">
-                    <button typ="button">START</button>
+                    <button typ="button" id="btnStart">START</button>
                   </div>
                 </div>
               </div>

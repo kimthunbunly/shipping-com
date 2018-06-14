@@ -3,14 +3,28 @@ import React from 'react';
 export default class Envelop extends React.Component{
   render(){
     return(
-        <div className="row">
-          <input type="radio" className="col" checked={true} />A1
-          <input type="radio" className="col" />A2
-          <input type="radio" className="col" />A3
-          <input type="radio" className="col" />A4
-          <input type="radio" className="col" />A5
-          <input type="radio" className="col" />A6
-          <a>remove</a>
+        <div className="form-group row">
+          <div className="col">
+            <input type="radio"checked={true} />A1
+          </div>
+          <div className="col">
+            <input type="radio"/>A2
+          </div>
+          <div className="col">
+            <input type="radio"/>A3
+          </div>
+          <div className="col">
+            <input type="radio"/>A4
+          </div>
+          <div className="col">
+            <input type="radio"/>A5
+          </div>
+          <div className="col">
+            <input type="radio"/>A6
+          </div>
+          <div className="col">
+            <a>remove</a>
+          </div>
       </div>
     );
   }
