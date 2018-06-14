@@ -31,6 +31,30 @@ export default class Contents extends React.Component{
                         <input/>
                       </div>
                     </div>
+                    <div className="row">
+                      <div className="col-4">
+                       <label>Shipping Form</label>
+                      </div>
+                      <div className="col-8">
+                        <input/>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-4">
+                       <label>Shipping Form</label>
+                      </div>
+                      <div className="col-8">
+                        <input name="radiobtn" type="radio"/>Drop Off
+                        <input name="radiobtn" type="radio"/>Pick Up
+                      </div>
+                    </div>
+                    <hr/>
+                    <div className="row">
+                      <h3>Parcel Detail :</h3>
+                    </div>
+                    <div className="row">
+                      <h3>Parcel Detail :</h3>
+                    </div>
                   </div>
               </div>
             </div>
