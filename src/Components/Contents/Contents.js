@@ -1,11 +1,11 @@
 import React from 'react';
-import '../Assets/css/index.css';
+import '../../Assets/css/index.css';
 
-import Package from '../Assets/img/package.png';
+import Package from '../../Assets/img/package.png';
 import Province from './Input-Province';
 import PickUp from './PickUp';
-import PPackage from './Package';
-import Envelop from './Envelop';
+import PPackage from './TypeParcel/Package';
+import Envelop from './TypeParcel/Envelop';
 
 export default class Contents extends React.Component{
   render(){
@@ -56,11 +56,11 @@ export default class Contents extends React.Component{
                         <option>Envelop</option>
                       </select>
                     </div>
-                    <div className="col-8">
-                      <PPackage/>
-                      <br/>
-                      <Envelop/>
-                    </div>
+                      <div className="col-8" id="demo">
+                        <PPackage/>
+                        <br/>
+                        <Envelop/>
+                      </div>
                 </div>
                 <div className="row">
                   <div className="col-12">

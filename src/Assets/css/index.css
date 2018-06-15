@@ -1,3 +1,4 @@
+/* --!header--- */
 .change-color {
     background-color: #48BE58!important;
 }
@@ -7,6 +8,7 @@ nav li a{
 .nav-link{
   font-size: 22px;
 }
+/* --content-- */
 .content-left{
   margin: 10vh auto 5vh auto;
   text-align: center;
@@ -24,6 +26,7 @@ nav li a{
   font-weight: bold;
   background-color: #05C92C;
   border-style: none;
+  margin: 2vh auto 2vh auto;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.2);
 }
 #package{
@@ -52,15 +55,16 @@ nav li a{
 }
 .combobox-style{
   width: 100%;
-  height: 5vh;
+  height: 4vh;
   border-radius:5px;
   border-style: none;
 }
 .input-style input{
-  width: 0vh;
-  height: 5vh;
+  height: 4vh;
   border-radius:5px;
   border-style: none;
+  margin-right: 10px;
+  font-size: 14px;
 }
 #date, #times{
   text-indent: 10px;
@@ -72,15 +76,48 @@ nav li a{
 #parcel{
   width: 50px;
 }
+/* --formRegister-- */
+.bg-color{
+  background-color: #D4D4D4;
+  padding: 3vh;
+  margin: 5vh auto 5vh auto;
+}
+.brand-name h1{
+  font-size: 20px;
+  margin: 3vh auto 3vh auto;
+}
+#label-form{
+  font-size: 20px;
+  font-weight: bold;
+}
+#btnRegister{
+  width: 13vh;
+  height: 4vh;
+  border-radius: 30px;
+  color: #FFF;
+  font-weight: bold;
+  background-color: #FF0000;
+  border-style: none;
+  margin: 2vh auto 2vh auto;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.2);
+}
+/* --media-- */
 @media only screen and (max-width: 1540px) {
+  .combobox-style{
+    height: 5vh;
+  }
+  .input-style input{
+    height: 5vh;
+  }
   #date, #times{
     height: 5vh;
   }
   .content-left{
     margin: 15vh auto 5vh auto;
   }
-  #btnLogin,#btnStart{
+  #btnLogin,#btnStart,#btnRegister{
     width: 18vh;
     height: 6vh;
+    margin: 2vh auto 1vh auto;
   }
   }

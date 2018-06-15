@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import HomePage from './Route/HomePage';
+
+import Header from './Components/Header';
+
+import Registers from './Route/Registers';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <HomePage/>
+        <Header/>
+
+        <Registers/>
       </div>
     );
   }

@@ -5,22 +5,22 @@ export default class Envelop extends React.Component{
     return(
         <div className="form-group row">
           <div className="col">
-            <input type="radio"checked={true} />A1
+            <input type="radio" name="radio-size"/>A1
           </div>
           <div className="col">
-            <input type="radio"/>A2
+            <input type="radio" name="radio-size"/>A2
           </div>
           <div className="col">
-            <input type="radio"/>A3
+            <input type="radio" name="radio-size"/>A3
           </div>
           <div className="col">
-            <input type="radio"/>A4
+            <input type="radio" name="radio-size"/>A4
           </div>
           <div className="col">
-            <input type="radio"/>A5
+            <input type="radio" name="radio-size"/>A5
           </div>
           <div className="col">
-            <input type="radio"/>A6
+            <input type="radio" name="radio-size"/>A6
           </div>
           <div className="col">
             <a>remove</a>
