@@ -28,7 +28,7 @@ export default class LoginForm extends React.Component{
               <h1>BRAND LOGO NAME</h1>
             </div>
             <form onSubmit={this.handleSubmit}>
-              <div className="form-group">
+              <div className="form-group login-style">
                 <label id="label-form">LOG IN ACCOUNT</label>
                 <input
                 name="email"
@@ -38,11 +38,11 @@ export default class LoginForm extends React.Component{
                 value={this.state.email}
                 onChange={this.handleChange}/>
               </div>
-              <div className="form-group">
+              <div className="form-group login-style">
                 <input
                 type="password"
                 name="password"
-                className="form-control"
+                className="form-control "
                 placeholder="********"
                 value={this.state.password}
 								onChange={this.handleChange}/>

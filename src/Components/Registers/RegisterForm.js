@@ -10,7 +10,6 @@ export default class RegisterForm extends React.Component{
     password:'',
     confirmpassword:''
     };
-
   this.handleChange = this.handleChange.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
 }
@@ -24,8 +23,8 @@ export default class RegisterForm extends React.Component{
   }
   validateForm(){
     return this.state.email.length > 0
-        && this.state.password.length>6
-        && this.state.confirmpassword.length>6
+        && this.state.password.length>0
+        && this.state.confirmpassword.length>0
         && this.state.firstname.length>0
         && this.state.lastname.length>0;
   }
@@ -58,7 +57,7 @@ export default class RegisterForm extends React.Component{
                 </div>
               </div>
             </div>
-            <div className="form-group">
+            <div className="form-group register-style">
               <label>Email</label>
               <input
               name="email"
@@ -68,7 +67,7 @@ export default class RegisterForm extends React.Component{
               value={this.state.email}
               onChange={this.handleChange}/>
             </div>
-            <div className="form-group">
+            <div className="form-group register-style">
               <label>Password</label>
               <input
               type="password"
@@ -78,7 +77,7 @@ export default class RegisterForm extends React.Component{
               value={this.state.password}
               onChange={this.handleChange}/>
             </div>
-            <div className="form-group">
+            <div className="form-group register-style">
               <label>Confirm Password</label>
               <input
               type="password"
@@ -87,6 +86,14 @@ export default class RegisterForm extends React.Component{
               placeholder="********"
               value={this.state.confirmpassword}
               onChange={this.handleChange}/>
+            </div>
+            <div className="form-group row">
+              <div className="col-sm-10">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
+                <label class="form-check-label" for="exampleCheck1">agree term and condition</label>
+              </div>
+            </div>
             </div>
             <button type="submit"
             className="btn btn-primary"
