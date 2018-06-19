@@ -20,15 +20,22 @@ export default class Header extends React.Component{
                   <a className="nav-link" href="">Service</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="">Profile</a>
+                  <a className="nav-link" href="">Contact</a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="">
-                    <img src={profile} width="30" alt="profile"/>
-                  </a>
-                </li>
-
               </ul>
+                <div className="dropdown show">
+                  <a className="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src={profile} alt="profile" width="25"/>
+                  </a>
+
+                  <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a className="dropdown-item" href="#">My SHIPMENT</a>
+                    <hr/>
+                    <a className="dropdown-item" href="#">My Profile</a>
+                    <a className="dropdown-item" href="#">About Us</a>
+                    <a className="dropdown-item" href="#">Log Out</a>
+                  </div>
+                </div>
           </div>
         </nav>
     );

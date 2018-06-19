@@ -1,6 +1,7 @@
 /* --!header--- */
 .change-color {
-    background-color: #48BE58!important;
+    background-color: #17a2b8!important;
+
 }
 nav li a{
   color: white !important
@@ -24,10 +25,24 @@ nav li a{
   border-radius: 30px;
   color: #FFF;
   font-weight: bold;
-  background-color: #05C92C;
+  background-color: #17a2b8;
   border-style: none;
   margin: 30px auto 30px auto;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.2);
+}
+#btnStart{
+  float: right;
+}
+#link-color{
+  color: red;
+}
+#link-color-register{
+  color: black;
+  text-decoration: none;
+}
+#link-color-register:hover{
+  text-decoration: none;
+  color: green;
 }
 #package{
   margin: 20px auto 20px auto;
@@ -40,12 +55,11 @@ nav li a{
 }
 #title-bar h1{
   font-size: 26px;
-  color: #34AC44;
+  color: #17a2b8;
   margin-bottom: 25px;
 }
 #label-style{
   font-size: 16px;
-  text-indent: 50px;
 }
 .input-radio span{
   margin: auto 25px auto 0px;
@@ -67,14 +81,11 @@ nav li a{
   font-size: 14px;
 }
 #date, #times{
-  text-indent: 10px;
   border-style: none;
   border-radius: 3px;
   width: auto;
   height: 35px;
-}
-#parcel{
-  width: 50px;
+  text-align: center;
 }
 /* --formRegister-- */
 .bg-color{
@@ -82,6 +93,7 @@ nav li a{
   padding: 3vh;
   margin: 50px auto 50px auto;
   border-radius: 5px;
+
 }
 .brand-name h1{
   font-size: 20px;
@@ -98,7 +110,7 @@ nav li a{
 #label-form{
   font-size: 26px;
   font-weight: bold;
-  color: #05C92C;
+  color: #17a2b8;
 }
 #btnRegister{
   float: right;
@@ -110,6 +122,19 @@ nav li a{
   background-color: #FF0000;
   border-style: none;
   margin: 15px auto 0px auto;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.2);
+}
+/*my-profile-form*/
+#btnChange{
+  width: 150px;
+  height: 35px;
+  float: right;
+  border-radius: 30px;
+  color: #FFF;
+  font-weight: bold;
+  background-color: #17a2b8;
+  border-style: none;
+  margin: 30px auto 30px auto;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.2);
 }
 /* --media-- */
@@ -139,3 +164,14 @@ nav li a{
     margin: 15px auto 15px auto;
   }
   }
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=date]::-webkit-inner-spin-button, 
+input[type=date]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

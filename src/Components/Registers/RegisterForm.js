@@ -12,15 +12,16 @@ export default class RegisterForm extends React.Component{
     };
   this.handleChange = this.handleChange.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
+
 }
   handleChange(event){
     this.setState(
       {[event.target.name]: event.target.value});
   }
   handleSubmit(event){
-    alert(this.state.email + 'Was Submited');
-    event.preventDefault();
-  }
+       event.preventDefault();
+        console.log('hello')
+  } 
   validateForm(){
     return this.state.email.length > 0
         && this.state.password.length>0
@@ -32,7 +33,7 @@ export default class RegisterForm extends React.Component{
     return(
         <div className="col-6 bg-color">
           <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
+          <div className="form-group register-style">
             <label id="label-form">REGISTER NEW ACCOUNT</label>
             <div className="row justify-content-md-center">
                 <div className="col-6 ">
@@ -89,9 +90,9 @@ export default class RegisterForm extends React.Component{
             </div>
             <div className="form-group row">
               <div className="col-sm-10">
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
-                <label class="form-check-label" for="exampleCheck1">agree term and condition</label>
+              <div className="form-check">
+                <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
+                <label className="form-check-label" htmlFor="exampleCheck1">agree term and condition</label>
               </div>
             </div>
             </div>

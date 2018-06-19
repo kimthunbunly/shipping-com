@@ -19,7 +19,7 @@ export default class LoginForm extends React.Component{
       event.preventDefault();
     }
     validateForm(){
-      return this.state.email.length > 0 && this.state.password.length>6;
+      return this.state.email.length > 0 && this.state.password.length>0;
     }
   render(){
     return(

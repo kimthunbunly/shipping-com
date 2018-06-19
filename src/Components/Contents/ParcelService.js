@@ -2,8 +2,7 @@ import React from 'react';
 import '../../Assets/css/index.css';
 
 import Package from '../../Assets/img/package.png';
-import Province from './Input-Province';
-import PickUp from './PickUp';
+import Province from './InputProvince';
 import PPackage from './TypeParcel/Package';
 import Envelop from './TypeParcel/Envelop';
 
@@ -18,7 +17,7 @@ export default class Contents extends React.Component{
             <p>Please log in with your member account.</p>
             <button type="submit" id="btnLogin">LOG IN</button>
             <hr/>
-            <p>Do not a member, create account now !</p>
+            <a href="#" id="link-color-">Do not a member, create account now !</a>
           </div>
           <div className="col-8">
             <div className="content-right">
@@ -44,7 +43,6 @@ export default class Contents extends React.Component{
                     <input type="radio" name="shipping"/> <span>Pick Up</span>
                   </div>
                 </div>
-                <PickUp/>
                 <hr/>
 
                 <div className=" row">
@@ -64,7 +62,7 @@ export default class Contents extends React.Component{
                 </div>
                 <div className="row">
                   <div className="col-12">
-                    <a>+ add more package</a>
+                    <a href="#">+ add more package</a>
                   </div>
                   <div className="col-12">
                     <button typ="button" id="btnStart">START</button>

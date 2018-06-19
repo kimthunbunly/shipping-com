@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 
 import Header from './Components/Header';
-import HomePage from './Route/HomePage';
+import ParcelService from './Components/Contents/ParcelService';
 import Registers from './Route/Registers';
+import MyProfile from './Components/Contents/MyProfile';
 
 class App extends Component {
   render() {
     return (
       <div>
         <Header/>
-        <HomePage/>
+        <ParcelService/>
         <Registers/>
+        <MyProfile/>
       </div>
     );
   }
