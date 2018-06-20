@@ -1,5 +1,7 @@
 import React from 'react';
 
+import logo from '../../../Assets/img/logo.png';
+
 export default class LoginForm extends React.Component{
     constructor(props){
     super(props);
@@ -25,7 +27,7 @@ export default class LoginForm extends React.Component{
     return(
           <div className="col-4 bg-color text-center">
             <div className="brand-name">
-              <h1>BRAND LOGO NAME</h1>
+              <img src={logo} id="style-logo" alt="logo"/>
             </div>
             <form onSubmit={this.handleSubmit}>
               <div className="form-group login-style">
