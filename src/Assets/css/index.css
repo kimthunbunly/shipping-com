@@ -3,7 +3,7 @@
     background-color: #17a2b8!important;
 
 }
-nav li a{
+.nav li a{
   color: white !important
 }
 .nav-link{
@@ -90,7 +90,7 @@ nav li a{
 /* --formRegister-- */
 .bg-color{
   background-color: #D4D4D4;
-  padding: 3vh;
+  padding: 30px;
   margin: 50px auto 50px auto;
   border-radius: 5px;
 
@@ -174,4 +174,87 @@ input[type=date]::-webkit-inner-spin-button,
 input[type=date]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
+}
+
+/*layout of service*/
+.container-top{
+  margin: 50px auto 50px auto;
+}
+.size-img{
+  width: auto;
+  height: 150px;
+  margin: 10px auto 10px auto;
+}
+.card-margin{
+  margin-top: 50px;
+}
+#btnSubmit{
+  width: 150px;
+  height: 35px;
+  border-radius: 30px;
+  color: #FFF;
+  font-weight: bold;
+  background-color: #17a2b8;
+  border-style: none;
+  margin: 20px auto 10px auto;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.bg-color-white{
+  background-color: #FFF;
+  padding: 30px;
+  border-radius: 5px;
+  margin: 10px auto 10px auto;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.bg-margin{
+    margin: 0px auto 0px auto;
+    padding: 0px 30px 0px 30px;
+    font-size: 18px;
+    font-weight: bold;
+}
+#btnConfirm{
+  width: 120px;
+  height: 35px;
+  border-radius: 30px;
+  color: #FFF;
+  font-weight: bold;
+  background-color: #17a2b8;
+  border-style: none;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.2);
+}
+#btnDel{
+  width: 80px;
+  height: 35px;
+  border-radius: 30px;
+  color: #FFF;
+  font-weight: bold;
+  background-color: red;
+  border-style: none;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.2);
+}
+#company-name{
+  font-size: 22px;
+  font-weight: bold;
+}
+#size-logo{
+  width: auto;
+  height: 75px;
+}
+#btnBuy{
+  width: 120px;
+  height: 35px;
+  border-radius: 30px;
+  color: #FFF;
+  font-weight: bold;
+  background-color: #17a2b8;
+  border-style: none;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.2);
+}
+.row-top{
+  margin-top: 15px;
+}
+#price-color{
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
 }

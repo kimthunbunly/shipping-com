@@ -23,7 +23,7 @@ export default class Envelop extends React.Component{
             <input type="radio" name="radio-size"/>A6
           </div>
           <div className="col">
-            <a href="#" id="link-color">remove</a>
+            <a href="" id="link-color">remove</a>
           </div>
       </div>
     );

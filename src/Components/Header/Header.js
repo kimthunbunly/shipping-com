@@ -1,8 +1,9 @@
 import React from 'react';
-import '../Assets/css/index.css'
+import '../../Assets/css/index.css'
+import {Link} from 'react-router-dom';
 
-import logo from '../Assets/img/logo.png';
-import profile from '../Assets/img/profile.png';
+import logo from '../../Assets/img/logo.png';
+import profile from '../../Assets/img/profile.png';
 
 export default class Header extends React.Component{
   render(){
@@ -14,26 +15,26 @@ export default class Header extends React.Component{
               <div className="mr-auto"/>
               <ul className="nav ">
                 <li className="nav-item ">
-                  <a className="nav-link" href="">Home</a>
+                  <Link to='/Home' className="nav-link">Home</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="">Service</a>
+                  <Link className="nav-link" to='/CompanysServices'>Service</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="">Contact</a>
+                  <Link className="nav-link" to='/Contacts'>Contact</Link>
                 </li>
               </ul>
                 <div className="dropdown show">
-                  <a className="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a className="btn dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src={profile} alt="profile" width="25"/>
                   </a>
 
                   <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a className="dropdown-item" href="#">My SHIPMENT</a>
+                    <Link className="dropdown-item" to='/MyShipments'>My SHIPMENT</Link>
                     <hr/>
-                    <a className="dropdown-item" href="#">My Profile</a>
-                    <a className="dropdown-item" href="#">About Us</a>
-                    <a className="dropdown-item" href="#">Log Out</a>
+                    <Link className="dropdown-item" to='/MyProfile'>My Profile</Link>
+                    <Link className="dropdown-item" to="/Abouts">About Us</Link>
+                    <a className="dropdown-item" href="">Log Out</a>
                   </div>
                 </div>
           </div>

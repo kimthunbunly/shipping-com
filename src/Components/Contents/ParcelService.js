@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../Assets/css/index.css';
+import {Link} from 'react-router-dom';
 
 import Package from '../../Assets/img/package.png';
 import Province from './InputProvince';
@@ -15,9 +16,9 @@ export default class Contents extends React.Component{
             <h2>All Package Is Very Take Care <br/>  Form My Company</h2>
             <img src={Package} width="150" alt="Package" id="package"/>
             <p>Please log in with your member account.</p>
-            <button type="submit" id="btnLogin">LOG IN</button>
+            <Link to='/Registers'><button type="submit" id="btnLogin">LOG IN</button></Link>
             <hr/>
-            <a href="#" id="link-color-">Do not a member, create account now !</a>
+            <Link to='Registers' id="link-color-">Do not a member, create account now !</Link>
           </div>
           <div className="col-8">
             <div className="content-right">
@@ -62,10 +63,10 @@ export default class Contents extends React.Component{
                 </div>
                 <div className="row">
                   <div className="col-12">
-                    <a href="#">+ add more package</a>
+                    <a href="">+ add more package</a>
                   </div>
                   <div className="col-12">
-                    <button typ="button" id="btnStart">START</button>
+                    <Link to='/StartServices'><button typ="button" id="btnStart">START</button></Link>
                   </div>
                 </div>
               </div>

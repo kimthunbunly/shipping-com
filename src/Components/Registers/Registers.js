@@ -1,7 +1,7 @@
 import React from 'react';
 
-import LoginForm from '../Components/Registers/LoginForm';
-import RegisterForm from '../Components/Registers/RegisterForm';
+import LoginForm from './Form/LoginForm';
+import RegisterForm from './Form/RegisterForm';
 
 export default class Registers extends React.Component{
   render(){
