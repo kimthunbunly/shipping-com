@@ -7,11 +7,11 @@ export default class MyProfile extends React.Component{
 			<div className="container bg-color">
 				<label id="label-form">MY PROFILE</label>
 				<div className="row justify-content-md-center">
-					<div className="col-6">
+					<div className="col-sm-6">
 					        <form >
 					          <div className="form-group register-style">
 					            <div className="row justify-content-md-center">
-					                <div className="col-6 ">
+					                <div className="col-sm-6 ">
 					                  <label>First</label>
 					                  <input
 					                  name="firstname"
@@ -20,7 +20,7 @@ export default class MyProfile extends React.Component{
 					                  placeholder="John"
 					                  />
 					                </div>
-					                <div className="col-6 text-left">
+					                <div className="col-sm-6 text-left">
 					                  <label >Last</label>
 					                  <input
 					                  name="lastname"
@@ -60,7 +60,7 @@ export default class MyProfile extends React.Component{
 					            </div>					           
 					          </form>
 					        </div>
-					<div className="col-6">
+					<div className="col-sm-6">
 							<div className="form-group register-style">
 					              <label>Phone Number</label>
 					              <input

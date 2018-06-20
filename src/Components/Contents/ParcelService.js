@@ -12,7 +12,7 @@ export default class Contents extends React.Component{
     return(
       <div className="container">
         <div className="row">
-          <div className="col-4 content-left">
+          <div className="col-sm-4 content-left">
             <h2>All Package Is Very Take Care <br/>  Form My Company</h2>
             <img src={Package} width="150" alt="Package" id="package"/>
             <p>Please log in with your member account.</p>
@@ -20,7 +20,7 @@ export default class Contents extends React.Component{
             <hr/>
             <Link to='Registers' id="link-color-">Do not a member, create account now !</Link>
           </div>
-          <div className="col-8">
+          <div className="col-sm-8">
             <div className="content-right">
               <div className="container">
                 <div id="title-bar"><h1> PARCEL INFORMATION </h1></div>
@@ -40,7 +40,7 @@ export default class Contents extends React.Component{
                 <div className="form-group row">
                   <label className="col-sm-4" id="label-style">Shipping By</label>
                   <div className="col-sm-8 input-radio">
-                    <input type="radio" name="shipping" checked={true} /> <span>Drop Off</span>
+                    <input type="radio" name="shipping" /> <span>Drop Off</span>
                     <input type="radio" name="shipping"/> <span>Pick Up</span>
                   </div>
                 </div>
@@ -48,24 +48,24 @@ export default class Contents extends React.Component{
 
                 <div className=" row">
                   <label className="col-sm-12">Parcel Detail</label>
-                    <div className="col-4">
-                      <label className="col-5">No-A</label>
-                      <select className="col-7 combobox-style">
+                    <div className="col-sm-4">
+                      <label className="col-sm-5">No-A</label>
+                      <select className="col-sm-7 combobox-style">
                         <option>Package</option>
                         <option>Envelop</option>
                       </select>
                     </div>
-                      <div className="col-8" id="demo">
+                      <div className="col-sm-8" id="demo">
                         <PPackage/>
                         <br/>
                         <Envelop/>
                       </div>
                 </div>
                 <div className="row">
-                  <div className="col-12">
+                  <div className="col-sm-12">
                     <a href="">+ add more package</a>
                   </div>
-                  <div className="col-12">
+                  <div className="col-sm-12">
                     <Link to='/StartServices'><button typ="button" id="btnStart">START</button></Link>
                   </div>
                 </div>

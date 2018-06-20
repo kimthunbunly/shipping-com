@@ -25,7 +25,7 @@ export default class LoginForm extends React.Component{
     }
   render(){
     return(
-          <div className="col-4 bg-color text-center">
+          <div className="col-sm-4 bg-color text-center">
             <div className="brand-name">
               <img src={logo} id="style-logo" alt="logo"/>
             </div>
