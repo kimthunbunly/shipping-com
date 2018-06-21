@@ -12,8 +12,9 @@ export default class Services extends React.Component{
 				<div className="container container-top bg-color">
 				    <label id="label-form">MY SERVICS COMPANY</label>
 				    <p>Have a lot of Company Service to Delivery your parcel everywhere in cambodia</p>
+				    
 					<div className="card-deck ">
-					  <div className="card">
+					  <div className="card border- bg-shadow">
 					    <img className="card-img-top size-img" src={logotc} alt="Cardcap"/>
 					    <div className="card-body">
 					      <h5 className="card-title">TC Compnay Services</h5>
@@ -23,7 +24,7 @@ export default class Services extends React.Component{
 					      <small className="text-muted">Last updated 3 mins ago</small>
 					    </div>
 					  </div>
-					  <div className="card">
+					  <div className="card border- bg-shadow">
 					    <img className="card-img-top size-img" src={logo1} alt="Card ap"/>
 					    <div className="card-body">
 					      <h5 className="card-title">Sport Card Service Compnay</h5>
@@ -33,7 +34,7 @@ export default class Services extends React.Component{
 					      <small className="text-muted">Last updated 3 mins ago</small>
 					    </div>
 					  </div>
-					  <div className="card">
+					  <div className="card border- bg-shadow">
 					    <img className="card-img-top size-img" src={logo2} alt="Card ap"/>
 					    <div className="card-body">
 					      <h5 className="card-title">Logo Name Service Compnay</h5>
@@ -45,7 +46,7 @@ export default class Services extends React.Component{
 					  </div>
 					</div>
 					<div className="card-deck card-margin">
-					  <div className="card">
+					  <div className="card border- bg-shadow">
 					    <img className="card-img-top size-img" src={logotc} alt="Cardcap"/>
 					    <div className="card-body">
 					      <h5 className="card-title">Card title</h5>
@@ -55,7 +56,7 @@ export default class Services extends React.Component{
 					      <small className="text-muted">Last updated 3 mins ago</small>
 					    </div>
 					  </div>
-					  <div className="card">
+					  <div className="card border- bg-shadow">
 					    <img className="card-img-top size-img" src={logo1} alt="Card ap"/>
 					    <div className="card-body">
 					      <h5 className="card-title">Card title</h5>
@@ -65,7 +66,7 @@ export default class Services extends React.Component{
 					      <small className="text-muted">Last updated 3 mins ago</small>
 					    </div>
 					  </div>
-					  <div className="card">
+					  <div className="card border- bg-shadow">
 					    <img className="card-img-top size-img" src={logo2} alt="Card ap"/>
 					    <div className="card-body">
 					      <h5 className="card-title">Card title</h5>

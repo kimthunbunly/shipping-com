@@ -24,7 +24,7 @@ export default class Header extends React.Component{
                   <Link className="nav-link" to='/Contacts'>Contact</Link>
                 </li>
               </ul>
-                <div className="dropdown show">
+                <div className=" nav-item dropdown show">
                   <a className="btn dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src={profile} alt="profile" width="25"/>
                   </a>

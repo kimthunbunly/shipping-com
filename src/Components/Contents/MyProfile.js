@@ -16,7 +16,7 @@ export default class MyProfile extends React.Component{
 					                  <input
 					                  name="firstname"
 					                  type="text"
-					                  className="form-control"
+					                  className="form-control border-"
 					                  placeholder="John"
 					                  />
 					                </div>
@@ -25,7 +25,7 @@ export default class MyProfile extends React.Component{
 					                  <input
 					                  name="lastname"
 					                  type="text"
-					                  className="form-control"
+					                  className="form-control border-"
 					                  placeholder="John"
 					                  />
 					                </div>
@@ -36,7 +36,7 @@ export default class MyProfile extends React.Component{
 					              <input
 					              name="email"
 					              type="email"
-					              className="form-control"
+					              className="form-control border-"
 					              placeholder="example@mail.org"
 					              />
 					            </div>
@@ -45,7 +45,7 @@ export default class MyProfile extends React.Component{
 					              <input
 					              type="password"
 					              name="password"
-					              className="form-control"
+					              className="form-control border-"
 					              placeholder="********"
 					              />
 					            </div>
@@ -54,7 +54,7 @@ export default class MyProfile extends React.Component{
 					              <input
 					              type="password"
 					              name="confirmpassword"
-					              className="form-control"
+					              className="form-control border-"
 					              placeholder="********"
 					              />
 					            </div>					           
@@ -66,7 +66,7 @@ export default class MyProfile extends React.Component{
 					              <input
 					              name="phonenumber"
 					              type="number"
-					              className="form-control"
+					              className="form-control border-"
 					              placeholder="+855 12345678"
 					              />
 							</div>
@@ -75,7 +75,7 @@ export default class MyProfile extends React.Component{
 					              <input
 					              name="address"
 					              type="text"
-					              className="form-control"
+					              className="form-control border-"
 					              placeholder="#32, St.123BT, Sangkat Toul Kok, Khan Chamkarmorn, Phom Penh"
 					              />
 							</div>
@@ -84,7 +84,7 @@ export default class MyProfile extends React.Component{
 					              <input
 					              name="country"
 					              type="date"
-					              className="form-control"
+					              className="form-control border-"
 					              placeholder="+855 12345678"
 					              />
 							</div>
@@ -93,7 +93,7 @@ export default class MyProfile extends React.Component{
 					              <input
 					              name="postcode"
 					              type="number"
-					              className="form-control"
+					              className="form-control border-"
 					              placeholder="12000"
 					              />
 							</div>

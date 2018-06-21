@@ -31,12 +31,12 @@ export default class RegisterForm extends React.Component{
   }
   render(){
     return(
-        <div className="col-6 bg-color">
+        <div className="col-sm-6 bg-color">
           <form onSubmit={this.handleSubmit}>
           <div className="form-group register-style">
             <label id="label-form">REGISTER NEW ACCOUNT</label>
             <div className="row justify-content-md-center">
-                <div className="col-6 ">
+                <div className="col-sm-6 ">
                   <label>First</label>
                   <input
                   name="firstname"
@@ -46,7 +46,7 @@ export default class RegisterForm extends React.Component{
                   value={this.state.firstname}
                   onChange={this.handleChange}/>
                 </div>
-                <div className="col-6 text-left">
+                <div className="col-sm-6 text-left">
                   <label >Last</label>
                   <input
                   name="lastname"

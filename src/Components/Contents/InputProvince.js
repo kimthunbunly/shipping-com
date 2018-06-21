@@ -34,9 +34,9 @@ export default class Province extends React.Component{
   render(){
     return(
 
-      <div className="control-group">
+<div className="control-group">
    <div className="controls">
-       <select id="country" name="country" className="form-control">
+       <select id="country" name="country" className="form-control border-">
            {this.provinceList}
        </select>
    </div>

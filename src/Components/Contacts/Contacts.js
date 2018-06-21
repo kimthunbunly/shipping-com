@@ -12,7 +12,7 @@ export default class Contacts extends React.Component {
 				              <input
 				              name="name"
 				              type="text"
-				              className="form-control"
+				              className="form-control border-"
 				              placeholder="Jonh Son"/>
 				            </div>
 				            <div className="form-group register-style">
@@ -20,7 +20,7 @@ export default class Contacts extends React.Component {
 				              <input
 				              name="email"
 				              type="email"
-				              className="form-control"
+				              className="form-control border-"
 				              placeholder="example@mail.org"/>
 				            </div>
 				            <div className="form-group register-style">
@@ -28,14 +28,14 @@ export default class Contacts extends React.Component {
 				              <input
 				              type="password"
 				              name="password"
-				              className="form-control"
+				              className="form-control border-"
 				              placeholder="********"/>
 				            </div>
 						</div>
 						<div className="col-sm-6">
 							<div className="form-group register-style">
-   								<label for="textarea">Your Comment</label>
-    							<textarea class="form-control" id="textarea" rows="10" placeholder="Write some text in here......"></textarea>
+   								<label htmlFor="textarea">Your Comment</label>
+    							<textarea className="form-control border-" id="textarea" rows="10" placeholder="Write some text in here......"></textarea>
 				            </div>
 						</div>
 					<div className="row justify-content-md-center text-center">

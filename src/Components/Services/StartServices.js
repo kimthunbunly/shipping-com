@@ -14,26 +14,26 @@ export default class StartService extends React.Component {
             <div className="col-sm-10">
 
                 <div className="row">
-                    <label for="shipping-from" className="col-sm-2 col-form-label">Shipping From:</label>
-                    <div className="col-sm-10">
+                    <label for="shipping-from" className="col-sm-4 col-form-label label-style">Shipping From:</label>
+                    <div className="col-sm-8">
                         <input type="text" className="form-control-plaintext" id="shipping-from" value="Battambang Privince" />
                     </div>
                 </div>
                 <div className="row">
-                    <label for="shipping-to" className="col-sm-2 col-form-label">Shipping To:</label>
-                    <div className="col-sm-10">
+                    <label for="shipping-to" className="col-sm-4 col-form-label label-style">Shipping To:</label>
+                    <div className="col-sm-8">
                         <input type="text" className="form-control-plaintext" id="shipingp-to" value="Phnom Penh" />
                     </div>
                 </div>
                 <div className="row">
-                    <label for="shipping-by" className="col-sm-2 col-form-label">Shipping By:</label>
-                    <div className="col-sm-10">
+                    <label for="shipping-by" className="col-sm-4 col-form-label label-style">Shipping By:</label>
+                    <div className="col-sm-8">
                         <input type="text" className="form-control-plaintext" id="shipping-by" value="Drop Off" />
                     </div>
                 </div>
                 <div className="row">
-                    <label for="parcel-qty" className="col-sm-2 col-form-label">Parcel Qty:</label>
-                    <div className="col-sm-10">
+                    <label for="parcel-qty" className="col-sm-4 col-form-label label-style">Parcel Qty:</label>
+                    <div className="col-sm-8">
                         <input type="text" className="form-control-plaintext" id="parcel-qty" value="02" />
                     </div>
                 </div>
@@ -61,13 +61,13 @@ export default class StartService extends React.Component {
                 </div>
                 <hr/>
                 <div className="row justify-content-md-center">
-                    <label for="shipping-from" className="col-sm-4 col-form-label">Shipping From:</label>
+                    <label for="shipping-from" className="col-sm-4 col-form-label label-style">From:</label>
                     <div className="col-sm-6">
                         <input type="text" className="form-control-plaintext" id="shipping-from" value="Battambang Privince" />
                     </div>
                 </div>
                 <div className="row justify-content-md-center">
-                    <label for="shipping-to" className="col-sm-4 col-form-label">Shipping To:</label>
+                    <label for="shipping-to" className="col-sm-4 col-form-label label-style">To:</label>
                     <div className="col-sm-6">
                         <input type="text" className="form-control-plaintext" id="shipingp-to" value="Phnom Penh" />
                     </div>
@@ -93,13 +93,13 @@ export default class StartService extends React.Component {
                 </div>
                 <hr/>
                 <div className="row justify-content-md-center">
-                    <label for="shipping-from" className="col-sm-4 col-form-label">Shipping From:</label>
+                    <label for="shipping-from" className="col-sm-4 col-form-label label-style">From:</label>
                     <div className="col-sm-6">
                         <input type="text" className="form-control-plaintext" id="shipping-from" value="Battambang Privince" />
                     </div>
                 </div>
                 <div className="row justify-content-md-center">
-                    <label for="shipping-to" className="col-sm-4 col-form-label">Shipping To:</label>
+                    <label for="shipping-to" className="col-sm-4 col-form-label label-style">To:</label>
                     <div className="col-sm-6">
                         <input type="text" className="form-control-plaintext" id="shipingp-to" value="Phnom Penh" />
                     </div>
@@ -127,13 +127,13 @@ export default class StartService extends React.Component {
                 </div>
                 <hr/>
                 <div className="row justify-content-md-center">
-                    <label for="shipping-from" className="col-sm-4 col-form-label">Shipping From:</label>
+                    <label for="shipping-from" className="col-sm-4 col-form-label label-style">From:</label>
                     <div className="col-sm-6">
                         <input type="text" className="form-control-plaintext" id="shipping-from" value="Battambang Privince" />
                     </div>
                 </div>
                 <div className="row justify-content-md-center">
-                    <label for="shipping-to" className="col-sm-4 col-form-label">Shipping To:</label>
+                    <label for="shipping-to" className="col-sm-4 col-form-label label-style">To:</label>
                     <div className="col-sm-6">
                         <input type="text" className="form-control-plaintext" id="shipingp-to" value="Phnom Penh" />
                     </div>
@@ -159,13 +159,13 @@ export default class StartService extends React.Component {
                 </div>
                 <hr/>
                 <div className="row justify-content-md-center">
-                    <label for="shipping-from" className="col-sm-4 col-form-label">Shipping From:</label>
+                    <label for="shipping-from" className="col-sm-4 col-form-label label-style">From:</label>
                     <div className="col-sm-6">
                         <input type="text" className="form-control-plaintext" id="shipping-from" value="Battambang Privince" />
                     </div>
                 </div>
                 <div className="row justify-content-md-center">
-                    <label for="shipping-to" className="col-sm-4 col-form-label">Shipping To:</label>
+                    <label for="shipping-to" className="col-sm-4 col-form-label label-style">To:</label>
                     <div className="col-sm-6">
                         <input type="text" className="form-control-plaintext" id="shipingp-to" value="Phnom Penh" />
                     </div>
@@ -193,13 +193,13 @@ export default class StartService extends React.Component {
                 </div>
                 <hr/>
                 <div className="row justify-content-md-center">
-                    <label for="shipping-from" className="col-sm-4 col-form-label">Shipping From:</label>
+                    <label for="shipping-from" className="col-sm-4 col-form-label label-style">From:</label>
                     <div className="col-sm-6">
                         <input type="text" className="form-control-plaintext" id="shipping-from" value="Battambang Privince" />
                     </div>
                 </div>
                 <div className="row justify-content-md-center">
-                    <label for="shipping-to" className="col-sm-4 col-form-label">Shipping To:</label>
+                    <label for="shipping-to" className="col-sm-4 col-form-label label-style">To:</label>
                     <div className="col-sm-6">
                         <input type="text" className="form-control-plaintext" id="shipingp-to" value="Phnom Penh" />
                     </div>
@@ -225,13 +225,13 @@ export default class StartService extends React.Component {
                 </div>
                 <hr/>
                 <div className="row justify-content-md-center">
-                    <label for="shipping-from" className="col-sm-4 col-form-label">Shipping From:</label>
+                    <label for="shipping-from" className="col-sm-4 col-form-label label-style">From:</label>
                     <div className="col-sm-6">
                         <input type="text" className="form-control-plaintext" id="shipping-from" value="Battambang Privince" />
                     </div>
                 </div>
                 <div className="row justify-content-md-center">
-                    <label for="shipping-to" className="col-sm-4 col-form-label">Shipping To:</label>
+                    <label for="shipping-to" className="col-sm-4 col-form-label label-style">To:</label>
                     <div className="col-sm-6">
                         <input type="text" className="form-control-plaintext" id="shipingp-to" value="Phnom Penh" />
                     </div>
