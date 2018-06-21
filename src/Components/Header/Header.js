@@ -18,10 +18,10 @@ export default class Header extends React.Component{
               <div className="mr-auto"/>
               <ul className="nav ">
                 <li className="nav-item ">
-                  <Link to='/Home' className="nav-link">Home</Link>
+                  <Link to='/Homepage' className="nav-link">Home</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to='/CompanysServices'>Service</Link>
+                  <Link className="nav-link" to='/ClientsServices'>Service</Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to='/Contacts'>Contact</Link>

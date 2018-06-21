@@ -9,7 +9,7 @@ import Envelop from './TypeParcel/Envelop';
 export default class Contents extends React.Component{ 
     render(){ 
         return(
-<div className="container">
+<div className="container bg-color-body">
     <div className="row">
         <div className="col-sm-4 content-left">
             <h2>All Package Is Very Take Care <br/>  Form My Company</h2>
@@ -22,7 +22,7 @@ export default class Contents extends React.Component{
             <Link to='Registers' id="link-color-">Do not a member, create account now !</Link>
         </div>
         <div className="col-sm-8">
-            <div className="content-right">
+            <div className="content-right bg-color">
                 <div className="container">
                     <div id="title-bar">
                         <h1> PARCEL INFORMATION </h1></div>
@@ -70,7 +70,7 @@ export default class Contents extends React.Component{
                             <a href="">+ add more package</a>
                         </div>
                         <div className="col-sm-12">
-                            <Link to='/StartServices'>
+                            <Link to='/ParcelsServices'>
                             <button typ="button" id="btnStart">START</button>
                             </Link>
                         </div>
