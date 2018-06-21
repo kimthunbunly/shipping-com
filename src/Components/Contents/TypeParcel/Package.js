@@ -9,7 +9,7 @@ export default class Package extends React.Component{
           <input type="number" className="col-sm" placeholder="Hi(cm)"/>
           <input type="number" className="col-sm" placeholder="Wi(cm)"/>
           <a href="" className="col-sm" id="link-color">remove</a>
-      </div>
+        </div>
     );
   }
 }

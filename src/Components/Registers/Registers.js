@@ -7,7 +7,7 @@ export default class Registers extends React.Component{
   render(){
     return(
       <div className="container">
-       <div className="row justify-content-md-center">
+        <div className="row justify-content-md-center">
         <LoginForm/>
           <div className="col-sm-2 text-center">
           </div>

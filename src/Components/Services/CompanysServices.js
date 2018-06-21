@@ -15,7 +15,9 @@ export default class Services extends React.Component{
 				    
 					<div className="card-deck ">
 					  <div className="card border- bg-shadow">
-					    <img className="card-img-top size-img" src={logotc} alt="Cardcap"/>
+					    <div className="box-img text-center">
+					    	<img className="card-img-top size-img" src={logotc} alt="Cardcap"/>
+					    </div>
 					    <div className="card-body">
 					      <h5 className="card-title">TC Compnay Services</h5>
 					      <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -25,7 +27,9 @@ export default class Services extends React.Component{
 					    </div>
 					  </div>
 					  <div className="card border- bg-shadow">
-					    <img className="card-img-top size-img" src={logo1} alt="Card ap"/>
+					    <div className="box-img text-center">
+					    	<img className="card-img-top size-img" src={logo1} alt="Card ap"/>
+					    </div>
 					    <div className="card-body">
 					      <h5 className="card-title">Sport Card Service Compnay</h5>
 					      <p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -35,7 +39,9 @@ export default class Services extends React.Component{
 					    </div>
 					  </div>
 					  <div className="card border- bg-shadow">
-					    <img className="card-img-top size-img" src={logo2} alt="Card ap"/>
+					    <div className="box-img text-center">
+					    	<img className="card-img-top size-img" src={logo2} alt="Card ap"/>
+					    </div>
 					    <div className="card-body">
 					      <h5 className="card-title">Logo Name Service Compnay</h5>
 					      <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
@@ -47,7 +53,9 @@ export default class Services extends React.Component{
 					</div>
 					<div className="card-deck card-margin">
 					  <div className="card border- bg-shadow">
-					    <img className="card-img-top size-img" src={logotc} alt="Cardcap"/>
+					    <div className="box-img text-center">
+					    	<img className="card-img-top size-img" src={logotc} alt="Cardcap"/>
+					    </div>
 					    <div className="card-body">
 					      <h5 className="card-title">Card title</h5>
 					      <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -57,7 +65,9 @@ export default class Services extends React.Component{
 					    </div>
 					  </div>
 					  <div className="card border- bg-shadow">
-					    <img className="card-img-top size-img" src={logo1} alt="Card ap"/>
+					    <div className="box-img text-center">
+					    	<img className="card-img-top size-img" src={logo1} alt="Card ap"/>
+					    </div>
 					    <div className="card-body">
 					      <h5 className="card-title">Card title</h5>
 					      <p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -67,7 +77,9 @@ export default class Services extends React.Component{
 					    </div>
 					  </div>
 					  <div className="card border- bg-shadow">
-					    <img className="card-img-top size-img" src={logo2} alt="Card ap"/>
+					    <div className="box-img text-center">
+					    	<img className="card-img-top size-img" src={logo2} alt="Card ap"/>
+					    </div>
 					    <div className="card-body">
 					      <h5 className="card-title">Card title</h5>
 					      <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>

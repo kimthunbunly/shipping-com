@@ -95,12 +95,12 @@ export default class RegisterForm extends React.Component{
                 <label className="form-check-label" htmlFor="exampleCheck1">agree term and condition</label>
               </div>
             </div>
-            </div>
             <button type="submit"
             className="btn btn-primary"
             id="btnRegister"
             disabled={!this.validateForm()}
             >REGISTER</button>
+            </div>
           </form>
         </div>
     );

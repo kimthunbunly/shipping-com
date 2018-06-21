@@ -7,16 +7,16 @@ export default class MyShipments extends React.Component {
         <label id="label-form">MY SHIPMENTS</label>
         <div className="row bg-margin">
           <div className="col-sm-3">
-            <label id="label-parcel">Shipping Destination</label>
+            <label id="label-parcel">Shipping Destination:</label>
           </div>
           <div className="col-sm-2">
-            <label id="label-parcel">Parcel Detail</label>
+            <label id="label-parcel">Parcel Detail:</label>
           </div>
           <div className="col-sm-3">
-            <label id="label-parcel">By Service Company</label>
+            <label id="label-parcel">By Service Company:</label>
           </div>
           <div className="col-sm-1">
-            <label id="label-parcel">Price</label>
+            <label id="label-parcel">Price:</label>
           </div>
         </div>
         <div className="row bg-color-white">
@@ -52,10 +52,10 @@ export default class MyShipments extends React.Component {
           <div className="col-sm-1 ">
             <p id="price-color">10$</p>
           </div>
-          <div className="col-sm-2">
+          <div className="col-sm-2 text-center">
             <button typ="submit" id="btnConfirm">COMFIRM</button>
           </div>
-          <div className="col-sm-1">
+          <div className="col-sm-1 text-center">
             <button typ="submit" id="btnDel">DELETE</button>
           </div>
         </div>
