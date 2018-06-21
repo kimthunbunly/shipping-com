@@ -1,7 +1,9 @@
 /* --!header--- */
 .change-color {
     background-color: #17a2b8!important;
-
+}
+.navbar-height{
+  padding: 1rem 1rem;
 }
 .nav li a{
   color: white !important
