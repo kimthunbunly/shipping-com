@@ -12,12 +12,12 @@ export default class LoginForm extends React.Component{
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-    handleChange(event){
+    handleChange (event){
       this.setState(
         {[event.target.name]: event.target.value});
     }
-    handleSubmit(event){
-      alert(this.state.email + 'Was Submited');
+    handleSubmit (event){
+      alert("Logined")
       event.preventDefault();
     }
     validateForm(){
@@ -33,6 +33,7 @@ export default class LoginForm extends React.Component{
               <div className="form-group login-style">
                 <label id="label-form">LOG IN ACCOUNT</label>
                 <input
+                autoFocus
                 name="email"
                 type="email"
                 className="form-control"

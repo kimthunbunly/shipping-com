@@ -19,8 +19,8 @@ export default class RegisterForm extends React.Component{
       {[event.target.name]: event.target.value});
   }
   handleSubmit(event){
+      alert('Was Submited')
        event.preventDefault();
-        console.log('hello')
   } 
   validateForm(){
     return this.state.email.length > 0

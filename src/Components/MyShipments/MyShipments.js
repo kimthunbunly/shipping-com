@@ -1,4 +1,5 @@
 import React from 'react';
+import CardsShipment from '../Cards/CardsShipment';
 
 export default class MyShipments extends React.Component {
   render(){
@@ -19,46 +20,12 @@ export default class MyShipments extends React.Component {
             <label id="label-parcel">Price:</label>
           </div>
         </div>
-        <div className="row bg-color-white">
-          <div className="col-sm-3">
-            Battambang to Phnom Penh
-          </div>
-          <div className="col-sm-2">
-            Parcel Qty: 01
-          </div>
-          <div className="col-sm-3">
-            Tranfer Company
-          </div>
-          <div className="col-sm-1 ">
-            <p id="price-color">10$</p>
-          </div>
-          <div className="col-sm-2">
-            <button typ="submit" id="btnBuy">COMFIRM</button>
-          </div>
-          <div className="col-sm-1">
-            <button typ="submit" id="btnDel">DELETE</button>
-          </div>
-        </div>
-                <div className="row bg-color-white">
-          <div className="col-sm-3">
-            Battambang to Phnom Penh
-          </div>
-          <div className="col-sm-2">
-            Parcel Qty: 01
-          </div>
-          <div className="col-sm-3">
-            Tranfer Company
-          </div>
-          <div className="col-sm-1 ">
-            <p id="price-color">10$</p>
-          </div>
-          <div className="col-sm-2 text-center">
-            <button typ="submit" id="btnConfirm">COMFIRM</button>
-          </div>
-          <div className="col-sm-1 text-center">
-            <button typ="submit" id="btnDel">DELETE</button>
-          </div>
-        </div>
+        <CardsShipment
+        from="Battambang Province"
+        to="Phnom Penh City"
+        qty={15}
+        name="Sprot Service Company"
+        price={20}/>
       </div>
       );
   }
