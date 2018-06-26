@@ -5,16 +5,23 @@ const auth = require('../middlewares/auth');
 const User = require('../models/user');
 
 router.get('/', async (req, res) => {
-    res.send(req.method + " " + req.originalUrl);
+    try {
+    let docs = await User.find();
+        res.json(docs);
+    } catch(ex) {
+        res.status(500).json(ex);
+}
 });
 
 router.post('/signup', async (req, res) => {
+    console.log(req.body);
     let user = new User(req.body);
     try {
         let doc = await user.save();
         res.json({ message: doc });
     } catch(ex) {
         res.status(405).json({error: ex.message });
+        console.log(ex.message);
     }
 });
 

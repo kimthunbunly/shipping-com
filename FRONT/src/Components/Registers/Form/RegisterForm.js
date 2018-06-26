@@ -6,9 +6,8 @@ export default class RegisterForm extends React.Component{
   constructor(props){
   super(props);
   this.state = {
-    response:'',
-    firstname:'',
-    lastname:'',
+    firstName:'',
+    lastName:'',
     email:'',
     password:'',
     confirmpassword:''
@@ -25,11 +24,13 @@ export default class RegisterForm extends React.Component{
     alert('was submit');
        event.preventDefault();
 
-       const user = {
-        name: this.state.email
-      };
+      //  const user = {
+      //   email: this.state.email
+
+      // };
+      const user = this.state;
   
-      axios.post(`http://localhost:5000/users/signup`, { user })
+      axios.post(`http://localhost:5000/users/signup`, user)
         .then(res => {
           console.log(res);
           console.log(res.data);
@@ -39,8 +40,8 @@ export default class RegisterForm extends React.Component{
     return this.state.email.length > 0
         && this.state.password.length>0
         && this.state.confirmpassword.length>0
-        && this.state.firstname.length>0
-        && this.state.lastname.length>0;
+        && this.state.firstName.length>0
+        && this.state.lastName.length>0;
   } 
   render(){
     return(
@@ -55,21 +56,21 @@ export default class RegisterForm extends React.Component{
                   <label>First</label>
                   <input
                   autoFocus
-                  name="firstname"
+                  name="firstName"
                   type="text"
                   className="form-control"
                   placeholder="John"
-                  value={this.state.firstname}
+                  value={this.state.firstName}
                   onChange={this.handleChange}/>
                 </div>
                 <div className="col-sm-6 text-left">
                   <label >Last</label>
                   <input
-                  name="lastname"
+                  name="lastName"
                   type="text"
                   className="form-control"
                   placeholder="John"
-                  value={this.state.lastname}
+                  value={this.state.lastName}
                   onChange={this.handleChange}/>
                 </div>
               </div>
@@ -114,7 +115,7 @@ export default class RegisterForm extends React.Component{
             <button type="submit"
             className="btn btn-primary"
             id="btnRegister"
-            disabled={!this.validateForm(this.componentDidMount)}
+            disabled={!this.validateForm()}
             >REGISTER</button>
             </div>
               <div className="text-center">

@@ -14,12 +14,15 @@ module.exports = (endPoint, model, callback) => {
     });
 
     router.post(endPoint, async (req, res) => {
+        console.log(req.body);
         let model = new Model(req.body);
         try {
             let doc = await model.save();
+            
             res.json(doc);
         } catch(ex) {
             res.status(400).json({ error: ex.message });
+            console.log(ex.message)
         }
     });
 

@@ -10,9 +10,9 @@ const userSchema = new mongoose.Schema({
     lastName: { type: String, required: true },
     phone: {
         type: String,
-        unique: true,
+        unique: false,
         trim: true,
-        required: [true, 'User phone number required'],
+        required: [false, 'User phone number required'],
         validate: {
             validator: function(v) {
               return /^([0-9]{3})([0-9]{3})([0-9]{3,4})$/im.test(v);
@@ -20,8 +20,8 @@ const userSchema = new mongoose.Schema({
             message: '{VALUE} is not a valid phone number!'
         }
     },
-    address: { type: String, required: true },
-    country: { type: String, required: true },
+    address: { type: String, required: false },
+    country: { type: String, required: false },
     postCode: { type: String, required: false }
 });
 
