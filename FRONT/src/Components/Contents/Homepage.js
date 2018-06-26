@@ -15,11 +15,11 @@ export default class Contents extends React.Component{
             <h2>All Package Is Very Take Care <br/>  Form My Company</h2>
             <img src={Package} width="150" alt="Package" id="package" />
             <p>Please log in with your member account.</p>
-            <Link to='/Registers'>
+            <Link to='/Login'>
             <button type="submit" id="btnLogin">LOG IN</button>
             </Link>
             <hr/>
-            <Link to='Registers' id="link-color-">Do not a member, create account now !</Link>
+            <Link to='Register' id="link-color-">Do not a member, create account now !</Link>
         </div>
         <div className="col-sm-8">
             <div className="content-right bg-color">

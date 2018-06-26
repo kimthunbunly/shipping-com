@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'; 
 
 import logo from '../../../Assets/img/logo.png';
 
@@ -25,6 +26,8 @@ export default class LoginForm extends React.Component{
     }
   render(){
     return(
+      <div className="container">
+        <div className="row justify-content-md-center">
           <div className="col-sm-4 bg-color text-center">
             <div className="brand-name">
               <img src={logo} id="style-logo" alt="logo"/>
@@ -49,7 +52,9 @@ export default class LoginForm extends React.Component{
                 placeholder="********"
                 value={this.state.password}
 								onChange={this.handleChange}/>
-                <p className="text-left">forget password</p>
+                <div className="text-left">
+                  <Link to='/Register'>forget password</Link>
+                </div>  
               </div>
               <button type="submit"
               className="btn btn-primary"
@@ -57,7 +62,10 @@ export default class LoginForm extends React.Component{
               disabled={!this.validateForm()}
               >LOG IN</button>
             </form>
+            <Link to='Register' id="link-color-">Do not a member, create account now !</Link>
           </div>
+        </div>
+      </div>
     );
   }
 }

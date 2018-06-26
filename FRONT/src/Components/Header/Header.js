@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 
 import logo from '../../Assets/img/logo.png';
 import profile from '../../Assets/img/profile.png';
+import Authbtn from '../Authbtn/Authbtn';
 
 export default class Header extends React.Component{
   render(){
@@ -37,7 +38,7 @@ export default class Header extends React.Component{
                     <hr/>
                     <Link className="dropdown-item" to='/MyProfile'>My Profile</Link>
                     <Link className="dropdown-item" to="/Abouts">About Us</Link>
-                    <a className="dropdown-item" href="">Log Out</a>
+                    <a className="dropdown-item" href="Login"><Authbtn/></a>
                   </div>
                 </div>
               </div>

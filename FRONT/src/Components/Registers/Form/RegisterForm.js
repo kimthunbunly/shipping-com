@@ -1,9 +1,12 @@
 import React from 'react';
+import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 export default class RegisterForm extends React.Component{
   constructor(props){
   super(props);
   this.state = {
+    response:'',
     firstname:'',
     lastname:'',
     email:'',
@@ -19,8 +22,18 @@ export default class RegisterForm extends React.Component{
       {[event.target.name]: event.target.value});
   }
   handleSubmit(event){
-      alert('Was Submited')
+    alert('was submit');
        event.preventDefault();
+
+       const user = {
+        name: this.state.email
+      };
+  
+      axios.post(`http://localhost:5000/users/signup`, { user })
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+        })
   } 
   validateForm(){
     return this.state.email.length > 0
@@ -28,9 +41,11 @@ export default class RegisterForm extends React.Component{
         && this.state.confirmpassword.length>0
         && this.state.firstname.length>0
         && this.state.lastname.length>0;
-  }
+  } 
   render(){
     return(
+    <div className="container">
+      <div className="row justify-content-md-center">
         <div className="col-sm-6 bg-color">
           <form onSubmit={this.handleSubmit}>
           <div className="form-group register-style">
@@ -39,6 +54,7 @@ export default class RegisterForm extends React.Component{
                 <div className="col-sm-6 ">
                   <label>First</label>
                   <input
+                  autoFocus
                   name="firstname"
                   type="text"
                   className="form-control"
@@ -98,11 +114,18 @@ export default class RegisterForm extends React.Component{
             <button type="submit"
             className="btn btn-primary"
             id="btnRegister"
-            disabled={!this.validateForm()}
+            disabled={!this.validateForm(this.componentDidMount)}
             >REGISTER</button>
             </div>
+              <div className="text-center">
+                <Link to='Login' id="link-color-">Already have account !</Link>
+              </div>
           </form>
         </div>
+      </div>
+    </div>
     );
   }
 }
+
+
