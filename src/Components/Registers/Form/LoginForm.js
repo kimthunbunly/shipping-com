@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import {Link} from 'react-router-dom'; 
 
 import logo from '../../../Assets/img/logo.png';
@@ -20,6 +21,13 @@ export default class LoginForm extends React.Component{
     handleSubmit (event){
       alert("Logined")
       event.preventDefault();
+      const user = this.state;
+
+      axios.post('http://localhost:5000/users/login',user)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
     }
     validateForm(){
       return this.state.email.length > 0 && this.state.password.length>0;
