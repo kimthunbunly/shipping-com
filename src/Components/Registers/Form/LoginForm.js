@@ -27,6 +27,11 @@ export default class LoginForm extends React.Component{
       .then(res => {
         console.log(res);
         console.log(res.data);
+        const id = (res.data._id);
+        localStorage.setItem('setId',id)
+      })
+      .catch(error => {
+        alert('Your are the worng');
       })
     }
     validateForm(){
@@ -61,7 +66,7 @@ export default class LoginForm extends React.Component{
                 value={this.state.password}
 								onChange={this.handleChange}/>
                 <div className="text-left">
-                  <Link to='/Register'>forget password</Link>
+                  <Link to='/signup'>forget password</Link>
                 </div>  
               </div>
               <button type="submit"
@@ -70,7 +75,7 @@ export default class LoginForm extends React.Component{
               disabled={!this.validateForm()}
               >LOG IN</button>
             </form>
-            <Link to='Register' id="link-color-">Do not a member, create account now !</Link>
+            <Link to='/signup' id="link-color-">Do not a member, create account now !</Link>
           </div>
         </div>
       </div>

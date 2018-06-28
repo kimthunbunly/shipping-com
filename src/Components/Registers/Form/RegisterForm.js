@@ -119,7 +119,7 @@ export default class RegisterForm extends React.Component{
             >REGISTER</button>
             </div>
               <div className="text-center">
-                <Link to='Login' id="link-color-">Already have account !</Link>
+                <Link to='login' id="link-color-">Already have account !</Link>
               </div>
           </form>
         </div>

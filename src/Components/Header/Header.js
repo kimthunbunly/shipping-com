@@ -19,13 +19,13 @@ export default class Header extends React.Component{
                 <div className="mr-auto"/>
                   <ul className="nav ">
                     <li className="nav-item ">
-                      <Link to='/Homepage' className="nav-link">Home</Link>
+                      <Link to='/home' className="nav-link">Home</Link>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" to='/ClientsServices'>Service</Link>
+                      <Link className="nav-link" to='/service'>Service</Link>
                     </li>
                     <li className="nav-item">
-                      <Link className="nav-link" to='/Contacts'>Contact</Link>
+                      <Link className="nav-link" to='/contact'>Contact</Link>
                     </li>
                   </ul>
                 <div className="nav-item dropdown show">
@@ -34,11 +34,11 @@ export default class Header extends React.Component{
                   </a>
 
                   <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <Link className="dropdown-item" to='/MyShipments'>My SHIPMENT</Link>
+                    <Link className="dropdown-item" to='/my-shipment'>My SHIPMENT</Link>
                     <hr/>
-                    <Link className="dropdown-item" to='/MyProfile'>My Profile</Link>
-                    <Link className="dropdown-item" to="/Abouts">About Us</Link>
-                    <a className="dropdown-item" href="Login"><Authbtn/></a>
+                    <Link className="dropdown-item" to='/profile'>My Profile</Link>
+                    <Link className="dropdown-item" to="/about">About Us</Link>
+                    <a className="dropdown-item" href="login"><Authbtn/></a>
                   </div>
                 </div>
               </div>

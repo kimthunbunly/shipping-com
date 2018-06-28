@@ -1,5 +1,5 @@
 import React, { Component} from "react";
-import {Route } from 'react-router-dom';
+import {Route,Switch } from 'react-router-dom';
 
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
@@ -18,16 +18,18 @@ class App extends Component {
     return (
       <div>
         <Header/>
-        <Route path='/Homepage' component={Homepage}/>
-        <Route path='/MyProfile' component={MyProfile}/>
-        <Route path='/ClientsServices' component={ClientsServices}/>
-        <Route path='/Contacts' component={Contacts}/>
-        <Route path='/MyShipments' component={MyShipments}/>
-        <Route path='/ParcelsServices' component={ParcelsServices}/>
-        <Route path='/Abouts' component={Abouts}/>
-        <Route path='/Login' component={LoginForm}/>
-        <Route path='/Register' component={RegisterForm}/>
-
+          <Switch>
+          <Route exact path='/' component={Homepage}/>
+          <Route path='/home' component={Homepage}/>
+          <Route path='/profile' component={MyProfile}/>
+          <Route path='/service' component={ClientsServices}/>
+          <Route path='/contact' component={Contacts}/>
+          <Route path='/my-shipment' component={MyShipments}/>
+          <Route path='/parcel-service' component={ParcelsServices}/>
+          <Route path='/about' component={Abouts}/>
+          <Route path='/login' component={LoginForm}/>
+          <Route path='/signup' component={RegisterForm}/>
+          </Switch>
         <Footer/>
       </div>
     );

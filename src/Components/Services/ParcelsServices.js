@@ -16,27 +16,27 @@ export default class StartService extends React.Component {
             <div className="col-sm-10">
 
                 <div className="row">
-                    <label for="shipping-from" className="col-sm-4 col-form-label label-style">Shipping From:</label>
+                    <label htmlFor="shipping-from" className="col-sm-4 col-form-label label-style">Shipping From:</label>
                     <div className="col-sm-8">
-                        <input type="text" className="form-control-plaintext" id="shipping-from" value="Battambang Privince" />
+                        <input type="text" className="form-control-plaintext" id="shipping-from" defaultValue="Battambang Privince" />
                     </div>
                 </div>
                 <div className="row">
-                    <label for="shipping-to" className="col-sm-4 col-form-label label-style">Shipping To:</label>
+                    <label htmlFor="shipping-to" className="col-sm-4 col-form-label label-style">Shipping To:</label>
                     <div className="col-sm-8">
-                        <input type="text" className="form-control-plaintext" id="shipingp-to" value="Phnom Penh" />
+                        <input type="text" className="form-control-plaintext" id="shipingp-to" defaultValue="Phnom Penh" />
                     </div>
                 </div>
                 <div className="row">
-                    <label for="shipping-by" className="col-sm-4 col-form-label label-style">Shipping By:</label>
+                    <label htmlFor="shipping-by" className="col-sm-4 col-form-label label-style">Shipping By:</label>
                     <div className="col-sm-8">
-                        <input type="text" className="form-control-plaintext" id="shipping-by" value="Drop Off" />
+                        <input type="text" className="form-control-plaintext" id="shipping-by" defaultValue="Drop Off" />
                     </div>
                 </div>
                 <div className="row">
-                    <label for="parcel-qty" className="col-sm-4 col-form-label label-style">Parcel Qty:</label>
+                    <label htmlFor="parcel-qty" className="col-sm-4 col-form-label label-style">Parcel Qty:</label>
                     <div className="col-sm-8">
-                        <input type="text" className="form-control-plaintext" id="parcel-qty" value="02" />
+                        <input type="text" className="form-control-plaintext" id="parcel-qty" defaultValue="02" />
                     </div>
                 </div>
                 <div className="row justify-content-md-center text-center">

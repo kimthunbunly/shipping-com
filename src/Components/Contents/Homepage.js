@@ -14,12 +14,8 @@ export default class Contents extends React.Component{
         <div className="col-sm-4 content-left">
             <h2>All Package Is Very Take Care <br/>  Form My Company</h2>
             <img src={Package} width="150" alt="Package" id="package" />
-            <p>Please log in with your member account.</p>
-            <Link to='/Login'>
-            <button type="submit" id="btnLogin">LOG IN</button>
-            </Link>
             <hr/>
-            <Link to='Register' id="link-color-">Do not a member, create account now !</Link>
+            <p>Create by Mr.Banly the developer Cambodia.</p>
         </div>
         <div className="col-sm-8">
             <div className="content-right bg-color">
@@ -70,7 +66,7 @@ export default class Contents extends React.Component{
                             <a href="">+ add more package</a>
                         </div>
                         <div className="col-sm-12">
-                            <Link to='/ParcelsServices'>
+                            <Link to='/parcel-service'>
                             <button typ="button" id="btnStart">START</button>
                             </Link>
                         </div>
