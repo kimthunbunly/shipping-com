@@ -1,7 +1,39 @@
 import React from 'react';
+import axios from 'axios';
 import '../../Assets/css/index.css';
 
 export default class MyProfile extends React.Component{
+	constructor(props){
+		super(props);
+		this.state={
+			firstName:'',
+			lastName:'',
+			email:'',
+			password:'',
+			phone:'',
+			address:'',
+			country:'',
+			postCode:''
+		};
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	
+	}
+	handleChange(event){
+			this.setState(
+				{[event.target.name]: event.target.value});
+	}
+	handleSubmit(event){
+		event.preventDefault();
+
+		const user = this.state;
+  
+		axios.put(`http://localhost:5000/users/edit`, user)
+			.then(res => {
+				console.log(res);
+				console.log(res.data);
+			})
+	}
 	render(){
 		return(
 			<div className="container bg-color">
@@ -14,7 +46,7 @@ export default class MyProfile extends React.Component{
 					                <div className="col-sm-6 ">
 					                  <label>First</label>
 					                  <input
-					                  name="firstname"
+					                  name="firstName"
 					                  type="text"
 					                  className="form-control border-"
 					                  placeholder="John"
@@ -23,7 +55,7 @@ export default class MyProfile extends React.Component{
 					                <div className="col-sm-6 text-left">
 					                  <label >Last</label>
 					                  <input
-					                  name="lastname"
+					                  name="lastName"
 					                  type="text"
 					                  className="form-control border-"
 					                  placeholder="John"
@@ -64,7 +96,7 @@ export default class MyProfile extends React.Component{
 							<div className="form-group register-style">
 					              <label>Phone Number</label>
 					              <input
-					              name="phonenumber"
+					              name="phone"
 					              type="number"
 					              className="form-control border-"
 					              placeholder="+855 12345678"
@@ -80,25 +112,25 @@ export default class MyProfile extends React.Component{
 					              />
 							</div>
 							<div className="form-group register-style">
-					              <label>Date of Birth</label>
+					              <label>Country</label>
 					              <input
 					              name="country"
-					              type="date"
+					              type="text"
 					              className="form-control border-"
-					              placeholder="+855 12345678"
+					              placeholder="Cambodia"
 					              />
 							</div>
 							<div className="form-group register-style">
 					              <label>Post Code</label>
 					              <input
-					              name="postcode"
+					              name="postCode"
 					              type="number"
 					              className="form-control border-"
 					              placeholder="12000"
 					              />
 							</div>
 					</div>
-				<button type="submix" id="btnChange">SAVE CHANGE</button>
+				<button type="submit" id="btnChange">SAVE CHANGE</button>
 				</div>
 			</div>
 			);

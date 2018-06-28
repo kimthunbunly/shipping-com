@@ -26,6 +26,7 @@ router.post('/signup', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
+    console.log(req.body);
     let user = await User.findOne({ email: req.body.email });
     if(!user) return res.status(400).json({ message: "There was a problem with your login." });
 
@@ -33,7 +34,7 @@ router.post('/login', async (req, res) => {
     if(!password) return res.status(400).json({ message: "There was a problem with your login." });
 
     let token = user.genToken();
-    res.send(token);
+    res.header('X-Auth', token).send(user);
 });
 
 router.get('/me', auth, async (req, res) => {
@@ -45,8 +46,26 @@ router.get('/me', auth, async (req, res) => {
     }
 });
 
-router.put('/', async (req, res) => {
-    res.send(req.method + " " + req.originalUrl);
+router.put('/edit/:id', async (req, res) => {
+
+    try { 
+        let doc = await User.findByIdAndUpdate(req.params.id);
+
+        if(!doc) return res.status(400).json({ message: '' });
+
+        for(val in req.body) {
+            let excStr = 'doc.' + val  + '=' + 'req.body.' + val;
+            eval(excStr);
+            // console.log(eval(excStr));
+        }
+
+        let user = await doc.save();
+
+        res.json(user);
+
+    } catch(ex) {
+        res.status(400).json({ error: ex.message });
+    }
 });
 
 router.delete('/', async (req, res) => {
