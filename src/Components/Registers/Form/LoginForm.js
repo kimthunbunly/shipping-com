@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom'; 
+// import {browserHistory} from 'react-router-dom';
 
 import logo from '../../../Assets/img/logo.png';
 
@@ -19,7 +20,6 @@ export default class LoginForm extends React.Component{
         {[event.target.name]: event.target.value});
     }
     handleSubmit (event){
-      alert("Logined")
       event.preventDefault();
       const user = this.state;
 
@@ -28,10 +28,14 @@ export default class LoginForm extends React.Component{
         console.log(res);
         console.log(res.data);
         const id = (res.data._id);
-        localStorage.setItem('setId',id)
+        localStorage.setItem('setId',id);
+        this.props.history.goBack();
+        // window.location = lastPath
+        
+      
       })
       .catch(error => {
-        alert('Your are the worng');
+        alert('Your email and password are incorrect');
       })
     }
     validateForm(){

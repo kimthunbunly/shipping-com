@@ -9,13 +9,13 @@ export default class CardsServices extends React.Component{
 	this.handleSubmit = this.handleSubmit.bind(this);
 		}
 	handleSubmit (event){
-		alert('Hello')
-			event.preventDefault();
-		const isLogined = localStorage.getItem('setId');
-			if (isLogined === '1') {
-				alert('Hello');
+		event.preventDefault();
+		
+		const id = localStorage.getItem('setId');
+			if (id) {
+				return window.location='/my-shipment';
 			} else {
-				alert('fase');
+				return window.location='/login';
 			}
 		  }
 	render(){

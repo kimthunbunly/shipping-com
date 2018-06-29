@@ -12,6 +12,7 @@ import ParcelsServices from './Components/Services/ParcelsServices';
 import Abouts from './Components/Abouts/Abouts';
 import LoginForm from './Components/Registers/Form/LoginForm';
 import RegisterForm from './Components/Registers/Form/RegisterForm';
+import _404 from './Components/Page404/Page404';
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ class App extends Component {
           <Route path='/about' component={Abouts}/>
           <Route path='/login' component={LoginForm}/>
           <Route path='/signup' component={RegisterForm}/>
+          <Route path='/' component={_404}/>
           </Switch>
         <Footer/>
       </div>

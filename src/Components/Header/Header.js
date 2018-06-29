@@ -7,6 +7,43 @@ import profile from '../../Assets/img/profile.png';
 import Authbtn from '../Authbtn/Authbtn';
 
 export default class Header extends React.Component{
+  constructor(props){
+    super(props);
+    this.onLoggout = this.onLoggout.bind(this);
+    this.onShipment = this.onShipment.bind(this);
+    this.onProfile = this.onProfile.bind(this);
+  }
+  onLoggout(e){
+    e.preventDefault();
+    const setId=localStorage.getItem('setId');
+    if (setId) {
+      alert('Your Account have been loggout!')
+      localStorage.clear();
+      window.location.reload();
+      // this.props.history.goBack();
+      window.location='/';
+    } else {
+      window.location='/login';
+    }
+  }
+  onShipment(e){
+    e.preventDefault();
+    const setId=localStorage.getItem('setId');
+    if (setId) {
+      window.location='/my-shipment';
+    } else {
+      window.location='/login';
+    }
+  }
+  onProfile(e){
+    e.preventDefault();
+    const setId=localStorage.getItem('setId');
+    if (setId) {
+      window.location='/profile';
+    } else {
+      window.location='/login';
+    }
+  }
   render(){
     return(
         <nav className="navbar navbar-expand-lg navbar-dark change-color navbar-height">
@@ -34,11 +71,11 @@ export default class Header extends React.Component{
                   </a>
 
                   <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <Link className="dropdown-item" to='/my-shipment'>My SHIPMENT</Link>
+                    <a href="" className="dropdown-item" onClick={this.onShipment}>My SHIPMENT</a>
                     <hr/>
-                    <Link className="dropdown-item" to='/profile'>My Profile</Link>
-                    <Link className="dropdown-item" to="/about">About Us</Link>
-                    <a className="dropdown-item" href="login"><Authbtn/></a>
+                    <a href="" className="dropdown-item" onClick={this.onProfile}>My Profile</a>
+                    <Link className="dropdown-item" to='/about'>About Us</Link>
+                    <a href="" onClick={this.onLoggout} className="dropdown-item"><Authbtn/></a>
                   </div>
                 </div>
               </div>
