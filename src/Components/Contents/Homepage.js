@@ -3,11 +3,32 @@ import '../../Assets/css/index.css';
 import {Link} from 'react-router-dom'; 
 import Package from '../../Assets/img/package.png'; 
 import Province from './InputProvince'; 
-import PPackage from './TypeParcel/Package'; 
-import Envelop from './TypeParcel/Envelop'; 
+import ParcelDetail from './ParcelDetail/ParcelDetail';
 
 export default class Contents extends React.Component{ 
-    render(){ 
+    constructor(props) {
+        super(props);
+     
+        this._handleAddButton = this._handleAddButton.bind(this);
+     
+        this.state = {    
+           data: []
+        }
+     }
+     
+     _handleAddButton() {
+         let newly_added_data = { title: 'new title', content: 'new content goes here', name: 'radio-size' + 1 };
+     
+         this.setState({
+             data: [...this.state.data, newly_added_data]
+         });
+     }
+        render(){ 
+            let added_buttons_goes_here = this.state.data.map( (data, index) => {
+                return (
+                    <ParcelDetail key={index} pass_in_data={data}/>
+                )
+            });
         return(
 <div className="container bg-color-body">
     <div className="row">
@@ -43,27 +64,17 @@ export default class Contents extends React.Component{
                         </div>
                     </div>
                     <hr/>
-
                     <div className=" row">
-                        <label className="col-sm-12">Parcel Detail</label>
-                        <div className="row">
-                            <div className="col-sm-4">
-                                <label className="col-sm-5">No-A</label>
-                                <select className="col-sm-7 combobox-style">
-                                    <option>Package</option>
-                                    <option>Envelop</option>
-                                </select>
-                            </div>
-                            <div className="col-sm-8" id="demo">
-                                <PPackage/>
-                                <br/>
-                                <Envelop/>
-                            </div>
+                        <label>Parcel Detail</label>
+                        <div className="col-sm-12">
+                            <ParcelDetail/>
+                            {added_buttons_goes_here}
                         </div>
                     </div>
+
                     <div className="row">
                         <div className="col-sm-12">
-                            <a href="">+ add more package</a>
+                            <a href='#' onClick={this._handleAddButton}>+ add more package</a>
                         </div>
                         <div className="col-sm-12">
                             <Link to='/parcel-service'>

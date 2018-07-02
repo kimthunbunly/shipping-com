@@ -78,6 +78,8 @@
   border-style: none;
   margin-right: 10px;
   font-size: 14px;
+  width: 80px;
+  text-align: center;
 }
 #date, #times{
   border-style: none;
@@ -292,4 +294,17 @@ hr{
 /*footer*/
 #white{
   color: #FFF;
+}
+.text-remove{
+  font-size: 14px;
+  margin: 6px auto 6px auto;
+}
+.text-remove a{
+  color: #FF0000;
+}
+.radio-style{
+  margin: 5px auto 5px auto;
+}
+.space-row{
+  margin-top: 5px;
 }
