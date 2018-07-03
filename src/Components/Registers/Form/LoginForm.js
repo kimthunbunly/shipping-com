@@ -47,7 +47,7 @@ export default class LoginForm extends React.Component{
         <div className="row justify-content-md-center">
           <div className="col-sm-4 bg-color text-center">
             <div className="brand-name">
-              <img src={logo} id="style-logo" alt="logo"/>
+              <img src={logo} id="style-logo" alt="logo" className="img-fluid"/>
             </div>
             <form onSubmit={this.handleSubmit}>
               <div className="form-group login-style">

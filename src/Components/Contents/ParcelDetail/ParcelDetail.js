@@ -10,7 +10,9 @@ export default class ParcelDetail extends React.Component{
             package:<PPackage/>,
             envelop:<Envelop/>,
             onValue: null,
-            boxChange:<PPackage/>
+            boxChange:<PPackage/>,
+            delEvent:props.delEvent,
+            num:props.num
         };
         this.handleChange = this.handleChange.bind(this);
       }
@@ -19,27 +21,35 @@ export default class ParcelDetail extends React.Component{
 
             const boxChange = this.state.onValue;
             if (boxChange==='envelop') {
-                this.state.boxChange = this.state.package;
+                this.setState({boxChange:this.state.package})
             } else {
-                this.state.boxChange = this.state.envelop;
+                this.setState({boxChange:this.state.envelop})
             }
         }
         render(){ 
         return(
                         <div className="row space-row">
                             <div className="col-sm-4">
-                                <label className="col-sm-5">No-A</label>
-                                <select className="col-sm-7 combobox-style" value={this.state.onValue} onChange={this.handleChange}>
+                                <label className="col-sm-5">No-{this.state.num}</label>
+                                <select className="col-sm-7 combobox-style" defaultValue={this.state.onValue} onChange={this.handleChange}>
                                     <option 
                                         value='package'
                                         >Package</option>
                                     <option 
                                         value='envelop'
                                         >Envelop</option>
+                                        
                                 </select>
                             </div>
                             <div className="col-sm-8" id="demo">
-                                {this.state.boxChange}
+                                <div className="row">
+                                    <div className="col-sm-10">
+                                        {this.state.boxChange}
+                                    </div>
+                                    <div className="col-sm-2 text-remove">
+                                        <p onClick={this.state.delEvent}>remove</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 ); } }

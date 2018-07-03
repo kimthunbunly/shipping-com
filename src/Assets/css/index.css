@@ -76,9 +76,9 @@
   height: 35px;
   border-radius:0px;
   border-style: none;
-  margin-right: 10px;
+  margin-right: 5px;
   font-size: 14px;
-  width: 80px;
+  width: 100%;
   text-align: center;
 }
 #date, #times{
@@ -299,8 +299,14 @@ hr{
   font-size: 14px;
   margin: 6px auto 6px auto;
 }
-.text-remove a{
+.text-remove p{
   color: #FF0000;
+}
+.text-remove p:hover{
+  cursor: pointer;
+}
+.text-add p:hover{
+  cursor: pointer;
 }
 .radio-style{
   margin: 5px auto 5px auto;

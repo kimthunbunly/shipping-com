@@ -9,26 +9,27 @@ export default class Contents extends React.Component{
     constructor(props) {
         super(props);
      
-        this._handleAddButton = this._handleAddButton.bind(this);
+        this.onAddmore = this.onAddmore.bind(this);
+        this.onDelete = this.onDelete.bind(this);
      
         this.state = {    
-           data: []
-        }
+           data: [<ParcelDetail/>],
+           num:1
+        };
      }
-     
-     _handleAddButton() {
-         let newly_added_data = { title: 'new title', content: 'new content goes here', name: 'radio-size' + 1 };
-     
-         this.setState({
-             data: [...this.state.data, newly_added_data]
-         });
+     onAddmore() {
+        let num = this.state.num+1;
+        this.state.data.push(<ParcelDetail/>)
+        this.setState({num:num});
+        this.setState({data:this.state.data});
+     }
+     onDelete(index){
+        const data = this.state.data;
+        console.log(data)
+        data.splice(index,1);
+        this.setState({data: this.state.data});
      }
         render(){ 
-            let added_buttons_goes_here = this.state.data.map( (data, index) => {
-                return (
-                    <ParcelDetail key={index} pass_in_data={data}/>
-                )
-            });
         return(
 <div className="container bg-color-body">
     <div className="row">
@@ -67,14 +68,21 @@ export default class Contents extends React.Component{
                     <div className=" row">
                         <label>Parcel Detail</label>
                         <div className="col-sm-12">
-                            <ParcelDetail/>
-                            {added_buttons_goes_here}
+                            {
+                                this.state.data.map( (data,index) => {
+                                    return (
+                                            <ParcelDetail 
+                                            key={index}
+                                            delEvent={this.onDelete.bind(this,index)}
+                                            num={this.state.num}
+                                            />
+                            )})}
                         </div>
                     </div>
 
                     <div className="row">
-                        <div className="col-sm-12">
-                            <a href='#' onClick={this._handleAddButton}>+ add more package</a>
+                        <div className="col-sm-4 text-add">
+                            <p onClick={this.onAddmore}>+ add more package</p>
                         </div>
                         <div className="col-sm-12">
                             <Link to='/parcel-service'>
