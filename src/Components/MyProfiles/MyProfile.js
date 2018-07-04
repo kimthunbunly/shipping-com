@@ -39,6 +39,19 @@ export default class MyProfile extends React.Component{
 	validateForm(){
 		return this.state > 0;
 	}
+	componentWillMount (){
+		const id = localStorage.getItem('setId');
+
+		axios.get(`http://localhost:5000/users/`+id)
+      .then(res => {
+					this.setState({ firstName : res.data.firstName , 					
+													lastName : res.data.lastName,
+													email : res.data.email,
+													address : res.data.address,
+													phone : res.data.phone,
+													country : res.data.country,
+													postCode : res.data.postCode});     
+      })}
 	render(){
 		return(
 			<form onSubmit={this.handleSubmit} >
@@ -54,7 +67,7 @@ export default class MyProfile extends React.Component{
 					                  name="firstName"
 					                  type="text"
 					                  className="form-control border-"
-														placeholder="John"
+														placeholder="Son"
 														value={this.state.firstName}
 														onChange={this.handleChange}
 					                  />
@@ -155,6 +168,7 @@ export default class MyProfile extends React.Component{
 						<button 
 									type="submit" 
 									id="btnChange"
+									disabled={!this.validateForm()}
 									>SAVE CHANGE</button>
 				</div>
 			</div>

@@ -60,8 +60,10 @@ export default class Contents extends React.Component{
                     <div className="form-group row">
                         <label className="col-sm-4" id="label-style">Shipping By</label>
                         <div className="col-sm-8 input-radio">
-                            <input type="radio" name="shipping" /> <span>Drop Off</span>
-                            <input type="radio" name="shipping" /> <span>Pick Up</span>
+                            <input type="radio" id="drop" name="radio-group"/>
+                                <label htmlFor="drop" className="radio-group">Drop Off</label>
+                            <input type="radio" id="pick" name="radio-group"/>
+                                <label htmlFor="pick" className="radio-group">Pick Up</label>  
                         </div>
                     </div>
                     <hr/>

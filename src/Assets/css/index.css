@@ -314,3 +314,12 @@ hr{
 .space-row{
   margin-top: 5px;
 }
+body{
+  background-color: #dddddd;
+}
+
+
+/* ---> radio button <--- */
+.radio-group{
+  margin-right: 20px;
+}

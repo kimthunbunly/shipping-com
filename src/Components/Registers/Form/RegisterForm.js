@@ -21,7 +21,6 @@ export default class RegisterForm extends React.Component{
       {[event.target.name]: event.target.value});
   }
   handleSubmit(event){
-    alert('was submit');
        event.preventDefault();
 
       //  const user = {
@@ -34,10 +33,10 @@ export default class RegisterForm extends React.Component{
         .then(res => {
           console.log(res);
           console.log(res.data);
-          this.props.history.goBack();
+          window.location='/login';
         })
         .catch(error =>{
-          alert('Wrong upadate');
+          alert('Wrong inpute');
         })
   } 
   validateForm(){

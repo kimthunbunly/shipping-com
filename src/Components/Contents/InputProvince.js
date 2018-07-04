@@ -36,7 +36,7 @@ export default class Province extends React.Component{
 
 <div className="control-group">
    <div className="controls">
-       <select id="country" name="country" className="form-control border-">
+       <select id="country" name="country" className="form-control border-" defaultValue={this.index}>
            {this.provinceList}
        </select>
    </div>
