@@ -10,7 +10,8 @@ export default class RegisterForm extends React.Component{
     lastName:'',
     email:'',
     password:'',
-    confirmpassword:''
+    confirmpassword:'',
+    isAgreed: false
     };
   this.handleChange = this.handleChange.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,7 +19,11 @@ export default class RegisterForm extends React.Component{
 }
   handleChange(event){
     this.setState(
-      {[event.target.name]: event.target.value});
+            {[event.target.name]: event.target.value});            
+    const isAgreed = event.target.checked;
+    this.setState(
+            {isAgreed:isAgreed}
+    )
   }
   handleSubmit(event){
        event.preventDefault();
@@ -44,7 +49,8 @@ export default class RegisterForm extends React.Component{
         && this.state.password.length>0
         && this.state.confirmpassword.length>0
         && this.state.firstName.length>0
-        && this.state.lastName.length>0;
+        && this.state.lastName.length>0
+        && this.state.isAgreed === true;
   } 
   render(){
     return(
@@ -111,7 +117,11 @@ export default class RegisterForm extends React.Component{
             <div className="form-group row">
               <div className="col-sm-10">
               <div className="form-check">
-                <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
+                <input type="checkbox" 
+                className="form-check-input" 
+                id="exampleCheck1"
+                onChange={this.handleChange}
+                checked={this.state.isAgreed}/>
                 <label className="form-check-label" htmlFor="exampleCheck1">agree term and condition</label>
               </div>
             </div>
