@@ -36,7 +36,7 @@ export default class Contents extends React.Component{
      }
      handleSubmit(e){ 
         e.preventDefault()
-        // window.location='/parcel-service';
+        window.location='/parcel-service';
      }
      valueShipFrom = (e) => {
         this.setState({

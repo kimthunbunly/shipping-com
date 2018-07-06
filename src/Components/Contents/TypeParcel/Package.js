@@ -1,5 +1,4 @@
 import React from 'react';
-import ParcelDetail from '../ParcelDetail/ParcelDetail';
 
 export default class Package extends React.Component{
       constructor(props){

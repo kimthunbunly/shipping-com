@@ -10,7 +10,7 @@ export default class RegisterForm extends React.Component{
     lastName:'',
     email:'',
     password:'',
-    confirmpassword:'',
+    confirm:'',
     isAgreed: false
     };
   this.handleChange = this.handleChange.bind(this);
@@ -27,30 +27,32 @@ export default class RegisterForm extends React.Component{
   }
   handleSubmit(event){
        event.preventDefault();
-
-      //  const user = {
-      //   email: this.state.email
-
-      // };
-      const user = this.state;
-  
-      axios.post(`http://localhost:5000/users/signup`, user)
-        .then(res => {
-          console.log(res);
-          console.log(res.data);
-          window.location='/profile';
-        })
-        .catch(error =>{
-          alert('Wrong inpute');
-        })
-  } 
+       const user = this.state;
+       const id = localStorage.getItem('setId');
+       const vaild = this.state.password;
+       const password = this.state.password;
+       const confirm = this.state.confirm;
+       if (vaild) {} else {
+         alert('password not input')
+         return null;
+       }
+       if (password === confirm) {} else {
+         alert('password not match')
+         return null;
+       }
+       if (vaild.length > 5) {
+         axios.post(`http://localhost:5000/users/signup`, user)
+         .then(res => {
+           console.log(res);
+           console.log(res.data);
+           window.location='/profile';
+         })
+       } else {
+         alert('password too short')
+       }
+     }
   validateForm(){
-    return this.state.email.length > 0
-        && this.state.password.length>0
-        && this.state.confirmpassword.length>0
-        && this.state.firstName.length>0
-        && this.state.lastName.length>0
-        && this.state.isAgreed === true;
+    return this.state.isAgreed === true;
   } 
   render(){
     return(
@@ -108,10 +110,10 @@ export default class RegisterForm extends React.Component{
               <label>Confirm Password</label>
               <input
               type="password"
-              name="confirmpassword"
+              name="confirm"
               className="form-control"
               placeholder="********"
-              value={this.state.confirmpassword}
+              value={this.state.confirm}
               onChange={this.handleChange}/>
             </div>
             <div className="form-group row">

@@ -12,7 +12,7 @@ export default class ParcelDetail extends React.Component{
             onValue: null,
             boxChange: <PPackage/>,
             num:props.num,
-            qty:'fhhffh',
+            qty:'',
             weight:'',
             height:'',
             width:''
@@ -29,17 +29,9 @@ export default class ParcelDetail extends React.Component{
                 this.setState({boxChange:this.state.envelop})
             }
         }
-        getA(e){
-            this.setState({
-                qty:e
-            })
-        }
-        render(){   <PPackage
-                     helloQty={this.getA}
-                     />
+        render(){
         return(
                         <div className="row space-row">
-                        {this.state.qty}
                             <div className="col-sm-4">
                                 <label className="col-sm-5">No-{this.state.num}</label>
                                 <select className="col-sm-7 combobox-style" defaultValue={this.state.onValue} onChange={this.handleChange}>

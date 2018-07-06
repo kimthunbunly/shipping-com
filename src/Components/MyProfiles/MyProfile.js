@@ -10,6 +10,7 @@ export default class MyProfile extends React.Component{
 			lastName:'',
 			email:'',
 			password:'',
+			confirm:'',
 			phone:'',
 			address:'',
 			country:'',
@@ -28,7 +29,17 @@ export default class MyProfile extends React.Component{
 		const user = this.state;
 		const id = localStorage.getItem('setId');
 		const vaild = this.state.password;
-		if (vaild) {
+		const password = this.state.password;
+		const confirm = this.state.confirm;
+		if (vaild) {} else {
+			alert('password not input')
+			return null;
+		}
+		if (password === confirm) {} else {
+			alert('password not match')
+			return null;
+		}
+		if (vaild.length > 5) {
 			alert('Updated!')
 			axios.put(`http://localhost:5000/users/edit/`+id, user)
 			.then(res => {
@@ -36,7 +47,7 @@ export default class MyProfile extends React.Component{
 				console.log(res.data);
 			})
 		} else {
-			alert('wrong password!')
+			alert('password too short')
 		}
 	}
 	componentWillMount (){
@@ -113,10 +124,10 @@ export default class MyProfile extends React.Component{
 					              <label>Confirm Password</label>
 					              <input
 					              type="password"
-					              name="confirmpassword"
+					              name="confirm"
 					              className="form-control border-"
 												placeholder="********"
-												value={this.state.password}
+												value={this.state.confirm}
 												onChange={this.handleChange}
 					              />
 					            </div>					           
