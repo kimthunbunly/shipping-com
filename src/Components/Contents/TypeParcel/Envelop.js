@@ -6,7 +6,7 @@ const Envelop =(props) => {
           <div className="col-sm-12">
             <div className="row ">
               <div className="col-sm-2 radio-style">
-                <input type="radio" name="rr" id="A1"/><label htmlFor="A1">A1</label>
+                <input type="radio" name="rr" id="A1" defaultChecked="true"/><label htmlFor="A1">A1</label>
               </div>
               <div className="col-sm-2 radio-style">
                 <input type="radio" name="rr" id="A2"/><label htmlFor="A2">A2</label>

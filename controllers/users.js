@@ -71,6 +71,7 @@ router.put('/edit/:id', async (req, res) => {
 router.delete('/', async (req, res) => {
     res.send(req.method + " " + req.originalUrl);
 });
+
 router.get('/:id', async (req,res)=>{
     const course = await User.findById(req.params.id);
     if(!course) res.status(404).json({ message: '' });

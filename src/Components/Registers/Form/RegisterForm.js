@@ -38,7 +38,7 @@ export default class RegisterForm extends React.Component{
         .then(res => {
           console.log(res);
           console.log(res.data);
-          window.location='/login';
+          window.location='/profile';
         })
         .catch(error =>{
           alert('Wrong inpute');

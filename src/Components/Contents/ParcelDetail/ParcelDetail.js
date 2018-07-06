@@ -10,11 +10,14 @@ export default class ParcelDetail extends React.Component{
             package:<PPackage/>,
             envelop:<Envelop/>,
             onValue: null,
-            boxChange:<PPackage/>,
-            delEvent:props.delEvent,
-            num:props.num
+            boxChange: <PPackage/>,
+            num:props.num,
+            qty:'fhhffh',
+            weight:'',
+            height:'',
+            width:''
         };
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);        
       }
         handleChange (e){
             this.setState({ onValue: e.target.value });
@@ -26,9 +29,17 @@ export default class ParcelDetail extends React.Component{
                 this.setState({boxChange:this.state.envelop})
             }
         }
-        render(){ 
+        getA(e){
+            this.setState({
+                qty:e
+            })
+        }
+        render(){   <PPackage
+                     helloQty={this.getA}
+                     />
         return(
                         <div className="row space-row">
+                        {this.state.qty}
                             <div className="col-sm-4">
                                 <label className="col-sm-5">No-{this.state.num}</label>
                                 <select className="col-sm-7 combobox-style" defaultValue={this.state.onValue} onChange={this.handleChange}>
@@ -45,9 +56,10 @@ export default class ParcelDetail extends React.Component{
                                 <div className="row">
                                     <div className="col-sm-10">
                                         {this.state.boxChange}
+                                        
                                     </div>
                                     <div className="col-sm-2 text-remove">
-                                        <p onClick={this.state.delEvent}>remove</p>
+                                        <p onClick={this.props.delEvent}>remove</p>
                                     </div>
                                 </div>
                             </div>

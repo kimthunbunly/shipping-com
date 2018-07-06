@@ -24,24 +24,26 @@ export default class MyProfile extends React.Component{
 				{[event.target.name]: event.target.value});
 	}
 	handleSubmit(event){
-		alert('Updated');
 		event.preventDefault();
-
 		const user = this.state;
 		const id = localStorage.getItem('setId');
-
-		axios.put(`http://localhost:5000/users/edit/`+id, user)
+		const vaild = this.state.password;
+		if (vaild) {
+			alert('Updated!')
+			axios.put(`http://localhost:5000/users/edit/`+id, user)
 			.then(res => {
 				console.log(res);
 				console.log(res.data);
 			})
-	}
-	validateForm(){
-		return this.state > 0;
+		} else {
+			alert('wrong password!')
+		}
 	}
 	componentWillMount (){
 		const id = localStorage.getItem('setId');
-
+    if (!id) {
+        window.location='/login';
+    }
 		axios.get(`http://localhost:5000/users/`+id)
       .then(res => {
 					this.setState({ firstName : res.data.firstName , 					
@@ -51,7 +53,7 @@ export default class MyProfile extends React.Component{
 													phone : res.data.phone,
 													country : res.data.country,
 													postCode : res.data.postCode});     
-      })}
+			})}
 	render(){
 		return(
 			<form onSubmit={this.handleSubmit} >
@@ -67,7 +69,7 @@ export default class MyProfile extends React.Component{
 					                  name="firstName"
 					                  type="text"
 					                  className="form-control border-"
-														placeholder="Son"
+														placeholder="firstname"
 														value={this.state.firstName}
 														onChange={this.handleChange}
 					                  />
@@ -78,7 +80,7 @@ export default class MyProfile extends React.Component{
 					                  name="lastName"
 					                  type="text"
 					                  className="form-control border-"
-														placeholder="John"
+														placeholder="lastname"
 														value={this.state.lastName}
 														onChange={this.handleChange}
 					                  />
@@ -159,7 +161,7 @@ export default class MyProfile extends React.Component{
 					              name="postCode"
 					              type="number"
 					              className="form-control border-"
-												placeholder="12000"
+												placeholder="postcode"
 												value={this.state.postCode}
 												onChange={this.handleChange}
 					              />
@@ -168,7 +170,6 @@ export default class MyProfile extends React.Component{
 						<button 
 									type="submit" 
 									id="btnChange"
-									disabled={!this.validateForm()}
 									>SAVE CHANGE</button>
 				</div>
 			</div>

@@ -1,6 +1,6 @@
 import React from 'react'; 
 import '../../Assets/css/index.css'; 
-import {Link} from 'react-router-dom'; 
+// import {Link} from 'react-router-dom';   
 import Package from '../../Assets/img/package.png'; 
 import Province from './InputProvince'; 
 import ParcelDetail from './ParcelDetail/ParcelDetail';
@@ -11,10 +11,15 @@ export default class Contents extends React.Component{
      
         this.onAddmore = this.onAddmore.bind(this);
         this.onDelete = this.onDelete.bind(this);
-     
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+
         this.state = {    
            data: [<ParcelDetail/>],
-           num:1
+           num:1,
+           shipFrom:'',
+           shipTo:'',
+           shipBy:"drop off"
         };
      }
      onAddmore() {
@@ -29,6 +34,28 @@ export default class Contents extends React.Component{
         data.splice(index,1);
         this.setState({data: this.state.data});
      }
+     handleSubmit(e){ 
+        e.preventDefault()
+        // window.location='/parcel-service';
+     }
+     valueShipFrom = (e) => {
+        this.setState({
+          shipFrom: e
+        })
+      }
+      valueShipTo = (e) => {
+        this.setState({
+          shipTo: e
+        })
+      }
+      handleChange (e){
+        const shipBy = this.state.shipBy;        
+        if (shipBy === "pick up") {
+            return this.setState({shipBy:"drop off"})
+        } else {
+            return this.setState({shipBy:"pick up"})
+        }        
+      }
         render(){ 
         return(
 <div className="container bg-color-body">
@@ -44,26 +71,28 @@ export default class Contents extends React.Component{
                 <div className="container">
                     <div id="title-bar">
                         <h1> PARCEL INFORMATION </h1></div>
-
+                        
                     <div className="form-group row">
                         <label className="col-sm-4" id="label-style">Shipping From</label>
                         <div className="col-sm-8">
-                            <Province/>
+                            <Province
+                            sendProvince={this.valueShipFrom}/>
                         </div>
                     </div>
                     <div className="form-group row">
                         <label className="col-sm-4" id="label-style">Shipping To</label>
                         <div className="col-sm-8">
-                            <Province/>
+                            <Province
+                            sendProvince={this.valueShipTo}/>
                         </div>
                     </div>
                     <div className="form-group row">
                         <label className="col-sm-4" id="label-style">Shipping By</label>
-                        <div className="col-sm-8 input-radio">
-                            <input type="radio" id="drop" name="radio-group"/>
+                        <div className="col-sm-8 input-radio"defaultValue={this.state.shipBy} onChange={this.handleChange}>
+                            <input type="radio" id="drop" name="radio-group" value= "drop off" defaultChecked="true"/>
                                 <label htmlFor="drop" className="radio-group">Drop Off</label>
-                            <input type="radio" id="pick" name="radio-group"/>
-                                <label htmlFor="pick" className="radio-group">Pick Up</label>  
+                            <input type="radio" id="pick" name="radio-group" value= "pick up"/>
+                                <label htmlFor="pick" className="radio-group" >Pick Up</label>  
                         </div>
                     </div>
                     <hr/>
@@ -87,9 +116,12 @@ export default class Contents extends React.Component{
                             <p onClick={this.onAddmore}>+ add more package</p>
                         </div>
                         <div className="col-sm-12">
-                            <Link to='/parcel-service'>
-                            <button typ="button" id="btnStart">START</button>
-                            </Link>
+                            <form onSubmit={this.handleSubmit}>
+                                    <button 
+                                    typ="button" 
+                                    id="btnStart"
+                                    onClick={this.handleSubmit}>START</button>
+                            </form>
                         </div>
                     </div>
                 </div>
