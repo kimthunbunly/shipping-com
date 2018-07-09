@@ -7,6 +7,22 @@ import logo3 from '../../Assets/img/logo/logo3.png';
 import CardsServices from '../Cards/CardsServices';
 
 export default class StartService extends React.Component { 
+    constructor(props){
+        super(props);
+        this.state = {
+            shipFrom:'',
+            shipTo:'',
+            shipBy:''
+        }
+    }
+    componentDidMount(){
+        const shipFrom = localStorage.getItem('shipFrom');
+        const shipTo = localStorage.getItem('shipTo');
+        const shipBy = localStorage.getItem('shipBy');
+        this.setState({shipFrom});
+        this.setState({shipTo});
+        this.setState({shipBy});
+    }
     render(){ 
         return(
 <div className="unknow">
@@ -18,19 +34,19 @@ export default class StartService extends React.Component {
                 <div className="row">
                     <label htmlFor="shipping-from" className="col-sm-4 col-form-label label-style">Shipping From:</label>
                     <div className="col-sm-8">
-                        <input type="text" className="form-control-plaintext" id="shipping-from" defaultValue="Battambang Privince" />
+                       <p> {this.state.shipFrom}</p>
                     </div>
                 </div>
                 <div className="row">
                     <label htmlFor="shipping-to" className="col-sm-4 col-form-label label-style">Shipping To:</label>
                     <div className="col-sm-8">
-                        <input type="text" className="form-control-plaintext" id="shipingp-to" defaultValue="Phnom Penh" />
+                        <p> {this.state.shipTo}</p>
                     </div>
                 </div>
                 <div className="row">
                     <label htmlFor="shipping-by" className="col-sm-4 col-form-label label-style">Shipping By:</label>
                     <div className="col-sm-8">
-                        <input type="text" className="form-control-plaintext" id="shipping-by" defaultValue="Drop Off" />
+                        <p> {this.state.shipBy}</p>
                     </div>
                 </div>
                 <div className="row">
@@ -53,8 +69,8 @@ export default class StartService extends React.Component {
                     name="Tranfer Company"
                     eta={3}
                     rate="*******"
-                    from="Battambang Province"
-                    to="Phnom Penh City"
+                    from={this.state.shipFrom}
+                    to={this.state.shipTo}
                     price={25}
                 />  
                 <CardsServices
@@ -62,8 +78,8 @@ export default class StartService extends React.Component {
                     name="Sport Company"
                     eta={2}
                     rate="*******"
-                    from="Battambang Province"
-                    to="Phnom Penh City"
+                    from={this.state.shipFrom}
+                    to={this.state.shipTo}
                     price={27}
                 />          
             </div>
@@ -73,8 +89,8 @@ export default class StartService extends React.Component {
                     name="User Company"
                     eta={4}
                     rate="*******"
-                    from="Battambang Province"
-                    to="Phnom Penh City"
+                    from={this.state.shipFrom}
+                    to={this.state.shipTo}
                     price={24}
                 />  
                 <CardsServices
@@ -82,8 +98,8 @@ export default class StartService extends React.Component {
                     name="Own Company"
                     eta={4}
                     rate="*******"
-                    from="Battambang Province"
-                    to="Phnom Penh City"
+                    from={this.state.shipFrom}
+                    to={this.state.shipTo}
                     price={23}
                 />          
             </div>

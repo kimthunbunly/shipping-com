@@ -26,7 +26,6 @@ router.post('/signup', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-    console.log(req.body);
     let user = await User.findOne({ email: req.body.email });
     if(!user) return res.status(400).json({ message: "There was a problem with your login." });
 
@@ -44,6 +43,12 @@ router.get('/me', auth, async (req, res) => {
     } catch(ex) {
         return res.status(400).json({ message: ex.message });
     }
+});
+
+router.get('/:id', async (req,res)=>{
+    const course = await User.findById(req.params.id);
+    if(!course) res.status(404).json({ message: '' });
+    res.send(course);
 });
 
 router.put('/edit/:id', async (req, res) => {
@@ -70,12 +75,6 @@ router.put('/edit/:id', async (req, res) => {
 
 router.delete('/', async (req, res) => {
     res.send(req.method + " " + req.originalUrl);
-});
-
-router.get('/:id', async (req,res)=>{
-    const course = await User.findById(req.params.id);
-    if(!course) res.status(404).json({ message: '' });
-    res.send(course);
 });
 
 module.exports = router;

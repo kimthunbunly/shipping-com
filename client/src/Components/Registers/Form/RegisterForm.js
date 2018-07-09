@@ -28,7 +28,6 @@ export default class RegisterForm extends React.Component{
   handleSubmit(event){
        event.preventDefault();
        const user = this.state;
-       const id = localStorage.getItem('setId');
        const vaild = this.state.password;
        const password = this.state.password;
        const confirm = this.state.confirm;
@@ -41,18 +40,25 @@ export default class RegisterForm extends React.Component{
          return null;
        }
        if (vaild.length > 5) {
+        //  axios.post(`/api/users/signup`, user)
          axios.post(`http://localhost:5000/users/signup`, user)
          .then(res => {
-           console.log(res);
-           console.log(res.data);
-           window.location='/profile';
+          //  console.log(res);
+          //  console.log(res.data);
+           const e = (res.data.e);
+          //  console.log(e)
+           localStorage.setItem('e',e); 
+           window.location='/login';
          })
        } else {
          alert('password too short')
        }
      }
   validateForm(){
-    return this.state.isAgreed === true;
+    return this.state.isAgreed === true &&
+            this.state.firstName.length > 0 &&
+            this.state.lastName.length > 0 &&
+            this.state.email.length > 0;
   } 
   render(){
     return(

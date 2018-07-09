@@ -2,7 +2,7 @@ import React from 'react';
 import '../../Assets/css/index.css'
 import {Link} from 'react-router-dom';
 
-import logo from '../../Assets/img/logo.png';
+import logo from '../../Assets/img/logo-white.png';
 import profile from '../../Assets/img/profile.png';
 import Authbtn from '../Authbtn/Authbtn';
 
@@ -64,13 +64,13 @@ export default class Header extends React.Component{
                     <li className="nav-item">
                       <Link className="nav-link" to='/contact'>Contact</Link>
                     </li>
-                  </ul>
+                  
                 <div className="nav-item dropdown show">
                   <a className="btn dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img src={profile} alt="profile" width="25"/>
                   </a>
 
-                  <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                     <Link to='/my-shipment' className="dropdown-item" >My SHIPMENT</Link>
                     <hr/>
                     <Link to='/profile' className="dropdown-item">My Profile</Link>
@@ -78,6 +78,7 @@ export default class Header extends React.Component{
                     <a href="" onClick={this.onLoggout} className="dropdown-item"><Authbtn/></a>
                   </div>
                 </div>
+                </ul>
               </div>
             </div>
         </nav>

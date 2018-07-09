@@ -10,7 +10,8 @@ export default class LoginForm extends React.Component{
     super(props);
     this.state = {
         email:'',
-        password:''
+        password:'',
+        history:null
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -24,11 +25,18 @@ export default class LoginForm extends React.Component{
       event.preventDefault();
       const user = this.state;
 
-      axios.post('http://localhost:5000/users/login',user)
+      // axios.post(`/api/users/login`,user)
+      axios.post(`http://localhost:5000/users/login`,user)
       .then(res => {
+        // console.log(res.data)
           const id = (res.data._id);
           localStorage.setItem('setId',id); 
-          this.props.history.goBack();      
+          const e = localStorage.getItem('e');
+          if (e) {
+            return window.location='/'
+          } else {
+            this.props.history.goBack();
+          }   
       })
       .catch(error => {
         alert('Your email and password are incorrect');

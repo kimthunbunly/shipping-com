@@ -41,6 +41,7 @@ export default class MyProfile extends React.Component{
 		}
 		if (vaild.length > 5) {
 			alert('Updated!')
+			// axios.put(`/api/users/edit/`+id, user)
 			axios.put(`http://localhost:5000/users/edit/`+id, user)
 			.then(res => {
 				console.log(res);
@@ -55,6 +56,7 @@ export default class MyProfile extends React.Component{
     if (!id) {
         window.location='/login';
     }
+		// axios.get(`/api/users/`+id)
 		axios.get(`http://localhost:5000/users/`+id)
       .then(res => {
 					this.setState({ firstName : res.data.firstName , 					

@@ -13,8 +13,15 @@ import Abouts from './Components/Abouts/Abouts';
 import LoginForm from './Components/Registers/Form/LoginForm';
 import RegisterForm from './Components/Registers/Form/RegisterForm';
 import _404 from './Components/Page404/Page404';
+import Loading from './App/Loading';
 
 class App extends Component {
+  state = {
+    loaded: false}
+  constructor(){
+    super();
+    Loading.load(v => this.setState({loaded:true}));
+  }
   render() {
     return (
       <div>

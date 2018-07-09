@@ -36,6 +36,12 @@ export default class Contents extends React.Component{
      }
      handleSubmit(e){ 
         e.preventDefault()
+        const shipFrom = this.state.shipFrom
+        const shipTo = this.state.shipTo
+        const shipBy = this.state.shipBy
+        localStorage.setItem('shipFrom',shipFrom)
+        localStorage.setItem('shipTo',shipTo)
+        localStorage.setItem('shipBy',shipBy)
         window.location='/parcel-service';
      }
      valueShipFrom = (e) => {
