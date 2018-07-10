@@ -3,35 +3,29 @@ import React from 'react';
 export default class Package extends React.Component{
       constructor(props){
             super(props);
-            this.state={
-                  qty:'',
-                  weight:'',
-                  height:'',
-                  width:''
+            this.state = {
+                  qty: props.qty,
+                  weight: props.weight,
+                  height: props.height,
+                  width: props.width
             }
-            this.handleChange=this.handleChange.bind(this);
-
       }
-      handleChange = (e) => {
-            this.setState(
-                  {[e.target.name]: e.target.value});
-      }
-      render(){
+      render(){ 
     return(
         <div className="row">
             <div className="col-sm-12">
               <div className="row justify-content-md-center">
                 <div className="col-sm-3 input-style">
-                      <input type="number" name="qty" placeholder="QTY" value={this.props.helloQty} onChange={this.handleChange}/>
+                      <input type="number" name="qty" placeholder="QTY" defaultValue={this.state.qty} onChange={this.props.pChange} />
                 </div>
                 <div className="col-sm-3 input-style">
-                      <input type="number" name="weight" placeholder="We(cm)" value={this.state.weight} onChange={this.handleChange}/>
+                      <input type="number" name="weight" placeholder="We(cm)" defaultValue={this.state.weight} onChange={this.props.pChange}/>
                 </div>
                 <div className="col-sm-3 input-style">
-                      <input type="number" name="height" placeholder="Hi(cm)"value={this.state.height} onChange={this.handleChange}/>
+                      <input type="number" name="height" placeholder="Hi(cm)" defaultValue={this.state.height} onChange={this.props.pChange}/>
                 </div>
                 <div className="col-sm-3 input-style">
-                      <input type="number" name="width" placeholder="Wi(cm)"value={this.state.width} onChange={this.handleChange}/>
+                      <input type="number" name="width" placeholder="Wi(cm)" defaultValue={this.state.width} onChange={this.props.pChange}/>
                 </div>
               </div>
             </div>

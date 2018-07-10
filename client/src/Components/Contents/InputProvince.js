@@ -43,8 +43,7 @@ export default class Province extends React.Component{
 "Tboung Khmum Province" 
   ]
   provinceList = this.provinces.map((name, index)=>
-  <option key={index+1}>{name}</option>,
-)
+  <option key={index+1}>{name}</option>)
   render(){
     return(
 

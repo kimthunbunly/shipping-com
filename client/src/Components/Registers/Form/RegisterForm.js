@@ -17,6 +17,12 @@ export default class RegisterForm extends React.Component{
   this.handleSubmit = this.handleSubmit.bind(this);
 
 }
+componentWillMount (){
+  let e = localStorage.getItem('setId');
+  if (e) {
+    window.location='/';
+  } 
+}
   handleChange(event){
     this.setState(
             {[event.target.name]: event.target.value});            
@@ -45,10 +51,10 @@ export default class RegisterForm extends React.Component{
          .then(res => {
           //  console.log(res);
           //  console.log(res.data);
-           const e = (res.data.e);
+          //  const e = (res.data.e);
           //  console.log(e)
-           localStorage.setItem('e',e); 
-           window.location='/login';
+          //  localStorage.setItem('e',e); 
+          //  window.location='/login';
          })
        } else {
          alert('password too short')
