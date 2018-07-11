@@ -13,7 +13,7 @@ export default class Homepage extends React.Component{
             shipTo:'',
             shipBy:'',
             envelopsize:'',
-            qty:'1',
+            qty:'',
             weight:'',
             height:'',
             width:'',
@@ -75,24 +75,36 @@ export default class Homepage extends React.Component{
         }
     }
     onSubmit(e){
-        this.setState({[e.target.name]:e});
         let val = this.state.qty;
-        if (val === '') {
-            alert('forget input parcel detail')
-        } else {
-            let a = {   shipFrom:this.state.shipFrom,
-                        shipTo:this.state.shipTo,
-                        shipBy:this.state.shipBy,
-                        qty:this.state.qty,
-                        weight:this.state.weight,
-                        height:this.state.height,
-                        width:this.state.width};
-            localStorage.setItem('data',JSON.stringify(a))
+        // if (val === '') {
+        //     alert('forget input parcel detail')
+        // } else {
+        //     let a = {   shipFrom:this.state.shipFrom,
+        //                 shipTo:this.state.shipTo,
+        //                 shipBy:this.state.shipBy,
+        //                 qty:this.state.qty,
+        //                 weight:this.state.weight,
+        //                 height:this.state.height,
+        //                 width:this.state.width};
+        //     localStorage.setItem('data',JSON.stringify(a))
 
-            window.location= '/parcel-service'
-        }
+        //     window.location= '/parcel-service'
+        // }
         console.log(this.state)
  }
+    valqty =(e) => {
+        this.setState({ qty:e});
+    }
+    valwe =(e) => {
+        this.setState({ weight:e});
+    }
+    valhe =(e) => {
+        this.setState({ height:e});
+    }
+    valwi =(e) => {
+        this.setState({ width:e});
+    }
+
     provinces = [
         "Phnom Penh City",
         "Banteay Meanchey Province",
@@ -182,11 +194,11 @@ export default class Homepage extends React.Component{
                             return  <ItemParcel
                                     key={index}
                                     num={this.state.num}
-                                    delEvent={this.delItem.bind(this,v)}
-                                    qty={this.onSubmit}
-                                    weight={this.onSubmit}
-                                    height={this.onSubmit}
-                                    width={this.onSubmit}
+                                    delEvent={this.delItem.bind(this, v)}
+                                    qty={this.valqty}
+                                    weight={this.valwe}
+                                    height={this.valhe}
+                                    width={this.valwi}
                                     >{v}</ItemParcel>})}
 {/* end of parcel detail */}
 

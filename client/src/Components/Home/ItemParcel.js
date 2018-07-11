@@ -8,24 +8,26 @@ export default class ItemParcel extends React.Component{
             envelop: false,
             typeParcel:null,
             envelopsize:'',
-            qty: props.qty,
-            weight: props.weight,
-            height: props.height,
-            width: props.width
+            qty: '',
+            weight: '',
+            height: '',
+            width: ''
         }
         this.handleChange = this.handleChange.bind(this);
         this.onChange = this.onChange.bind(this);
     }
     handleChange = (e) => {
+        let a = this.state.qty;
+        let b = this.state.weight;
+        let c = this.state.height;
+        let d = this.state.width;
+        this.props.qty(a);
+        this.props.weight(b);
+        this.props.height(c);
+        this.props.width (d);
         this.setState({
             [e.target.name]:e.target.value
         })
-        const shipBy = this.state.shipBy;        
-        if (shipBy === "pick up") {
-            return this.setState({shipBy:"drop off"})
-        } else {
-            return this.setState({shipBy:"pick up"})
-        }        
       }
     onChange = (e) => {
         this.setState({
