@@ -12,17 +12,28 @@ export default class StartService extends React.Component {
         this.state = {
             shipFrom:'',
             shipTo:'',
-            shipBy:''
+            shipBy:'',
+            envelopsize:'',
+            qty:'',
+            weight:'',
+            height:'',
+            width:''
         }
     }
-    componentDidMount(){
-        const shipFrom = localStorage.getItem('shipFrom');
-        const shipTo = localStorage.getItem('shipTo');
-        const shipBy = localStorage.getItem('shipBy');
-        this.setState({shipFrom});
-        this.setState({shipTo});
-        this.setState({shipBy});
-    }
+    componentDidMount(){ 
+        let getData = localStorage.getItem('data');
+        let data = JSON.parse(getData);
+        let shipFrom = (data.shipFrom);
+        let shipTo = (data.shipTo);
+        let shipBy = (data.shipBy);
+        let qty = (data.qty);
+        let weight = (data.weight);
+        let height = (data.height);
+        let width = (data.width);
+        this.setState({shipFrom,shipTo,shipBy,qty,weight,height,width})
+        console.log(shipFrom);
+      }
+
     render(){ 
         return(
 <div className="unknow">
@@ -52,7 +63,7 @@ export default class StartService extends React.Component {
                 <div className="row">
                     <label htmlFor="parcel-qty" className="col-sm-4 col-form-label label-style">Parcel Qty:</label>
                     <div className="col-sm-8">
-                        <input type="text" className="form-control-plaintext" id="parcel-qty" defaultValue="02" />
+                    <p> {this.state.qty}</p>
                     </div>
                 </div>
                 <div className="row justify-content-md-center text-center">

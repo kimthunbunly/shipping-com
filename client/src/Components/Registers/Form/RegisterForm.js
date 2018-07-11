@@ -51,10 +51,10 @@ componentWillMount (){
          .then(res => {
           //  console.log(res);
           //  console.log(res.data);
-          //  const e = (res.data.e);
+           const e = (res.data.e);
           //  console.log(e)
-          //  localStorage.setItem('e',e); 
-          //  window.location='/login';
+           localStorage.setItem('e',e); 
+           window.location='/login';
          })
        } else {
          alert('password too short')

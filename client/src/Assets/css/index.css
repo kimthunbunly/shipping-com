@@ -297,7 +297,7 @@ body{
 .custom-input{
   width: 90%;
   height: 43px;
-  text-indent: 30px;
+  text-indent: 20px;
   border-radius: 5px;
 }
 .col-sm-6 select{

@@ -1,5 +1,6 @@
 import React from 'react';
 import Package from '../../Assets/img/package.png'; 
+import ItemParcel from './ItemParcel';
 
 export default class Homepage extends React.Component{
     constructor(props){
@@ -8,46 +9,57 @@ export default class Homepage extends React.Component{
             package: true ,
             envelop: false,
             typeParcel:null,
-            addMore:'',
             shipFrom:'',
             shipTo:'',
             shipBy:'',
             envelopsize:'',
-            qty:'',
+            qty:'1',
             weight:'',
             height:'',
-            width:''
+            width:'',
+            value: [<ItemParcel/>],
+            num:1
         }
         this.handleChange = this.handleChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.addMore = this.addMore.bind(this);
+        this.delItem = this.delItem.bind(this);
     }
     componentDidMount(){
         this.setState({
             shipFrom:'Phnom Penh City',
             shipTo:'Phnom Penh City',
-            shipBy:'Drop Off'
-
+            shipBy:'Drop Off',
         })
     }
-    addMore(){        
-
-}
+    addMore(){      
+        // let num = this.state.num+1;
+        // this.setState({num:num});
+        this.state.value.push(<ItemParcel/>)
+        this.setState(
+          this.state.value
+        )
+    }
+    delItem(v){
+        for(var i = 0; i < this.state.value.length; i++){
+          if(this.state.value[i] === v){
+             delete this.state.value[i]
+          }
+        }
+        this.setState({
+          value:this.state.value
+        })
+      }
     handleChange = (e) => {
     this.setState({
-        shipFrom:e.target.value,
-        shipTo:e.target.value,
-        qty:e.target.value,
-        weight:e.target.value,
-        height:e.target.value,
-        width:e.target.value
+        [e.target.name]:e.target.value
     })
     const shipBy = this.state.shipBy;        
     if (shipBy === "pick up") {
         return this.setState({shipBy:"drop off"})
     } else {
         return this.setState({shipBy:"pick up"})
-    }        
+    }   
   }
     onChange = (e) => {
         this.setState({
@@ -62,19 +74,25 @@ export default class Homepage extends React.Component{
             this.setState({package:false});
         }
     }
-    onSubmit(){
-        if (this.formVaild === '') {
-            alert("hello0")
+    onSubmit(e){
+        this.setState({[e.target.name]:e});
+        let val = this.state.qty;
+        if (val === '') {
+            alert('forget input parcel detail')
         } else {
-            alert("dfdff")
+            let a = {   shipFrom:this.state.shipFrom,
+                        shipTo:this.state.shipTo,
+                        shipBy:this.state.shipBy,
+                        qty:this.state.qty,
+                        weight:this.state.weight,
+                        height:this.state.height,
+                        width:this.state.width};
+            localStorage.setItem('data',JSON.stringify(a))
+
+            window.location= '/parcel-service'
         }
-    }
-    formVaild(){
-        return  this.state.qty ,
-                this.state.weight ,
-                this.state.height ,
-                this.state.width ;
-    }
+        console.log(this.state)
+ }
     provinces = [
         "Phnom Penh City",
         "Banteay Meanchey Province",
@@ -106,10 +124,12 @@ export default class Homepage extends React.Component{
             <option key = {index + 1} > { name } </option>)
     
     render(){
+        let { value } = this.state;
         return(
             <div className="container">
+
                 <div className="row justify-content-md-center">
-                <   div className="col-sm-4 content-left">
+                    <div className="col-sm-4 content-left">
                         <h2>All Package Is Very Take Care <br/>  Form My Company</h2>
                         <img src={Package} width="150" alt="Package" id="package" />
                         <hr/>
@@ -118,14 +138,13 @@ export default class Homepage extends React.Component{
                     <div className="col-sm-8 bg-color">
                         <div className="container row col-sm-12" id="title-bar">
                             <h1> PARCEL INFORMATION </h1>
-                            <hr/>
                         </div>
                         <div className="row justify-content-md-center custom-margin">
                             <div className="col-sm-3">
                                 <label>SHIPPING FROM</label>
                             </div>
                             <div className="col-sm-6 ">
-                                <select id="country" className="custom-input" name="country" defaultValue={this.state.shipFrom} onChange={this.handleChange} >
+                                <select id="country" className="custom-input" name="shipFrom" defaultValue={this.state.shipFrom} onChange={this.handleChange} >
                                     {this.provinceList}
                                 </select>
                             </div>
@@ -135,7 +154,7 @@ export default class Homepage extends React.Component{
                                 <label>SHIPPING TO</label>
                             </div>
                             <div className="col-sm-6 ">
-                                <select id="country" className="custom-input" name="country" defaultValue={this.state.shipTo} onChange={this.handleChange}>
+                                <select id="country" className="custom-input" name="shipTo" defaultValue={this.state.shipTo} onChange={this.handleChange}>
                                     {this.provinceList}
                                 </select>
                             </div>
@@ -158,67 +177,21 @@ export default class Homepage extends React.Component{
                             <label>Parcel Detail :</label>
                         </div>
 
-{/* row of parcel detail */}
-                        <div className="row justify-content-md-center">
-                            <div className="col-sm-4 row">
-                                <div className="col-sm-4 text-no">
-                                    <label>No-1</label>
-                                </div>
-                                <div className="col-sm-8 cus-">
-                                    <select defaultValue={this.state.typeParcel} onChange={this.onChange}>
-                                        <option 
-                                            value='package'
-                                            >Package</option>
-                                        <option 
-                                            value='envelop'
-                                            >Envelop</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div className="col-sm-8 row">
-                            {this.state.package ?                                 
-                                <div className="col-sm-10 row text-center">
-                                        <div className="col-sm-3 input-style">
-                                            <input type="number" name="qty" placeholder="QTY" defaultValue={this.state.qty} onChange={this.handleChange}/>
-                                        </div>
-                                        <div className="col-sm-3 input-style">
-                                            <input type="number" name="weight" placeholder="We(cm)" defaultValue={this.state.weight} onChange={this.handleChange}/>
-                                        </div>
-                                        <div className="col-sm-3 input-style">
-                                            <input type="number" name="height" placeholder="Hi(cm)" defaultValue={this.state.height} onChange={this.handleChange}/>
-                                        </div>
-                                        <div className="col-sm-3 input-style">
-                                            <input type="number" name="width" placeholder="Wi(cm)" defaultValue={this.state.width} onChange={this.handleChange}/>
-                                        </div>
-                                </div>
-                            :null}
-                            {this.state.envelop ?                                 
-                                <div className="col-sm-10 row text-center" onChange={this.handleChange} defaultValue={this.state.envelopsize}>
-                                    <div className="col-sm radio-style">
-                                        <input type="radio" name="rr" id="A1" value="A1" defaultChecked="true"/><label htmlFor="A1">A1</label>
-                                    </div>
-                                    <div className="col-sm radio-style">
-                                        <input type="radio" name="rr" id="A2" value="A2"/><label htmlFor="A2">A2</label>
-                                    </div>
-                                    <div className="col-sm radio-style">
-                                        <input type="radio" name="rr" id="A3" value="A3"/><label htmlFor="A3">A3</label>
-                                    </div>
-                                    <div className="col-sm radio-style">
-                                        <input type="radio" name="rr" id="A4" value="A4"/><label htmlFor="A4">A4</label>
-                                    </div>
-                                    <div className="col-sm radio-style">
-                                        <input type="radio" name="rr" id="A5" value="A5"/><label htmlFor="A5">A5</label>
-                                    </div>
-                                </div>
-                            :null}
-                                <div className="col-sm-2 text-remove">
-                                    <p onClick={this.props.delEvent}>remove</p>
-                                </div>
-                            </div>                          
-                        </div>
-{/* end of row detail */}
+{/* --new items have been show in here-- */}
+                        {value.map((v,index) => {
+                            return  <ItemParcel
+                                    key={index}
+                                    num={this.state.num}
+                                    delEvent={this.delItem.bind(this,v)}
+                                    qty={this.onSubmit}
+                                    weight={this.onSubmit}
+                                    height={this.onSubmit}
+                                    width={this.onSubmit}
+                                    >{v}</ItemParcel>})}
+{/* end of parcel detail */}
+
                     <div className="row col-sm-12">
-                        <label onClick={this.addMore}> + add more parcel</label>
+                        <label onClick={this.addMore} onChange={this.handleChange}> + add more parcel</label>
                     </div>
                     <div className="row float-right">
                         <div className="col-sm-10">

@@ -106,7 +106,7 @@ export default class Contents extends React.Component{
                         <label>Parcel Detail</label>
                         <div className="col-sm-12">
                             {
-                                this.state.data.map( (data,index) => {
+                                this.state.items.map(function(item, index) {
                                     return (
                                             <ParcelDetail 
                                             key={index}
