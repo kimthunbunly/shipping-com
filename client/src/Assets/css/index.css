@@ -347,3 +347,11 @@ select{
   font-size: 14px;
   margin: 10px 0px 10px 0px;
 }
+.cus-margin{
+  margin: 15px;
+  background-color: #f3f3f3;
+  border: none;
+  -webkit-box-shadow: 1px 3px 6px #aaaaaa;
+  box-shadow: 1px 3px 6px #aaaaaa;
+  padding: 10px;
+}

@@ -34,10 +34,10 @@ componentWillMount (){
   handleSubmit(event){
        event.preventDefault();
        const user = this.state;
-       const vaild = this.state.password;
+       const valid = this.state.password;
        const password = this.state.password;
        const confirm = this.state.confirm;
-       if (vaild) {} else {
+       if (valid) {} else {
          alert('password not input')
          return null;
        }
@@ -45,7 +45,7 @@ componentWillMount (){
          alert('password not match')
          return null;
        }
-       if (vaild.length > 5) {
+       if (valid.length > 5) {
         //  axios.post(`/api/users/signup`, user)
          axios.post(`http://localhost:5000/users/signup`, user)
          .then(res => {
