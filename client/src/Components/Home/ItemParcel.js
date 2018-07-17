@@ -1,4 +1,5 @@
 import React from 'react';
+import './Style.css';
 
 export default class ItemParcel extends React.Component{
     constructor(props){
@@ -15,16 +16,23 @@ export default class ItemParcel extends React.Component{
         }
         this.handleChange = this.handleChange.bind(this);
         this.onChange = this.onChange.bind(this);
+        this.onBlur = this.onBlur.bind(this);
     }
-    handleChange = (e) => {
+    onBlur(){
         let a = this.state.qty;
         let b = this.state.weight;
         let c = this.state.height;
         let d = this.state.width;
+        let r = this.state.envelopsize;
+        this.props.envelopsize(r);
         this.props.qty(a);
         this.props.weight(b);
         this.props.height(c);
         this.props.width (d);
+    }
+    handleChange = (e) => {
+        let r = this.state.envelopsize;
+        this.props.envelopsize(r);
         this.setState({
             [e.target.name]:e.target.value
         })
@@ -37,9 +45,11 @@ export default class ItemParcel extends React.Component{
         if (type === 'envelop') {
             this.setState({package:true});
             this.setState({envelop:false});
+            this.props.typeParcel('package');
         } else {
             this.setState({envelop:true});
             this.setState({package:false});
+            this.props.typeParcel('envelop');
         }
     }
     render(){
@@ -64,35 +74,35 @@ export default class ItemParcel extends React.Component{
             {this.state.package ?                                 
                 <div className="col-sm-10 row text-center">
                         <div className="col-sm-3 input-style">
-                            <input type="number" name="qty" placeholder="QTY" defaultValue={this.state.qty} onChange={this.handleChange}/>
+                            <input type="number" name="qty" placeholder="QTY" defaultValue={this.state.qty} onChange={this.handleChange} onBlur={this.onBlur}/>
                         </div>
                         <div className="col-sm-3 input-style">
-                            <input type="number" name="weight" placeholder="We(cm)" defaultValue={this.state.weight} onChange={this.handleChange}/>
+                            <input type="number" name="weight" placeholder="We(cm)" defaultValue={this.state.weight} onChange={this.handleChange} onBlur={this.onBlur}/>
                         </div>
                         <div className="col-sm-3 input-style">
-                            <input type="number" name="height" placeholder="Hi(cm)" defaultValue={this.state.height} onChange={this.handleChange}/>
+                            <input type="number" name="height" placeholder="Hi(cm)" defaultValue={this.state.height} onChange={this.handleChange} onBlur={this.onBlur}/>
                         </div>
                         <div className="col-sm-3 input-style">
-                            <input type="number" name="width" placeholder="Wi(cm)" defaultValue={this.state.width} onChange={this.handleChange}/>
+                            <input type="number" name="width" placeholder="Wi(cm)" defaultValue={this.state.width} onChange={this.handleChange} onBlur={this.onBlur}/>
                         </div>
                 </div>
             :null}
             {this.state.envelop ?                                 
-                <div className="col-sm-10 row text-center" onChange={this.handleChange} defaultValue={this.state.envelopsize}>
+                <div className="col-sm-10 row text-center" onClick={this.handleChange} defaultValue={this.state.envelopsize}>
                     <div className="col-sm radio-style">
-                        <input type="radio" name="rr" id="A1" value="A1" defaultChecked="true"/><label htmlFor="A1">A1</label>
+                        <input type="radio" name="envelopsize" id="A1" value="A1" defaultChecked="true"/><label htmlFor="A1">A1</label>
                     </div>
                     <div className="col-sm radio-style">
-                        <input type="radio" name="rr" id="A2" value="A2"/><label htmlFor="A2">A2</label>
+                        <input type="radio" name="envelopsize" id="A2" value="A2"/><label htmlFor="A2">A2</label>
                     </div>
                     <div className="col-sm radio-style">
-                        <input type="radio" name="rr" id="A3" value="A3"/><label htmlFor="A3">A3</label>
+                        <input type="radio" name="envelopsize" id="A3" value="A3"/><label htmlFor="A3">A3</label>
                     </div>
                     <div className="col-sm radio-style">
-                        <input type="radio" name="rr" id="A4" value="A4"/><label htmlFor="A4">A4</label>
+                        <input type="radio" name="envelopsize" id="A4" value="A4"/><label htmlFor="A4">A4</label>
                     </div>
                     <div className="col-sm radio-style">
-                        <input type="radio" name="rr" id="A5" value="A5"/><label htmlFor="A5">A5</label>
+                        <input type="radio" name="envelopsize" id="A5" value="A5"/><label htmlFor="A5">A5</label>
                     </div>
                 </div>
             :null}

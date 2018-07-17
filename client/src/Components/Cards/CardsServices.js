@@ -25,7 +25,7 @@ export default class CardsServices extends React.Component{
 			<form onSubmit={this.handleSubmit}>
 				<div className="row justify-content-md-center text-center">
 		            <div className="col-sm-6">
-		                <img src={this.props.imgUrl} alt={this.props.name} id="size-logo" />
+		                <img className="img-fluid" src={this.props.imgUrl} alt={this.props.name} id="size-logo" />
 		                <p>Take care all package</p>
 		            </div>
 		            <div className="col-sm-6">
@@ -36,15 +36,15 @@ export default class CardsServices extends React.Component{
 	           	</div>
 	           	<hr/>
 	            <div className="row justify-content-md-center">
-		            {/* <label htmlFor="shipping-from" className="col-sm-4 col-form-label label-style">From:</label> */}
+		            <label htmlFor="shipping-from" className="col-sm-4 col-form-label label-style">From:</label>
 		            <div className="col-sm-8">
-		                {/* <input type="text" className="form-control-plaintext" id="shipping-from" defaultValue={this.props.from} /> */}
+		                <input type="text" className="form-control-plaintext" id="shipping-from" defaultValue={this.props.from} />
 		            </div>
 	            </div>
 	            <div className="row justify-content-md-center">
-	                {/* <label htmlFor="shipping-to" className="col-sm-4 col-form-label label-style">To:</label> */}
+	                <label htmlFor="shipping-to" className="col-sm-4 col-form-label label-style">To:</label>
 	                <div className="col-sm-8">
-	                    {/* <input type="text" className="form-control-plaintext" id="shipingp-to" defaultValue={this.props.to} /> */}
+	                    <input type="text" className="form-control-plaintext" id="shipingp-to" defaultValue={this.props.to} />
 	                </div>
 	            </div>
 	            <div className="row justify-content-md-center text-center">
