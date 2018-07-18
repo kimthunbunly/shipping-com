@@ -42,7 +42,7 @@ export default class MyProfile extends React.Component{
 		if (vaild.length > 5) {
 			alert('Updated!')
 			// axios.put(`/api/users/edit/`+id, user)
-			axios.put(`http://localhost:5000/users/edit/`+id, user)
+			axios.put(`/api/users/edit/`+id, user)
 			.then(res => {
 				console.log(res);
 				console.log(res.data);
@@ -57,7 +57,7 @@ export default class MyProfile extends React.Component{
         window.location='/login';
     }
 		// axios.get(`/api/users/`+id)
-		axios.get(`http://localhost:5000/users/`+id)
+		axios.get(`/api/users/`+id)
       .then(res => {
 					this.setState({ firstName : res.data.firstName , 					
 													lastName : res.data.lastName,
@@ -65,7 +65,7 @@ export default class MyProfile extends React.Component{
 													address : res.data.address,
 													phone : res.data.phone,
 													country : res.data.country,
-													postCode : res.data.postCode});     
+													postCode : res.data.postCode});     	
 			})}
 	render(){
 		return(

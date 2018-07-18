@@ -47,7 +47,7 @@ componentWillMount (){
        }
        if (valid.length > 5) {
         //  axios.post(`/api/users/signup`, user)
-         axios.post(`http://localhost:5000/users/signup`, user)
+         axios.post(`/api/users/signup`, user)
          .then(res => {
           //  console.log(res);
           //  console.log(res.data);

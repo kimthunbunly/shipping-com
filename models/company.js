@@ -1,5 +1,6 @@
 const mongoose = require ('mongoose');
 require('mongoose-type-email');
+const Service = require('./service');
 
 const companySchema = new mongoose.Schema ( {
   name : {
@@ -36,5 +37,17 @@ const companySchema = new mongoose.Schema ( {
   description : String ,
   created     : { type : Date , default : Date.now }
 });
+
+companySchema.post('remove' , function (doc) {
+  Service.find({company : doc._id} , function (err, docs) {
+    if(err) console.error(err);
+    docs.forEach(doc => {
+      doc.remove((err, result) => {
+        if (err) console.error(err);
+        console.log({service : result});
+      })
+    })
+  })
+})
 
 module.exports = mongoose.model ('Company' , companySchema );

@@ -1,6 +1,8 @@
 const mongoose = require ('mongoose');
 const Schema = mongoose.Schema;
 const Route = require('./route');
+const asyncForEach = require('../globle/asyncForEach');
+const ETA = require('./functions/ETA');
 
 const tripSchema = new Schema ( {
   departTime : {
@@ -16,19 +18,60 @@ const tripSchema = new Schema ( {
     required : true ,
     ref : 'Route'
   },
-  description : {
-    type : String
-  }
+  services : [{
+    type : Schema.Types.ObjectId ,
+    required : true ,
+    ref : 'Service'
+  }],
+  description : String,
+  created : { type : Date, default : Date.now }
 });
 
-tripSchema.index ( {departTime: 1,route : 1} , {unique : true} );
+tripSchema.index ( {departTime: 1, route : 1} , {unique : true} );
 
-tripSchema.pre('save', true , function(next, done) {
-  this.eta = Date.now; console.log(this);
+tripSchema.pre ('findOne' , function () {
+  this.populate ({
+    path : 'services',
+    populate : {
+      path : 'company',
+      select : 'name -_id'
+    },
+    select : 'category -_id'
+  }).populate('route' , 'from to -_id');
+});
+
+tripSchema.pre('save', true , function (next, done) {
+  this.eta = new Date(this.departTime.toString());
   Route.findById( this.route, (err, route) => {
-    this.eta.setHours(this.departTime.getHours() + route.duration);
+    ETA (this.eta , route.duration);
+    next();
   });
-  next();
   setTimeout(done, 100);
-})
+});
+
+tripSchema.post ('save' , function (doc) {
+  console.log(doc.route);
+  Route.updateOne({ _id : doc.route }, {$push : {trips : doc._id }}, (err, route) => {
+    console.log(route);
+  });
+});
+
+tripSchema.pre ('insertMany' , async function ( next, docs) {
+  await asyncForEach(docs , async (doc) => {
+    doc.eta = new Date(doc.departTime.toString());
+    const promise = Route.find({_id : doc.route}).exec();
+    await promise.then((routes) => {
+      ETA (doc.eta , routes[0].duration);
+    })
+    .catch (console.error);
+  })
+  next();
+});
+
+tripSchema.post ('remove' , function (doc) {
+  Route.updateOne({ _id : doc.route }, {$pull : {trips : doc._id }}, (err, route) => {
+    console.log (route);
+  });
+});
+
 module.exports  = mongoose.model ('Trip' , tripSchema );

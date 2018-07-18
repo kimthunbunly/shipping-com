@@ -68,8 +68,8 @@ export default class StartService extends React.Component {
                                 eta={value[index].ref_trip[value[index].ref_trip.length-1].eta}
                                 rate="*******"
                                 address={value[index].company.address}
-                                from={this.state.shipFrom}
-                                to={this.state.shipTo}
+                                from={this.state.setData.shipFrom}
+                                to={this.state.setData.shipTo}
                                 price={value[index].price}
                                 >{v}</CardsServices> 
                     })} 

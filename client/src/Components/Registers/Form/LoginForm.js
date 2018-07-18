@@ -26,14 +26,13 @@ export default class LoginForm extends React.Component{
       const user = this.state;
 
       // axios.post(`/api/users/login`,user)
-      axios.post(`http://localhost:5000/users/login`,user)
+      axios.post(`/api/users/login`,user)
       .then(res => {
-        // console.log(res.data)
-          const id = (res.data._id);
+          const id = (res.data.user._id);
           localStorage.setItem('setId',id); 
           const e = localStorage.getItem('e');
           if (e) {
-            return window.location='/'
+            return window.location='/profile'
           } else {
             this.props.history.goBack();
           }   

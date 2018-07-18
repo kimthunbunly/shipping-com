@@ -16,4 +16,12 @@ const parcelSchema = new mongoose.Schema ({
   created     : { type : Date , default : Date.now }
 });
 
+parcelSchema.pre ('save' , function (next) {
+  const d = this.dimension;
+  let volume = d.length * d.width * d.height;
+  this.volume = volume / 1000;
+  this.totalVolume = volume / 1000 * this.qty;
+  this.totalWeight = this.weight * this.qty;
+  next();
+});
 module.exports = mongoose.model ('Parcel' , parcelSchema );
