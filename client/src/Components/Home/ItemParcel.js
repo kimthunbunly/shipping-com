@@ -7,36 +7,10 @@ export default class ItemParcel extends React.Component{
         this.state = {
             package: true ,
             envelop: false,
-            typeParcel:null,
-            envelopsize:'',
-            qty: '',
-            weight: '',
-            height: '',
-            width: ''
+            typeParcel:null
         }
-        this.handleChange = this.handleChange.bind(this);
         this.onChange = this.onChange.bind(this);
-        this.onBlur = this.onBlur.bind(this);
     }
-    onBlur(){
-        let a = this.state.qty;
-        let b = this.state.weight;
-        let c = this.state.height;
-        let d = this.state.width;
-        let r = this.state.envelopsize;
-        this.props.envelopsize(r);
-        this.props.qty(a);
-        this.props.weight(b);
-        this.props.height(c);
-        this.props.width (d);
-    }
-    handleChange = (e) => {
-        let r = this.state.envelopsize;
-        this.props.envelopsize(r);
-        this.setState({
-            [e.target.name]:e.target.value
-        })
-      }
     onChange = (e) => {
         this.setState({
             typeParcel: e.target.value
@@ -45,11 +19,9 @@ export default class ItemParcel extends React.Component{
         if (type === 'envelop') {
             this.setState({package:true});
             this.setState({envelop:false});
-            this.props.typeParcel('package');
         } else {
             this.setState({envelop:true});
             this.setState({package:false});
-            this.props.typeParcel('envelop');
         }
     }
     render(){
@@ -74,16 +46,16 @@ export default class ItemParcel extends React.Component{
             {this.state.package ?                                 
                 <div className="col-sm-10 row text-center">
                         <div className="col-sm-3 input-style">
-                            <input type="number" name="qty" placeholder="QTY" defaultValue={this.state.qty} onChange={this.handleChange} onBlur={this.onBlur}/>
+                            <input type="number" name="qty" placeholder="QTY" defaultValue={this.props.sendData} onChange={this.props.changeInput}/>
                         </div>
                         <div className="col-sm-3 input-style">
-                            <input type="number" name="weight" placeholder="We(cm)" defaultValue={this.state.weight} onChange={this.handleChange} onBlur={this.onBlur}/>
+                            <input type="number" name="weight" placeholder="We(cm)" defaultValue={this.props.sendData} onChange={this.props.changeInput}/>
                         </div>
                         <div className="col-sm-3 input-style">
-                            <input type="number" name="height" placeholder="Hi(cm)" defaultValue={this.state.height} onChange={this.handleChange} onBlur={this.onBlur}/>
+                            <input type="number" name="height" placeholder="Hi(cm)" defaultValue={this.props.sendData} onChange={this.props.changeInput}/>
                         </div>
                         <div className="col-sm-3 input-style">
-                            <input type="number" name="width" placeholder="Wi(cm)" defaultValue={this.state.width} onChange={this.handleChange} onBlur={this.onBlur}/>
+                            <input type="number" name="width" placeholder="Wi(cm)" defaultValue={this.props.sendData} onChange={this.props.changeInput}/>
                         </div>
                 </div>
             :null}
@@ -107,7 +79,9 @@ export default class ItemParcel extends React.Component{
                 </div>
             :null}
                 <div className="col-sm-2 text-remove">
+                    {this.props.btnRemove ?
                     <p onClick={this.props.delEvent}>remove</p>
+                    :null}
                 </div>
             </div>                          
         </div>

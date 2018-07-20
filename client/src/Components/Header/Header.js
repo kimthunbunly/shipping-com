@@ -48,7 +48,7 @@ export default class Header extends React.Component{
     return(
         <nav className="navbar navbar-expand-lg navbar-dark change-color navbar-height">
           <div className="container">
-            <img src={logo} width="130" height="auto" className="d-inline-block align-top img-fluid" alt="logo"/>
+            <Link to='/'><img src={logo} width="130" height="auto" className="d-inline-block align-top img-fluid" alt="logo"/></Link>
               <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span></span>
               </button>
