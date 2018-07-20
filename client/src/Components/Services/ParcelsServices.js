@@ -23,6 +23,7 @@ export default class StartService extends React.Component {
         axios.get(`api/search/`+shipFrom+'-'+shipTo+'?type='+shipBy+'&&volume='+volume+'&&weight='+weight) 
         .then(res =>{              
             let value = res.data;
+            console.log(res.data)
             this.setState({value});}
         )
       }
