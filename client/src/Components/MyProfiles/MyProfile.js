@@ -6,15 +6,16 @@ export default class MyProfile extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
-			firstName:'',
-			lastName:'',
-			email:'',
-			password:'',
-			confirm:'',
-			phone:'',
-			address:'',
-			country:'',
-			postCode:''
+				data:[],
+				firstName:'',
+				lastName:'',
+				email:'',
+				password:'',
+				confirm:'',
+				phone:'',
+				address:'',
+				country:'',
+				postCode:''
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,11 +27,12 @@ export default class MyProfile extends React.Component{
 	}
 	handleSubmit(event){
 		event.preventDefault();
-		const user = this.state;
-		const id = localStorage.getItem('setId');
-		const vaild = this.state.password;
-		const password = this.state.password;
-		const confirm = this.state.confirm;
+		let user = this.state;
+		let id = this.state.data._id
+		let vaild = this.state.password;
+		let password = this.state.password;
+		let confirm = this.state.confirm;
+		let token = JSON.parse(localStorage.getItem('%%%data$$$'));
 		if (vaild) {} else {
 			alert('password not input')
 			return null;
@@ -40,36 +42,38 @@ export default class MyProfile extends React.Component{
 			return null;
 		}
 		if (vaild.length > 5) {
-			alert('Updated!')
-			// axios.put(`/api/users/edit/`+id, user)
-			axios.put(`/api/users/edit/`+id, user)
-			.then(res => {
-				console.log(res);
-				console.log(res.data);
-			})
+			alert("Profile was Updated!")
+			fetch(`/api/users/edit/${id}`, {
+				method: 'PUT',
+				headers: {
+					'X-Auth': token,
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(user)
+			}).then();
 		} else {
 			alert('password too short')
 		}
 	}
-	componentWillMount (){
-		const id = localStorage.getItem('setId');
-    if (!id) {
+	componentWillMount (e){
+		let token = JSON.parse(localStorage.getItem('%%%data$$$'));
+    if (!token) {
         window.location='/login';
     }
-		// axios.get(`/api/users/`+id)
-		axios.get(`/api/users/`+id)
+		axios.get(`/api/users/me`, { headers: { "X-Auth": token } })
       .then(res => {
-					this.setState({ firstName : res.data.firstName , 					
-													lastName : res.data.lastName,
-													email : res.data.email,
-													address : res.data.address,
-													phone : res.data.phone,
-													country : res.data.country,
-													postCode : res.data.postCode});     	
+					this.setState({ data : res.data});
+					let v = res.data;
+					this.setState({	firstName:v.firstName,
+													lastName:v.lastName,
+													email:v.email,
+													address:v.address,
+													phone:v.phone,
+													country:v.country,
+													postCode:v.postCode})
 			})}
 	render(){
 		return(
-			<form onSubmit={this.handleSubmit} >
 			<div className="container bg-color">
 				<label id="label-form">MY PROFILE</label>
 				<div className="row justify-content-md-center">
@@ -183,10 +187,10 @@ export default class MyProfile extends React.Component{
 						<button 
 									type="submit" 
 									id="btnChange"
+									onClick={this.handleSubmit}
 									>SAVE CHANGE</button>
 				</div>
 			</div>
-			</form>
 			);
 	}
 }

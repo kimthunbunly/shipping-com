@@ -9,7 +9,7 @@ const Route    = require ('../models/route'),
 const asyncForEach = require ('../globle/asyncForEach');
 
 //Client : /Phnom Penh/Battambang?volume=30&&weight=12
-router.get ('/:from/:to', async (req, res) => {
+router.get ('/:from-:to', async (req, res) => {
   try {
     const route = await Route.find ({from : req.params.from , to : req.params.to });
 
@@ -62,7 +62,8 @@ router.get ('/:from/:to', async (req, res) => {
         vehicles : { type : 1 },
         company : { name:1, address:1},
         type : 1,
-        category : 1
+        category : 1,
+        price:1
       };
 
       // Process

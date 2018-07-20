@@ -10,40 +10,19 @@ export default class Header extends React.Component{
   constructor(props){
     super(props);
     this.onLoggout = this.onLoggout.bind(this);
-  //   this.onShipment = this.onShipment.bind(this);
-  //   this.onProfile = this.onProfile.bind(this);
   }
   onLoggout(e){
     e.preventDefault();
-    const setId=localStorage.getItem('setId');
-    if (setId) {
+    const token =localStorage.getItem('%%%data$$$');
+    if (token ) {
       alert('Your Account have been loggout!')
       localStorage.clear();
       window.location.reload();
-      // this.props.history.goBack();
       window.location='/';
     } else {
       window.location='/login';
     }
   }
-  // onShipment(e){
-  //   e.preventDefault();
-  //   const setId=localStorage.getItem('setId');
-  //   if (setId) {
-  //     window.location='/my-shipment';
-  //   } else {
-  //     window.location='/login';
-  //   }
-  // }
-  // onProfile(e){
-  //   e.preventDefault();
-  //   const setId=localStorage.getItem('setId');
-  //   if (setId) {
-  //     window.location='/profile';
-  //   } else {
-  //     window.location='/login';
-  //   }
-  // }
   render(){
     return(
         <nav className="navbar navbar-expand-lg navbar-dark change-color navbar-height">

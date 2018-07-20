@@ -30,6 +30,7 @@ const object = {
     _id : 'ObjectId',
     from : 'String',
     to : 'String',
+    distance : 'Number',
     price : 'Number',
     description : 'String',
     services : 'ArrayId',
@@ -55,7 +56,7 @@ const object = {
     eta : 'String',
     services : 'ArrayId'
   },
-  from  : {
+  sender  : {
     _id : 'ObjectId',
     firstName : 'String',
     lastName : 'String',
@@ -67,7 +68,7 @@ const object = {
     postcode : 'String',
     description : 'String'
   },
-  to  : {
+  receiver  : {
     _id : 'ObjectId',
     firstName : 'String',
     lastName : 'String',

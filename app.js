@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const route = require('./cores/routes');
 
 // Databae Connection
-mongoose.connect('mongodb://localhost/camboparcel')
+mongoose.connect('mongodb://localhost/shipping')
     .then(() => console.log('Connected to MongoDB...'))
     .catch(ex => console.log('Could not connect to MongoDB...'));
 
@@ -14,9 +14,16 @@ const app = express();
 
 // React UI - views
 // app.use(express.static(path.join(__dirname, 'views')));
-//
-// app.get('/*', function (req, res) {
-//     res.sendFile(path.join(__dirname, 'views', 'index.html'));
+
+// app.use('/:endpoint', function(req, res, next) {
+//     var { endpoint } = req.params;
+
+//     if(endpoint !== 'api') {
+//         app.get('/' + endpoint + '*', function (req, res) {
+//             res.sendFile(path.join(__dirname, 'views', 'index.html'));
+//         });
+//     }
+//     next();
 // });
 
 app.use(express.urlencoded({ extended: true }));

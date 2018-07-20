@@ -26,8 +26,8 @@ const shipmentSchema = new Schema ( {
     reason  : { type : String , trim : true },
     content : { type : String , trim : true }
   },
-  fromDetail : { type : Schema.Types.ObjectId , ref : 'fromDetail' },
-  toDetail   : { type : Schema.Types.ObjectId , ref : 'toDetail' },
+  sender : { type : Schema.Types.ObjectId , ref : 'Sender', required : true},
+  receiver : { type : Schema.Types.ObjectId , ref : 'Receiver', required : true},
   //payment : { type : paymentSchema },
   description : { type : String },
   created : { type : Date , default : Date.now }
@@ -35,10 +35,18 @@ const shipmentSchema = new Schema ( {
 
 shipmentSchema.pre ('findOne' , function () {
   this.populate ('parcels', 'dimension weight qty');
-  this.populate ('trip' , 'eta departTime -_id');
-  this.populate ('fromDetail');
-  this.populate ('toDetail');
-  this.populate ('chosenService');
+  this.populate ({
+    path : 'trip' ,
+    populate : {path : 'route', select : 'from to -_id'},
+    select : 'route eta departTime -_id'
+  });
+  this.populate ('sender');
+  this.populate ('receiver');
+  this.populate ({
+    path : 'chosenService',
+    populate : {path : 'company' , select : 'name address -_id'},
+    select : 'price category -_id'
+  });
 });
 
 const start = async (parcels) => {
@@ -68,9 +76,9 @@ shipmentSchema.post('remove' , function (doc) {
         "trips.$.totalWeight" : obj.totalWeight
       }
     }
-    Service.findOneAndUpdate (filter, update, (err, service) => {
+    Service.update (filter, update, (err, updateInfo) => {
       if (err) throw err;
-      console.log({ service });
+      console.log({"SERVICE => increase space" : updateInfo });
     })
   })
 });

@@ -24,7 +24,6 @@ module.exports = {
       if (trip) {
         start (body.parcels)
         .then((obj) => {
-          console.log(obj);
           updateService (body, obj.totalVolume, obj.totalWeight);
           body.parcels = obj.parcelIds;
           next();
@@ -80,7 +79,7 @@ function updateService (body ,totalVolume, totalWeight) {
             $inc : { "trips.$.totalVolume" : -totalVolume , "trips.$.totalWeight" : -totalWeight }
           }
           entity ['service'].updateOne (filter2 , update , (err , updated) => {
-            console.log({updated});
+            console.log({"SERVICE => decrease space" : updated});
           })
         }
         else {

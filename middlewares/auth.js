@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 module.exports = function(req, res, next) {
     let token = req.header('X-Auth');
-    if(!token) return res.status(401).json({ message: "Token Not Found" });
+    if(!token) return res.status(402).json({ message: "Token Not Found" });
 
     try {
         let decoded = jwt.verify(token, 'jwtPrivateKey')

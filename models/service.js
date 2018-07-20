@@ -62,17 +62,16 @@ serviceSchema.post('save' , function (doc) {
   let routes = [];
   doc.trips.forEach((r) => {
     Trip.findByIdAndUpdate(r.tripId, {$push : {services : doc._id }}, (err, trip) => {
-      console.log(routes.includes(trip.route.toString()));
       let t = routes.includes(trip.route.toString());
       if (!t) {
         routes.push(trip.route.toString());
         Route.updateOne({_id : trip.route },{$push : {services : doc._id}}, (err , route) => {
           if (err) throw err;
-          console.log({route});
+          console.log({"ROUTE => push service" : route});
         })
         doc.update({$push : {routes : trip.route }}, (err , updated) => {
           if (err) console.log(err);
-          console.log({service : updated});
+          console.log({"SERVICE => push route" : updated});
         })
       }
     });
@@ -88,7 +87,7 @@ serviceSchema.post('remove' , function (doc) {
       if (!t) {
         routes.push(trip.route.toString());
         Route.updateOne({_id : trip.route} , {$pull : {services : doc._id}}, (err , route) => {
-          console.log (route);
+          console.log ({"ROUTE => pull service" : route});
         })
       }
     });

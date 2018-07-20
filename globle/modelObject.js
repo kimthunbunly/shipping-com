@@ -8,8 +8,8 @@ const entity = {
   vehicle  : require ('../models/vehicle'),
   shipment : require ('../models/shipment'),
   user     : require ('../models/user'),
-  from     : require ('../models/fromDetail'),
-  to       : require ('../models/toDetail')
+  from     : require ('../models/sender'),
+  to       : require ('../models/receiver')
 }
 
 module.exports = entity;

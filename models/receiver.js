@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 require('mongoose-type-email');
 
-const toSchema = new mongoose.Schema({
+const receiverSchema = new mongoose.Schema({
   firstName : { type : String , required : true , trim : true },
   lastName  : { type : String , required : true , trim : true },
   company  : String ,
@@ -32,4 +32,4 @@ const toSchema = new mongoose.Schema({
   postcode : String
 })
 
-module.exports = mongoose.model ('toDetail', toSchema);
+module.exports = mongoose.model ('Receiver', receiverSchema);

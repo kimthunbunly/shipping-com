@@ -10,8 +10,7 @@ const tripSchema = new Schema ( {
     required : true
   },
   eta : {
-    type : Date ,
-    required : true
+    type : Date
   },
   route: {
     type : Schema.Types.ObjectId ,
@@ -40,19 +39,17 @@ tripSchema.pre ('findOne' , function () {
   }).populate('route' , 'from to -_id');
 });
 
-tripSchema.pre('save', true , function (next, done) {
+tripSchema.pre('save', async function (next) {
   this.eta = new Date(this.departTime.toString());
-  Route.findById( this.route, (err, route) => {
+  await Route.findById( this.route, (err, route) => {
     ETA (this.eta , route.duration);
-    next();
   });
-  setTimeout(done, 100);
+  next();
 });
 
 tripSchema.post ('save' , function (doc) {
-  console.log(doc.route);
-  Route.updateOne({ _id : doc.route }, {$push : {trips : doc._id }}, (err, route) => {
-    console.log(route);
+  Route.updateOne({ _id : doc.route, trips : {$nin : [doc._id]} }, {$push : {trips : doc._id }}, (err, route) => {
+    console.log({"ROUTE => push trip id" : route});
   });
 });
 
@@ -69,8 +66,8 @@ tripSchema.pre ('insertMany' , async function ( next, docs) {
 });
 
 tripSchema.post ('remove' , function (doc) {
-  Route.updateOne({ _id : doc.route }, {$pull : {trips : doc._id }}, (err, route) => {
-    console.log (route);
+  Route.updateOne({ _id : doc.route, trips : {$nin : [doc._id]} }, {$pull : {trips : doc._id }}, (err, route) => {
+    console.log ({"ROUTE => pull trip id" : route});
   });
 });
 

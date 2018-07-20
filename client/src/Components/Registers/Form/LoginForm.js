@@ -25,11 +25,10 @@ export default class LoginForm extends React.Component{
       event.preventDefault();
       const user = this.state;
 
-      // axios.post(`/api/users/login`,user)
       axios.post(`/api/users/login`,user)
       .then(res => {
-          const id = (res.data.user._id);
-          localStorage.setItem('setId',id); 
+          const data = (res.data.token);
+          localStorage.setItem('%%%data$$$',JSON.stringify(data));  
           const e = localStorage.getItem('e');
           if (e) {
             return window.location='/profile'

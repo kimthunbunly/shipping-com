@@ -44,7 +44,7 @@ companySchema.post('remove' , function (doc) {
     docs.forEach(doc => {
       doc.remove((err, result) => {
         if (err) console.error(err);
-        console.log({service : result});
+        console.log({"SERVICE => remove" : result._id});
       })
     })
   })

@@ -44,14 +44,8 @@ router.get('/me', auth, async (req, res) => {
         return res.status(400).json({ message: ex.message });
     }
 });
-router.get('/:id', async (req,res)=>{
-    const course = await User.findById(req.params.id);
-    if(!course) res.status(404).json({ message: '' });
-    res.send(course);
-});
 
-router.put('/edit/:id', async (req, res) => {
-
+router.put('/edit/:id', auth, async (req, res) => {
     try {
         let doc = await User.findByIdAndUpdate(req.params.id);
 

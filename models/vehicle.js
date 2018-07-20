@@ -16,9 +16,9 @@ vehicleSchema.post('remove' , function (doc) {
       "trips.$[].totalWeight" : -doc.volume * 10
     }
   }
-  Service.updateMany({vehicles : doc._id}, update, (err, result) => {
+  Service.updateMany({vehicles : doc._id, vehicles : {$nin : [doc._id]}}, update, (err, result) => {
     if (err) console.error(err);
-    console.log({service : result});
+    console.log({"SERVICE => decrease space" : result});
   })
 })
 

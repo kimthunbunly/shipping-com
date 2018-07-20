@@ -8,8 +8,8 @@ export default class Login extends React.Component{
             loggout:'Log Out',
             authbtn:''
         };
-        const setId = localStorage.getItem('setId');
-        if (setId) {
+        const token = localStorage.getItem('%%%data$$$');
+        if (token) {
             this.state.authbtn=this.state.loggout;
         } else {
             this.state.authbtn=this.state.loggin;

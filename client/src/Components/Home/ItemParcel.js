@@ -46,10 +46,10 @@ export default class ItemParcel extends React.Component{
             {this.state.package ?                                 
                 <div className="col-sm-10 row text-center">
                         <div className="col-sm-3 input-style">
-                            <input type="number" name="qty" placeholder="QTY" defaultValue={this.props.sendData} onChange={this.props.changeInput}/>
+                            <input type="number" name="weight" placeholder="We(kg)" defaultValue={this.props.sendData} onChange={this.props.changeInput}/>
                         </div>
                         <div className="col-sm-3 input-style">
-                            <input type="number" name="weight" placeholder="We(cm)" defaultValue={this.props.sendData} onChange={this.props.changeInput}/>
+                            <input type="number" name="length" placeholder="Le(cm)" defaultValue={this.props.sendData} onChange={this.props.changeInput}/>
                         </div>
                         <div className="col-sm-3 input-style">
                             <input type="number" name="height" placeholder="Hi(cm)" defaultValue={this.props.sendData} onChange={this.props.changeInput}/>

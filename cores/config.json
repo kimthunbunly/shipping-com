@@ -1,6 +1,6 @@
 [
     {
-        "method": "/parcels",
+        "method": "/parcels?",
         "model": "parcel"
     },
     {
@@ -8,23 +8,31 @@
         "model": "company"
     },
     {
-        "method": "/routes",
+        "method": "/routes?",
         "model": "route"
     },
     {
-        "method": "/services",
+        "method": "/services?",
         "model": "service"
     },
     {
-        "method": "/shipments",
+        "method": "/shipments?",
         "model": "shipment"
     },
     {
-        "method": "/trips",
+        "method": "/trips?",
         "model": "trip"
     },
     {
-        "method": "/vehicles",
+        "method": "/vehicles?",
         "model": "vehicle"
+    },
+    {
+        "method": "/senders?",
+        "model": "sender"
+    },
+    {
+        "method": "/receivers?",
+        "model": "receiver"
     }
 ]

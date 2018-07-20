@@ -1,36 +1,37 @@
 import React from 'react'; 
-
 import CardsServices from '../Cards/CardsServices';
+import axios from 'axios' 
 
 export default class StartService extends React.Component { 
       constructor(props){
         super(props);
         this.state = {
             setData:[],
-            value: []
+            value: [],
+            volume:0,
+            totalWeight:0
         }
     }
     componentDidMount(){ 
         let setData = JSON.parse(localStorage.getItem('$send_Data%$&'))
-        if (setData) {
-            this.setState({setData})
-        } else {
-            window.location='/404'
-        }
-        let res_ser = JSON.parse(localStorage.getItem('$res_Data%$&'))
-        if (res_ser) {
-            let value = res_ser.data;
-            this.setState({value});
-        } else {
-            window.location='/404'
-        }
+        this.setState({setData})
+        let shipFrom = setData.shipFrom; 
+        let shipTo = setData.shipTo; 
+        let shipBy = setData.shipBy; 
+        let volume = setData.volume;
+        let weight = setData.totalWeight; 
+        axios.get(`api/search/`+shipFrom+'-'+shipTo+'?type='+shipBy+'&&volume='+volume+'&&weight='+weight) 
+        .then(res =>{              
+            let value = res.data;
+            this.setState({value});}
+        )
       }
     render(){ 
         let {value} = this.state;
         return(
 <div>
     <div className="container container-top bg-color">
-        <label id="label-form">YOUR PARCEL DETAIL</label>
+        <label id="label-form">YOUR PARCEL DETAIL{this.state.height}</label>
         <div className="row justify-content-md-center">
             <div className="col-sm-10">
 
@@ -47,8 +48,16 @@ export default class StartService extends React.Component {
                     <label className="col-sm-4 col-form-label "> {this.state.setData.shipBy}</label>
                 </div>
                 <div className="row">
-                    <label className="col-sm-4 col-form-label label-style">Parcel Detail:</label>
-                    <label className="col-sm col-form-label ">qty={this.state.setData.qty}; weight={this.state.setData.weight}; height= {this.state.setData.height}; width= {this.state.setData.width}</label>
+                    <label className="col-sm-4 col-form-label label-style">Parcel Quantity:</label>
+                    <label className="col-sm col-form-label ">{this.state.setData.length.length}</label>
+                </div>
+                <div className="row">
+                    <label className="col-sm-4 col-form-label label-style">Total Volume:</label>
+                    <label className="col-sm col-form-label ">{this.state.setData.volume} cm<sup>3</sup></label>
+                </div>
+                <div className="row">
+                    <label className="col-sm-4 col-form-label label-style">Total Weight:</label>
+                    <label className="col-sm col-form-label ">{this.state.setData.totalWeight} kg</label>
                 </div>
                 <br/>
                 <div className="row justify-content-md-center text-center">                    

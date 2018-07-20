@@ -10,6 +10,7 @@ module.exports = async function (ent, p , param) {
         for ( key of keys) {
           if ( p [key] ) object [key] = p [key];
         }
+        console.log(object);
         return object;
         break;
         case 'option':
