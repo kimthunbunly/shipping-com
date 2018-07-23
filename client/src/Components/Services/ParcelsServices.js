@@ -7,7 +7,8 @@ export default class StartService extends React.Component {
         super(props);
         this.state = {
             setData:[],
-            value: []
+            value: [],
+            envelop:false
         }
     }
     componentDidMount(){ 
@@ -18,12 +19,17 @@ export default class StartService extends React.Component {
         let shipBy = setData.shipBy; 
         let volume = setData.volume;
         let weight = setData.totalWeight; 
+        let e = setData.envelopsize.length;
         axios.get(`api/search/`+shipFrom+'-'+shipTo+'?type='+shipBy+'&&volume='+volume+'&&weight='+weight) 
         .then(res =>{              
             let value = res.data;
-            console.log(res.data)
             this.setState({value});}
         )
+        if (e===0) {
+            this.setState({envelop:false})
+        } else {
+            this.setState({envelop:true})
+        }
       }
     render(){ 
         let {value} = this.state;
@@ -59,6 +65,12 @@ export default class StartService extends React.Component {
                     <label className="col-sm-4 col-form-label label-style">Total Weight:</label>
                     <label className="col-sm col-form-label ">{this.state.setData.totalWeight} kg</label>
                 </div>
+                {this.state.envelop ?
+                <div className="row">
+                    <label className="col-sm-4 col-form-label label-style">Envelop Size:</label>
+                    <label className="col-sm col-form-label ">{this.state.setData.envelopsize}</label>
+                </div>
+                :null}
                 <br/>
                 <div className="row justify-content-md-center text-center">                    
                     <p>*NOTE: Please check the parcel detail, make sure it correct!</p>

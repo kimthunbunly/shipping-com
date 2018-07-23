@@ -16,7 +16,7 @@ export default class Homepage extends React.Component{
             shipFrom:'', 
             shipTo:'', 
             shipBy:'', 
-            envelopsize:'', 
+            envelopsize:[], 
             length:[], 
             weight:[], 
             height:[], 
@@ -98,15 +98,23 @@ export default class Homepage extends React.Component{
             let b = this.state.shipTo; 
             if (a===b) { 
                 alert("Can't Choose The Same Province") } 
-                else {  this.checkTypeParcel();
-                        this.totalValue(); } 
+                else {  this.checkTypeParcel(); } 
         } 
         checkTypeParcel(){ 
             let a = this.state.typeParcel; 
             if (a === 'package') { 
                 this.inputParcelVaild(); } 
-                else { this.pushData(); } 
+                else { this.checkEnvelop();
+                    ; } 
         } 
+        checkEnvelop(){
+            let e = this.state.envelopsize.length
+            if (e===0) {
+                alert("Forget Choose Envelop Size")
+            } else {
+                this.pushData()
+            }
+        }
         pushData(){ 
             let send_data = this.state; 
             localStorage.setItem('$send_Data%$&',JSON.stringify(send_data)); 
@@ -127,6 +135,9 @@ export default class Homepage extends React.Component{
             this.setState({[index.target.name] : arr}); 
             // this.totalValue();
         } 
+        newTypeparcel(e){
+            this.setState({typeParcel:e})
+        }
         totalValue(){
             let height = this.state.height;
             let totalHeight = 0;
@@ -210,6 +221,7 @@ export default class Homepage extends React.Component{
                                 num={index+1} 
                                 delEvent={this.delItem.bind(this, index, data)} 
                                 sendData={this.state} 
+                                typeParcel={this.newTypeparcel.bind(this)}
                                 changeInput={this.newChange.bind(this,index)}
                                 onBlur={this.totalValue.bind(this)}>
                                 {data}

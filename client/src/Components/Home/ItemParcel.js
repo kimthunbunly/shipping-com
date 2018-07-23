@@ -19,9 +19,11 @@ export default class ItemParcel extends React.Component{
         if (type === 'envelop') {
             this.setState({package:true});
             this.setState({envelop:false});
+            this.props.typeParcel('package')
         } else {
             this.setState({envelop:true});
             this.setState({package:false});
+            this.props.typeParcel('envelop')
         }
     }
     render(){
@@ -60,9 +62,9 @@ export default class ItemParcel extends React.Component{
                 </div>
             :null}
             {this.state.envelop ?                                 
-                <div className="col-sm-10 row text-center" onClick={this.handleChange} defaultValue={this.state.envelopsize}>
+                <div className="col-sm-10 row text-center" onChange={this.props.changeInput} defaultValue={this.props.sendData}>
                     <div className="col-sm radio-style">
-                        <input type="radio" name="envelopsize" id="A1" value="A1" defaultChecked="true"/><label htmlFor="A1">A1</label>
+                        <input type="radio" name="envelopsize" id="A1" value="A1"/><label htmlFor="A1">A1</label>
                     </div>
                     <div className="col-sm radio-style">
                         <input type="radio" name="envelopsize" id="A2" value="A2"/><label htmlFor="A2">A2</label>
