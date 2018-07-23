@@ -14,6 +14,7 @@ import LoginForm from './Components/Registers/Form/LoginForm';
 import RegisterForm from './Components/Registers/Form/RegisterForm';
 import _404 from './Components/Page404/Page404';
 import Loading from './App/Loading';
+import Payment from './Components/MyPayment/Payment';
 
 class App extends Component {
   state = {
@@ -33,6 +34,7 @@ class App extends Component {
           <Route path='/service' component={ClientsServices}/>
           <Route path='/contact' component={Contacts}/>
           <Route path='/my-shipment' component={MyShipments}/>
+          <Route path='/my-payment' component={Payment}/>
           <Route path='/parcel-service' component={ParcelsServices}/>
           <Route path='/about' component={Abouts}/>
           <Route path='/login' component={LoginForm}/>

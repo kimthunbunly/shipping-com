@@ -11,6 +11,7 @@ export default class Services extends React.Component{
 		return(
 				<div className="container container-top bg-color">
 				    <label id="label-form">MY SERVICS COMPANY</label>
+					<hr/>
 				    <p>Have a lot of Company Service to Delivery your parcel everywhere in cambodia</p>
 				    	<div className="col-sm card-deck">
 				    		<CardsCompanys 

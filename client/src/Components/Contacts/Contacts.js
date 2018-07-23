@@ -31,6 +31,7 @@ export default class Contacts extends React.Component {
 			<form onSubmit={this.handleSubmit}>
 			<div className="container container-top bg-color">
 				<label id="label-form">MY CONTACT</label>
+				<hr/>
 					<div className="row justify-content-md-center">
 						<div className="col-sm-6">
 							<div className="form-group register-style">

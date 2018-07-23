@@ -7,9 +7,7 @@ export default class StartService extends React.Component {
         super(props);
         this.state = {
             setData:[],
-            value: [],
-            volume:0,
-            totalWeight:0
+            value: []
         }
     }
     componentDidMount(){ 
@@ -32,7 +30,8 @@ export default class StartService extends React.Component {
         return(
 <div>
     <div className="container container-top bg-color">
-        <label id="label-form">YOUR PARCEL DETAIL{this.state.height}</label>
+        <label id="label-form">YOUR PARCEL DETAIL</label>
+        <hr/>
         <div className="row justify-content-md-center">
             <div className="col-sm-10">
 
@@ -69,6 +68,7 @@ export default class StartService extends React.Component {
     </div>
     <div className="container bg-color">
         <label id="label-form">CHOOSE YOUR SERVICE</label>
+            <hr/>
             <div className="row">
                     {value.map((v,index) => {
                         return <CardsServices 

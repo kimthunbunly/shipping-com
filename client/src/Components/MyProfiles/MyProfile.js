@@ -15,10 +15,14 @@ export default class MyProfile extends React.Component{
 				phone:'',
 				address:'',
 				country:'',
-				postCode:''
+				postCode:'',
+				showInfo:true,
+				showEdit:false
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.onEditInfo = this.onEditInfo.bind(this);
+		this.onCancel = this.onCancel.bind(this);
 	
 	}
 	handleChange(event){
@@ -50,7 +54,7 @@ export default class MyProfile extends React.Component{
 					'Content-Type': 'application/json'
 				},
 				body: JSON.stringify(user)
-			}).then();
+			}).then(this.onCancel());
 		} else {
 			alert('password too short')
 		}
@@ -72,10 +76,18 @@ export default class MyProfile extends React.Component{
 													country:v.country,
 													postCode:v.postCode})
 			})}
+	onEditInfo(){
+				this.setState({showEdit:true,showInfo:false})
+			}
+	onCancel(){
+		this.setState({showEdit:false,showInfo:true})
+	}
 	render(){
 		return(
 			<div className="container bg-color">
 				<label id="label-form">MY PROFILE</label>
+				<hr/>
+				{this.state.showEdit?
 				<div className="row justify-content-md-center">
 					<div className="col-sm-6">
 					          <div className="form-group register-style">
@@ -184,12 +196,68 @@ export default class MyProfile extends React.Component{
 					              />
 							</div>
 					</div>
-						<button 
-									type="submit" 
-									id="btnChange"
-									onClick={this.handleSubmit}
-									>SAVE CHANGE</button>
+					<div className="row justify-content-md-center">
+						<div className="col-sm-4 btn-margin">
+								<button 
+										type="submit" 
+										className="btn btn-success"
+										onClick={this.handleSubmit}
+										>SAVE CHANGE</button>
+							</div>
+							<div className="col-sm-4 btn-margin">
+								<button 
+										type="submit" 
+										className="btn btn-danger"
+										onClick={this.onCancel}
+										>CANCEL</button>
+							</div>
+					</div>
 				</div>
+				:null}
+				{this.state.showInfo?
+					<div className="row">
+							<div className="col-sm-5">
+								<div className="row cus-margin">
+											<label className="col-sm-4 col-form-label label-style">First Name:</label>
+											<label className="col-sm-8 col-form-label"> {this.state.firstName}</label>
+									</div>		
+									<div className="row cus-margin">
+											<label className="col-sm-4 col-form-label label-style">Last Name:</label>
+											<label className="col-sm-8 col-form-label"> {this.state.lastName}</label>
+									</div>
+									<div className="row cus-margin">
+											<label className="col-sm-4 col-form-label label-style">Email:</label>
+											<label className="col-sm-8 col-form-label"> {this.state.email}</label>
+									</div>
+									<div className="row cus-margin">
+											<label className="col-sm-4 col-form-label label-style">Password:</label>
+											<label className="col-sm-8 col-form-label"> **********</label>
+									</div>
+							</div>
+							<div className="col-sm-7">
+							<div className="row cus-margin">
+											<label className="col-sm-3 col-form-label label-style">Phone:</label>
+											<label className="col-sm-9 col-form-label"> {this.state.phone}</label>
+									</div>		
+									<div className="row cus-margin">
+											<label className="col-sm-3 col-form-label label-style">Address:</label>
+											<label className="col-sm-9 col-form-label"> {this.state.address}</label>
+									</div>
+									<div className="row cus-margin">
+											<label className="col-sm-3 col-form-label label-style">Country:</label>
+											<label className="col-sm-9 col-form-label"> {this.state.country}</label>
+									</div>
+									<div className="row cus-margin">
+											<label className="col-sm-3 col-form-label label-style">Post Code:</label>
+											<label className="col-sm-9 col-form-label">{this.state.postCode}</label>
+									</div>
+									<br/>
+									<div className="row">
+										<button className="btn btn-danger" type="button" onClick={this.onEditInfo}>EditInfo</button>
+									</div>
+							</div>
+					</div>
+				:null}
 			</div>
 			);
 	}

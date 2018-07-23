@@ -92,7 +92,8 @@ export default class Homepage extends React.Component{
             let b = this.state.shipTo; 
             if (a===b) { 
                 alert("Can't Choose The Same Province") } 
-                else { this.checkTypeParcel(); } 
+                else {  this.checkTypeParcel();
+                        this.totalValue(); } 
         } 
         checkTypeParcel(){ 
             let a = this.state.typeParcel; 
@@ -111,9 +112,6 @@ export default class Homepage extends React.Component{
                 alert('forget input parcel detail') }
                 else { this.pushData() } 
         } 
-        volume(){ 
-            return this.state.height * this.state.width; 
-        } 
         formVaild(){ 
             return this.state.length.length > 0 && this.state.weight.length > 0 && this.state.height.length >0 && this.state.width.length >0 ;
         } 
@@ -121,7 +119,7 @@ export default class Homepage extends React.Component{
             let arr = this.state[index.target.name].slice(); 
             arr[e] = index.target.value; 
             this.setState({[index.target.name] : arr}); 
-            this.totalValue();
+            // this.totalValue();
         } 
         totalValue(){
             let height = this.state.height;
@@ -206,7 +204,8 @@ export default class Homepage extends React.Component{
                                 num={index+1} 
                                 delEvent={this.delItem.bind(this, index, data)} 
                                 sendData={this.state} 
-                                changeInput={this.newChange.bind(this,index)}>
+                                changeInput={this.newChange.bind(this,index)}
+                                onBlur={this.totalValue.bind(this)}>
                                 {data}
                                 </ItemParcel>})}
                             <div className="row col-sm-12 text-add">

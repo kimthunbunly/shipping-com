@@ -11,9 +11,9 @@ export default class CardsServices extends React.Component{
 	handleSubmit (event){
 		event.preventDefault();
 		
-		const id = localStorage.getItem('setId');
+		const id = localStorage.getItem('%%%data$$$');
 			if (id) {
-				return window.location='/my-shipment';
+				return window.location='/my-payment';
 			} else {
 				return window.location='/login';
 			}

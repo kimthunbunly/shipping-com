@@ -36,16 +36,16 @@ export default class Blog extends React.Component{
                         <h3>Our Client</h3>                      
                     </div>
                     <div className="row">
-                        <div className="col-sm-3">
+                        <div className="col-sm-3 text-center">
                             <img className="img-fluid" id="img-size" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2000px-React-icon.svg.png" alt=""/>
                         </div>
-                        <div className="col-sm-3">
+                        <div className="col-sm-3 text-center">
                             <img className="img-fluid" id="img-size" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/2000px-Node.js_logo.svg.png" alt=""/>
                         </div> 
-                        <div className="col-sm-3">
+                        <div className="col-sm-3 text-center">
                             <img className="img-fluid" id="img-size" src="https://objectpartners.com/wp-content/uploads/2015/02/mongodb-logo.png" alt=""/>
                         </div> 
-                        <div className="col-sm-3">
+                        <div className="col-sm-3 text-center">
                             <img className="img-fluid" id="img-size" src="" alt=""/>
                         </div>         
                     </div> 
