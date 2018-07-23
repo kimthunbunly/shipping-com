@@ -2,7 +2,7 @@ import React from 'react';
 import Package from './package.png'; 
 import './Style.css'; 
 import ItemParcel from './ItemParcel'; 
-// import axios from 'axios' 
+import axios from 'axios' 
 import Blog from '../Contents/Blog';
 
 export default class Homepage extends React.Component{ 
@@ -34,6 +34,12 @@ export default class Homepage extends React.Component{
     } 
         componentDidMount(){ 
         this.setState({ typeParcel:"package", shipFrom:"Phnom Penh", shipTo:"Phnom Penh", shipBy:"pickUp" }) 
+
+        axios.get(`/api/route`)
+        .then(res => { 
+            let valProvince = res.data.map((key) => {return key.from;})
+            let provinces = [...new Set (valProvince)];
+            this.setState({provinces})})
     } 
         addItem(){ 
         this.state.value.push(<ItemParcel/>) 

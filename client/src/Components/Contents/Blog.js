@@ -46,7 +46,7 @@ export default class Blog extends React.Component{
                             <img className="img-fluid" id="img-size" src="https://objectpartners.com/wp-content/uploads/2015/02/mongodb-logo.png" alt=""/>
                         </div> 
                         <div className="col-sm-3 text-center">
-                            <img className="img-fluid" id="img-size" src="" alt=""/>
+                            <img className="img-fluid" id="img-size" src="https://sdtimes.com/wp-content/uploads/2018/01/bootstrap-stack-490x412.png" alt=""/>
                         </div>         
                     </div> 
                 </div>
