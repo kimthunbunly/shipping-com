@@ -47,24 +47,27 @@ export default class ItemParcel extends React.Component{
             <div className="col-sm-8 row">
             {this.state.package ?                                 
                 <div className="col-sm-10 row text-center">
-                        <div className="col-sm-3 input-style">
-                            <input type="number" name="weight" placeholder="We(kg)" defaultValue={this.props.sendData} onChange={this.props.changeInput} onBlur={this.props.onBlur}/>
+                        <div className="col-sm input-style">
+                            <input type="number" name="qty" placeholder="Quantity" defaultValue={this.props.sendData} onChange={this.props.changeInput} onBlur={this.props.onBlur}/>
                         </div>
-                        <div className="col-sm-3 input-style">
-                            <input type="number" name="length" placeholder="Le(cm)" defaultValue={this.props.sendData} onChange={this.props.changeInput} onBlur={this.props.onBlur}/>
+                        <div className="col-sm input-style">
+                            <input type="number" name="weight" placeholder="Weight(kg)" defaultValue={this.props.sendData} onChange={this.props.changeInput} onBlur={this.props.onBlur}/>
                         </div>
-                        <div className="col-sm-3 input-style">
-                            <input type="number" name="height" placeholder="Hi(cm)" defaultValue={this.props.sendData} onChange={this.props.changeInput} onBlur={this.props.onBlur}/>
+                        <div className="col-sm input-style">
+                            <input type="number" name="length" placeholder="Lenght(cm)" defaultValue={this.props.sendData} onChange={this.props.changeInput} onBlur={this.props.onBlur}/>
                         </div>
-                        <div className="col-sm-3 input-style">
-                            <input type="number" name="width" placeholder="Wi(cm)" defaultValue={this.props.sendData} onChange={this.props.changeInput} onBlur={this.props.onBlur}/>
+                        <div className="col-sm input-style">
+                            <input type="number" name="height" placeholder="Hight(cm)" defaultValue={this.props.sendData} onChange={this.props.changeInput} onBlur={this.props.onBlur}/>
+                        </div>
+                        <div className="col-sm input-style">
+                            <input type="number" name="width" placeholder="Width(cm)" defaultValue={this.props.sendData} onChange={this.props.changeInput} onBlur={this.props.onBlur}/>
                         </div>
                 </div>
             :null}
             {this.state.envelop ?                                 
                 <div className="col-sm-10 row text-center" onChange={this.props.changeInput} defaultValue={this.props.sendData}>
-                    <div className="col-sm radio-style">
-                        <input type="radio" name="envelopsize" id="A1" value="A1"/><label htmlFor="A1">A1</label>
+                    <div className="col-sm input-style">
+                        <input type="number" name="qty" placeholder="Quantity" defaultValue={this.props.sendData} onChange={this.props.changeInput} onBlur={this.props.onBlur}/>
                     </div>
                     <div className="col-sm radio-style">
                         <input type="radio" name="envelopsize" id="A2" value="A2"/><label htmlFor="A2">A2</label>
@@ -82,7 +85,7 @@ export default class ItemParcel extends React.Component{
             :null}
                 <div className="col-sm-2 text-remove">
                     {this.props.btnRemove ?
-                    <p onClick={this.props.delEvent}>remove</p>
+                    <p onClick={this.props.delEvent}>X</p>
                     :null}
                 </div>
             </div>                          

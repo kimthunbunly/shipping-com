@@ -17,6 +17,7 @@ export default class Homepage extends React.Component{
             shipTo:'', 
             shipBy:'', 
             envelopsize:[], 
+            qty:[],
             length:[], 
             weight:[], 
             height:[], 
@@ -25,7 +26,8 @@ export default class Homepage extends React.Component{
             btnRemove:false,
             count:1,
             volume:0,
-            totalWeight:0
+            totalWeight:0,
+            totalQty:0
         } 
         this.handleChange = this.handleChange.bind(this); 
         this.onSubmit = this.onSubmit.bind(this); 
@@ -153,8 +155,13 @@ export default class Homepage extends React.Component{
     
             let weight = this.state.weight;
             let totalWeight = 0;
-            weight.forEach(q => totalWeight +=  parseInt(q,[]));
+            weight.forEach(wi => totalWeight +=  parseInt(wi,[]));
             this.setState({totalWeight})
+
+            let qty = this.state.qty;
+            let totalQty = 0;
+            qty.forEach(q => totalQty +=  parseInt(q,[]));
+            this.setState({totalQty})
             
             let volume = totalHeight * totalWidth * totalLength;
             this.setState({volume})
@@ -165,13 +172,7 @@ export default class Homepage extends React.Component{
             <div>
                 <div className="container">
                     <div className="row justify-content-md-center">
-                        <div className="col-sm-4 content-left">
-                            <h2>All Package Is Very Take Care <br/>  Form My Company</h2>
-                            <img src={Package} width="120" alt="Package" id="package" className="img-fluid" />
-                            <hr/>
-                            <p>Create for help to people enjoy to send them parcel :)</p>
-                        </div>
-                        <div className="col-sm-8 bg-color">
+                        <div className="col-sm-12 bg-color">
                             <div className="container row col-sm-12" id="title-bar">
                                 <h1> PARCEL INFORMATION </h1>
                             </div>

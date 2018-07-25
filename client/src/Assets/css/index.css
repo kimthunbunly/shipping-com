@@ -81,16 +81,6 @@
   height: 35px;
   text-align: center;
 }
-/* --formRegister-- */
-.bg-color{
-  background-color: #d6dce2;
-  padding: 30px;
-  margin: 50px auto 50px auto;
-  border-radius: 0px;
- box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2); 
-/*  border:1px solid;
-  border-color:#6c757d;*/
-}
 #style-logo{
   width: 200px;
   height: auto;
@@ -276,9 +266,6 @@ hr{
 }
 .text-add p:hover{
   cursor: pointer;
-}
-.radio-style{
-  margin: 5px auto 5px auto;
 }
 .space-row{
   margin-top: 5px;

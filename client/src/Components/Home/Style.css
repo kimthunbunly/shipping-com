@@ -51,11 +51,7 @@ input[type=date]::-webkit-outer-spin-button {
 
 
 .text-remove{
-  font-size: 14px;
   margin: 8px auto 6px auto;
-}
-.text-remove p{
-  color: #FF0000;
 }
 .text-remove p:hover{
   cursor: pointer;
@@ -64,7 +60,7 @@ input[type=date]::-webkit-outer-spin-button {
   cursor: pointer;
 }
 .radio-style{
-  margin: 8px auto 5px auto;
+  margin: 8px 0px 5px 0px;
 }
 .space-row{
   margin-top: 5px;
@@ -130,4 +126,14 @@ select{
 .text-no{
   font-size: 14px;
   margin: 10px 0px 10px 0px;
+}
+.text-remove p{
+  background: #FF0000;
+  height: 25px;
+  width: 25px;
+  border-radius: 100%;
+  color: #FFF;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
 }

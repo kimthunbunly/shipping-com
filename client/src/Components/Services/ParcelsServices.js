@@ -55,7 +55,7 @@ export default class StartService extends React.Component {
                 </div>
                 <div className="row">
                     <label className="col-sm-4 col-form-label label-style">Parcel Quantity:</label>
-                    <label className="col-sm col-form-label ">{this.state.setData.length.length}</label>
+                    <label className="col-sm col-form-label ">{this.state.setData.totalQty}</label>
                 </div>
                 <div className="row">
                     <label className="col-sm-4 col-form-label label-style">Total Volume:</label>
