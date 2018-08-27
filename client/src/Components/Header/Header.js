@@ -2,7 +2,7 @@ import React from 'react';
 import '../../Assets/css/index.css'
 import {Link} from 'react-router-dom';
 
-import logo from '../../Assets/img/logo-white.png';
+// import logo from '../../Assets/img/logo-white.png';
 import profile from '../../Assets/img/profile.png';
 import Authbtn from '../Authbtn/Authbtn';
 
@@ -27,7 +27,7 @@ export default class Header extends React.Component{
     return(
         <nav className="navbar navbar-expand-lg navbar-dark change-color navbar-height">
           <div className="container">
-            <Link to='/'><img src={logo} width="130" height="auto" className="d-inline-block align-top img-fluid" alt="logo"/></Link>
+            <Link to='/'><h1 className="d-inline-block align-top text-left" id="logo">CAMBOPARCEL</h1></Link>
               <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span></span>
               </button>

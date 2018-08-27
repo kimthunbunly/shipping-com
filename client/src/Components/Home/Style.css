@@ -137,3 +137,6 @@ select{
   font-size: 18px;
   font-weight: bold;
 }
+#style-option{
+  margin-left: 100px; 
+}

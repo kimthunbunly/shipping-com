@@ -1,5 +1,5 @@
 import React from 'react'; 
-import Package from './package.png'; 
+// import Package from './package.png'; 
 import './Style.css'; 
 import ItemParcel from './ItemParcel'; 
 import axios from 'axios' 
@@ -27,7 +27,8 @@ export default class Homepage extends React.Component{
             count:1,
             volume:0,
             totalWeight:0,
-            totalQty:0
+            totalQty:0,
+            addParcel:true
         } 
         this.handleChange = this.handleChange.bind(this); 
         this.onSubmit = this.onSubmit.bind(this); 
@@ -44,17 +45,20 @@ export default class Homepage extends React.Component{
             this.setState({provinces})})
     } 
         addItem(){ 
-        this.state.value.push(<ItemParcel/>) 
-        this.setState( this.state.value ) 
-        this.setState({typeParcel:'package'})
         let c = this.state.count;
-        if (c) {
+        if (c<5) {
             let count = c + 1
             this.setState({count:count})
             this.setState({btnRemove:true})
+            this.state.value.push(<ItemParcel/>) 
+            this.setState( this.state.value ) 
+            this.setState({typeParcel:'package'})
+        }else{
+            this.setState({addParcel:false})
         }
     } 
         delItem(index, v){  
+        this.setState({addParcel:true})
         let c = this.state.count; 
         if (c === 2 ) {
             this.setState({btnRemove:false})
@@ -87,13 +91,15 @@ export default class Homepage extends React.Component{
         } 
         handleChange=(e)=> { 
                 this.setState({ [e.target.name]:e.target.value }) 
-                const shipBy = this.state.shipBy; if (shipBy === "pickUp") { 
+                const shipBy = this.state.shipBy; 
+                if (shipBy === "pickUp") { 
                     return this.setState({shipBy:"dropOff"}) } 
                     else { 
                         return this.setState({shipBy:"pickUp"}) } 
         } 
         onChange = (e) => { 
             this.setState({ typeParcel: e.target.value });
+
         } 
         onSubmit(e){ 
             let a = this.state.shipFrom; 
@@ -114,6 +120,14 @@ export default class Homepage extends React.Component{
             if (e===0) {
                 alert("Forget Choose Envelop Size")
             } else {
+                this.checkQty()
+            }
+        }
+        checkQty(){
+            let e = this.state.qty.length
+            if (e===0) {
+                alert("Forget Input Quantity")
+            } else {
                 this.pushData()
             }
         }
@@ -129,13 +143,12 @@ export default class Homepage extends React.Component{
                 else { this.pushData() } 
         } 
         formVaild(){ 
-            return this.state.length.length > 0 && this.state.weight.length > 0 && this.state.height.length >0 && this.state.width.length >0 ;
+            return this.state.length.length > 0 && this.state.weight.length > 0 && this.state.height.length >0 && this.state.width.length >0 && this.state.qty.length >0;
         } 
         newChange =(e ,index) => { 
             let arr = this.state[index.target.name].slice(); 
             arr[e] = index.target.value; 
             this.setState({[index.target.name] : arr}); 
-            // this.totalValue();
         } 
         newTypeparcel(e){
             this.setState({typeParcel:e})
@@ -227,9 +240,10 @@ export default class Homepage extends React.Component{
                                 onBlur={this.totalValue.bind(this)}>
                                 {data}
                                 </ItemParcel>})}
-                            <div className="row col-sm-12 text-add">
+                            {this.state.addParcel?<div className="row col-sm-12 text-add">
                                 <label onClick={this.addItem} onChange={this.handleChange}> + add more parcel</label>
                             </div>
+                            :null}
                             <div className="row float-right">
                                 <div className="col-sm-10">
                                     <button id="btnStart" onClick={this.onSubmit}>START</button>
